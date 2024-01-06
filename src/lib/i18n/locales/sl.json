@@ -1,3 +1,9 @@
 {
-	"landing.title": "Mesta ljudem!"
+	"landing.title": "Mesta ljudem!",
+	"landing.heading": "Ste <span>jezni</span>? Morali bi biti!",
+	"landing.allApartments": "V Ljubljani je trenutno {total} stanovanj. Prijavljenih gospodinjstev pa je {households}. V Ljubljani je torej {difference} stanovanj manj kot gospodinjstev.",
+	"landing.emptyApartments": "Praznih stanovanj, kombinacija najema na crno in investicijskih stanovanj, je {total} - {percentage}% vseh stanovanj.",
+	"landing.airbnbApartments": "V mestu je trenutno aktivnih {total} AirBnB oglasov. Povprecna dnevna cena je {averagePrice}€, stopnja zasedenosti pa {occupancyRate}%, kar pomeni da je povprecen dnevni dohodek oddaje prek AirBnB {averagePriceAdjusted}€.",
+	"landing.guiltTrip": "Kratkorocni najemi dvigujejo cene najemnin, storitev in s tem potiskajo prebivalce ven iz lastnih mest.",
+	"source": "Vir"
 }

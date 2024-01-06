@@ -58,12 +58,12 @@
 <style>
   .localeSwitcher {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 4rem;
+    top: 5px;
+    right: 5px;
+    width: 2.5rem;
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     gap: .25rem;
 
@@ -71,21 +71,19 @@
     background-color: var(--color-dark-grey);
     color: var(--color-red-dark);
 
-    font-size: 1.5rem;
-    padding: .25rem;
+    padding: .125rem;
   }
 
   .actionButton {
     background-color: var(--color-medium-grey);
     border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-orange-red);
-    font-size: 2rem;
-
+    font-size: 1.5rem;
   }
 
   .content {
