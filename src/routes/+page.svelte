@@ -171,14 +171,6 @@
     margin-top: 1.5rem;
   }
 
-  .info {
-    font-size: 1.25rem;
-    line-height: 1.25;
-    font-weight: bold;
-    text-align: center;
-    color: var(--text-primary);
-  }
-
   .chart-container {
     width: 100%;
     padding: 0 1.5rem;
@@ -192,9 +184,5 @@
     font-size: 1.25rem;
     font-weight: bold;
     color: var(--color-orange-red);
-  }
-
-  .image {
-    max-width: 100%;
   }
 </style>
