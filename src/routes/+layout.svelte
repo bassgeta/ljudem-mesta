@@ -3,5 +3,16 @@
   import '../global.css'
 </script>
 
-<LocaleSwitcher />
-<slot />
+<div class="page">
+  <LocaleSwitcher />
+  <slot />
+</div>
+
+<style>
+  .page {
+    height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+  }
+</style>
