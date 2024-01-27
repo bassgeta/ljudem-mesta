@@ -1,8 +1,8 @@
 <script lang="ts">
-  import graph from '$lib/assets/airbnb-graf.jpg'
   import logo from '$lib/assets/logo.png'
   import lock from '$lib/assets/lock.png'
 	import { _ } from 'svelte-i18n'
+	import IncomeChart from '../components/IncomeChart.svelte';
 </script>
 <svelte:head>
     <title>{$_('landing.head.title')}</title> 
@@ -59,7 +59,9 @@
   <div class="small-lore">
     <p>{$_('landing.guiltTrip')}</p>
   </div>
-  <img class="image" src={graph} alt="Graph" />
+  <div class="chart-container">
+    <IncomeChart />
+  </div>
   <div class="small-lore">
     <p>{$_('landing.hotelNumbers')}</p>
   </div>
@@ -175,6 +177,11 @@
     font-weight: bold;
     text-align: center;
     color: var(--text-primary);
+  }
+
+  .chart-container {
+    width: 100%;
+    padding: 0 1.5rem;
   }
 
   .solution-card {
