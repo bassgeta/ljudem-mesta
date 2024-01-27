@@ -12,5 +12,6 @@
     max-height: 100vh;
     width: 100vw;
     overflow-y: auto;
+    background-color: var(--bg-low);
   }
 </style>
