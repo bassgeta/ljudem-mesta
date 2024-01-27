@@ -1,13 +1,12 @@
 import { browser } from '$app/environment';
 import { init, register } from 'svelte-i18n';
-import { cleanENLocale } from '../../utils/i18n';
 
 const defaultLocale = 'sl';
 
-register('en', () => import('./locales/en.json'));
 register('sl', () => import('./locales/sl.json'));
 
 const getInitialLocale = (): string => {
+	/*
 	const storedLocale = localStorage.getItem('LOCALE');
 
 	if (storedLocale !== null) {
@@ -17,6 +16,8 @@ const getInitialLocale = (): string => {
 
 		return cleanENLocale(lang);
 	}
+  */
+	return defaultLocale;
 };
 
 init({

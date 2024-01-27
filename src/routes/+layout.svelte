@@ -1,10 +1,8 @@
 <script>
-	import LocaleSwitcher from '../components/LocaleSwitcher.svelte';
   import '../global.css'
 </script>
 
 <div class="page">
-  <LocaleSwitcher />
   <slot />
 </div>
 
