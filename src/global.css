@@ -1,20 +1,15 @@
 :root {
   --color-black: #000;
-  --color-dark-grey: #1a1a1a;
-  --color-medium-grey: #2b2b2b; 
-  --color-red-dark: #8B0000;
-  --color-red-medium: #B22222;
-  --color-red-light: #FF0000;
-  --color-gold: #FFD700;
-  --color-orange-red: #FF4500;
-  --color-red: #B22222;
+  --color-white: #fff;
+  --color-light-grey: #f2f2f2;
 
-  --bg-low: var(--color-black);
-  --bg-medium: var(--color-dark-grey);
+  --bg-low: var(--color-white);
+  --bg-medium: var(--color-light-grey);
 
-  --text-primary: var(--color-gold);
-  --text-heading: var(--color-red-dark);
-
+  --text-primary: var(--color-black);
+  --font-xl: 4rem;
+  --font-l: 3rem;
+  --font-m: 2.25rem;
 }
 
 * {
@@ -92,20 +87,23 @@ body {
   font-family: 'Helvetica', sans-serif;
   background-color: var(--bg-low);
   color: var(--text-primary);
+  font-size: var(--font-m);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-heading);
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: var(--font-xl);
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 2.75rem;
+  font-size: var(--font-l);
+  font-weight: 700;
 }
 
 a {
-  color: var(--color-orange-red);
+  color: var(--text-primary);
 }
