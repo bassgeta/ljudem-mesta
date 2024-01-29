@@ -1,9 +1,12 @@
 <style>
+  .map-wrap {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
   .map {
-        position: absolute;
-        width: 100%;
-        height: 400px;
-    }
+    height: 40vh;
+  }
 </style>
 <script lang="ts">
 import mapbox from 'mapbox-gl'
@@ -244,7 +247,7 @@ enum CountryMessages {
     "AUS" = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Avstraliji',
 }
 
-function getMessageForCountry(country: string): String | null {
+function getMessageForCountry(country: string): string | null {
     if (country in CountryMessages) {
         return CountryMessages[country as keyof typeof CountryMessages] 
     }

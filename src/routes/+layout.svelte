@@ -1,15 +1,9 @@
 <script>
-	import LocaleSwitcher from '../components/LocaleSwitcher.svelte'
-	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte'
-
   import '../global.css'
   import '../../node_modules/mapbox-gl/dist/mapbox-gl.css'
 </script>
 
 <div class="page">
-  <CurrentRestrictionsMap />
-  <LocaleSwitcher />
-  
   <slot />
 </div>
 

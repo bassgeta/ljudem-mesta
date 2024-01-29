@@ -3,6 +3,7 @@
   import lock from '$lib/assets/lock.png'
 	import { _ } from 'svelte-i18n'
 	import IncomeChart from '../components/IncomeChart.svelte';
+	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte'
 </script>
 <svelte:head>
     <title>{$_('landing.head.title')}</title> 
@@ -65,20 +66,7 @@
   <div class="small-lore">
     <p>{$_('landing.hotelNumbers')}</p>
   </div>
-  <h1 class="solutions-heading">{$_('landing.solutionsHeading')}</h1>
-  <div class="info-card solution-card">
-    <a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals" target="_blank" rel="noopener">{$_('landing.solution.dunaj')}</a>
-    <a href="https://www.thelocal.fr/20230807/paris-increasing-crackdowns-on-airbnb-rentals" target="_blank" rel="noopener">{$_('landing.solution.france')}</a>
-    <a href="https://www.telegraph.co.uk/travel/destinations/europe/germany/berlin/articles/airbnb-listings-plummet-in-berlin-as-ban-comes-into-force/" target="_blank" rel="noopener">{$_('landing.solution.berlin')}</a>
-    <a href="https://www.reuters.com/markets/europe/italy-crackdown-targets-1-bln-euros-undeclared-short-term-flat-rental-tax-2023-10-30/" target="_blank" rel="noopener">{$_('landing.solution.italy')}</a>
-    <a href="https://apps.eurofound.europa.eu/platformeconomydb/regulations-of-airbnb-in-the-netherlands-105714" target="_blank" rel="noopener">{$_('landing.solution.netherlands')}</a>
-    <a href="https://www.businessinsider.com/portugal-bans-new-airbnbs-fears-becoming-some-sort-of-disneyland-2023-2" target="_blank" rel="noopener">{$_('landing.solution.portugal')}</a>
-    <a href="https://www.nytimes.com/2021/09/22/travel/barcelona-airbnb.html" target="_blank" rel="noopener">{$_('landing.solution.spain')}</a>
-    <a href="https://www.wired.co.uk/article/airbnb-london-short-term-rentals" target="_blank" rel="noopener">{$_('landing.solution.uk')}</a>
-    <a href="https://www.wired.com/story/airbnb-ban-new-york-city/" target="_blank" rel="noopener">{$_('landing.solution.newYork')}</a>
-    <a href="https://storeys.com/bc-short-term-rentals-legislation/" target="_blank" rel="noopener">{$_('landing.solution.canada')}</a>
-    <a href="https://interestingasia.com/2023/11/is-airbnb-doomed-in-asia" target="_blank" rel="noopener">{$_('landing.solution.asia')}</a>
-  </div>
+  <CurrentRestrictionsMap />
 </div>
 
 <style>
@@ -166,23 +154,8 @@
     text-align: center;
   }
 
-  .solutions-heading {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
   .chart-container {
-    width: 100%;
+    max-height: 40vh;
     padding: 0 1.5rem;
-  }
-
-  .solution-card {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--color-orange-red);
   }
 </style>
