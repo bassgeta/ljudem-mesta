@@ -9,6 +9,7 @@
   }
 </style>
 <script lang="ts">
+import '../../node_modules/mapbox-gl/dist/mapbox-gl.css'
 import mapbox from 'mapbox-gl'
 import { onMount, onDestroy, tick } from "svelte"
 

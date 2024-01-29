@@ -1,6 +1,5 @@
 <script>
   import '../global.css'
-  import '../../node_modules/mapbox-gl/dist/mapbox-gl.css'
 </script>
 
 <div class="page">
