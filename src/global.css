@@ -1,15 +1,38 @@
 :root {
   --color-black: #000;
   --color-white: #fff;
+  --color-dark-grey: #1E1E1E;
   --color-light-grey: #f2f2f2;
+  --color-medium-grey: #d9d9d9;
+  --color-purple: #7500EB;
+  --color-blue: #00A3FF;
 
-  --bg-low: var(--color-white);
+  --color-light-green: #DCF8D7;
+  --color-lime: #ECFFA2;
+  --color-green: #9BEC8E;
+  --color-dark-green: #17634E;
+
+  --color-orange: #EF8232;
+  --color-red: #FF98AA;
+  --color-pink: #FFE0E5;
+
+  --bg-low: var(--color-dark-grey);
   --bg-medium: var(--color-light-grey);
 
-  --text-primary: var(--color-black);
-  --font-xl: 4rem;
-  --font-l: 3rem;
-  --font-m: 2.25rem;
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-black);
+
+  --font-xxxl: 8.75rem;
+  --font-xl: 2.625rem;
+  --font-l: 1.5rem;
+  --font-m: 1.25rem;
+  --font-s: 1rem;
+
+  --lh-xxxl: 10.5rem;
+  --lh-xl: 3.125rem;
+  --lh-l: 1.75rem;
+  --lh-m: 1.75rem;
+  --lh-s: 1.25rem;
 }
 
 * {
@@ -88,20 +111,6 @@ body {
   background-color: var(--bg-low);
   color: var(--text-primary);
   font-size: var(--font-m);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
-}
-
-h1 {
-  font-size: var(--font-xl);
-  font-weight: 700;
-}
-
-h2 {
-  font-size: var(--font-l);
-  font-weight: 700;
 }
 
 a {

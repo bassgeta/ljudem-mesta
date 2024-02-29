@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from '$lib/assets/logo.png'
+  import banner from '$lib/assets/banner.png'
   import lock from '$lib/assets/lock.png'
 	import { _ } from 'svelte-i18n'
 	import IncomeChart from '../components/IncomeChart.svelte';
@@ -10,24 +10,20 @@
 </svelte:head>
 
 <div class="landing">
-  <div class="title-hero">
-    <img class="logo" src={logo} alt="airbnb-domov" />
-    <div class="titles">
-      <h1>{$_('landing.title')}</h1>
-      <h2>{$_('landing.subtitle')}</h2>
-    </div>
-  </div>
+  <img class="banner" src={banner} alt="airbnb-domov" />
+  <p class="top-header">{$_('landing.topHeader')}</p>
   <div class="info-cards">
-    <div class="info-card">
-      <img class="info-image" src={lock} alt="lock" />
-      <p class="info-text">{$_('landing.allApartments', {
-        values:{
-          total: '129.816',
-          households: '130.575',
-          difference: '759'
-        }
-      })}</p>
-      <a class="info-source" href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/">{$_('source')}</a>
+    <div class="info-card info-card-purple">
+      <div class="info-card-body">
+        <h2 class="info-card-title">{$_('landing.airbnbApartments.title', {
+          values: {
+            total: 1515
+          }
+        })}</h2>
+        <p class="info-card-title-appendix">{$_('trenutno aktivnih Airbnb oglasov v Ljubljani')}</p>
+        <p class="info-card-content">{$_('landing.airbnbApartments.content')}</p>
+        <a class="info-source" href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/">{$_('source')}</a>
+      </div>
     </div>
     <div class="info-card">
       <img class="info-image" src={lock} alt="lock" />
@@ -71,10 +67,18 @@
 
 <style>
   .landing {
+    max-width: 1200px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 3rem;
+  }
+
+  .top-header {
+    max-width: 600px;
+    font-size: 2.25rem;
+    margin: 3rem 0;
+    text-align: center;
   }
 
   .title-hero {
@@ -91,19 +95,8 @@
     }
   }
 
-  .logo {
-    height: 400px;
-  }
-
-  .titles {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-
-    @media only screen and (max-width: 767px) {
-      align-items: center;
-    }
+  .banner{
+    width: 100%;
   }
 
   .info-cards {
@@ -112,10 +105,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 5rem;
-
-    padding: 1.5rem;
+    justify-content: center;
+    gap: 2rem;
 
     @media only screen and (max-width: 767px) {
       flex-direction: column;
@@ -124,10 +115,38 @@
   }
 
   .info-card {
-    max-width: 450px;
+    max-width: 580px;
+
+    border-radius: 25px;
+    padding: 1rem;
+  }
+
+  .info-card-body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+
+    border-radius: 11px;
+    border: 2px solid;
+    padding: 1.5rem;
+  }
+
+  .info-card-title {
+    font-size: var(--font-xxxl);
+    line-height: var(--lh-xxxl);
+    font-weight: bold;
+  }
+
+  .info-card-title-appendix {
+    font-size: var(--font-l);
+    line-height: var(--lh-l);
+    font-weight: bold;
+  }
+
+  .info-card-content {
+    margin-top: 2rem;
+    font-size: var(--font-m);
+    line-height: var(--lh-m);
   }
 
   .info-image {
@@ -141,9 +160,21 @@
     line-height: 1.25;
   }
 
+  .info-card-purple {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+  }
+
+  .info-card-lime {
+    background-color: var(--color-lime);
+    color: var(--color-black);
+  }
+
   .info-source {
-    align-self: end;
-    margin-top: .5rem;
+    margin-top: 1rem;
+    font-size: var(--font-s);
+    line-height: var(--lh-s);
+    font-style: italic;
   }
 
   .small-lore {
