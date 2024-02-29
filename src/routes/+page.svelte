@@ -77,6 +77,7 @@
   .top-header {
     max-width: 600px;
     font-size: 2.25rem;
+    font-weight: 500;
     margin: 3rem 0;
     text-align: center;
   }
