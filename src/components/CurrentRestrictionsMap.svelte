@@ -1,17 +1,17 @@
 <script lang="ts">
-	import '../../node_modules/mapbox-gl/dist/mapbox-gl.css'
-	import mapbox from 'mapbox-gl'
-	import { onMount, onDestroy, tick } from 'svelte'
+	import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
+	import mapbox from 'mapbox-gl';
+	import { onMount, onDestroy, tick } from 'svelte';
 
-	let map: mapbox.Map
-	let mapContainer: HTMLDivElement
+	let map: mapbox.Map;
+	let mapContainer: HTMLDivElement;
 
-	let lng = 6.224518
-	let lat = 47.213995
-	let zoom = 4
+	let lng = 6.224518;
+	let lat = 47.213995;
+	let zoom = 4;
 
 	onMount(() => {
-		const initialState = { lng: lng, lat: lat, zoom: zoom }
+		const initialState = { lng: lng, lat: lat, zoom: zoom };
 
 		map = new mapbox.Map({
 			container: mapContainer,
@@ -20,11 +20,11 @@
 			style: `mapbox://styles/mapbox/outdoors-v11`,
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom,
-			worldview: "US",
+			worldview: 'US'
 		});
 
 		map.on('load', function () {
-			let hoveredPolygonId: string | null = null
+			let hoveredPolygonId: string | null = null;
 
 			map.addLayer(
 				{
@@ -36,13 +36,13 @@
 					'source-layer': 'country_boundaries',
 					type: 'fill',
 					paint: {
-						"fill-outline-color": "black",
+						'fill-outline-color': 'black',
 						'fill-color': '#ffffff',
 						'fill-opacity': 0.7
 					}
 				},
 				'country-label'
-			)
+			);
 
 			map.setFilter('them-good-countries', [
 				'in',
@@ -61,7 +61,7 @@
 				'JPN',
 				'SGP',
 				'AUS'
-			])
+			]);
 
 			map.addLayer(
 				{
@@ -79,7 +79,7 @@
 					}
 				},
 				'country-label'
-			)
+			);
 
 			map.setFilter('terrible-countries', [
 				'!in',
@@ -99,7 +99,7 @@
 				'SGP',
 				'AUS',
 				'SVN'
-			])
+			]);
 
 			map.addLayer(
 				{
@@ -117,9 +117,9 @@
 					}
 				},
 				'country-label'
-			)
+			);
 
-			map.setFilter('slovenialool', ['==', 'iso_3166_1_alpha_3', 'SVN'])
+			map.setFilter('slovenialool', ['==', 'iso_3166_1_alpha_3', 'SVN']);
 
 			map.addSource('cbs', {
 				// country-boundaries-simplified
@@ -127,8 +127,8 @@
 				data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson'
 			});
 
-// // 			// The feature-state dependent fill-opacity expression will render the hover effect
-// // 			// when a feature's hover state is set to true.
+			// The feature-state dependent fill-opacity expression will render the hover effect
+			// when a feature's hover state is set to true.
 			map.addLayer({
 				id: 'state-fills',
 				type: 'fill',
@@ -145,24 +145,20 @@
 			map.on('mousemove', 'state-fills', (e) => {
 				if (e.features!.length > 0) {
 					if (hoveredPolygonId !== null) {
-						map.setFeatureState(
-							{source: 'cbs', id: hoveredPolygonId }, { hover: false }
-						)
+						map.setFeatureState({ source: 'cbs', id: hoveredPolygonId }, { hover: false });
 					}
 
-					hoveredPolygonId = e.features![0].properties!.admin
-					map.setFeatureState(
-						{source: 'cbs', id: hoveredPolygonId! }, { hover: true }
-					)
+					hoveredPolygonId = e.features![0].properties!.admin;
+					map.setFeatureState({ source: 'cbs', id: hoveredPolygonId! }, { hover: true });
 
 					const countryISO3 = e.features![0].properties!.adm0_a3_is;
 
-					const msg = getMessageForCountry(countryISO3)
+					const msg = getMessageForCountry(countryISO3);
 
 					if (msg) {
-						map.getCanvas().style.cursor = 'pointer'
+						map.getCanvas().style.cursor = 'pointer';
 					} else {
-						map.getCanvas().style.cursor = ''
+						map.getCanvas().style.cursor = '';
 					}
 				}
 			});
@@ -214,7 +210,7 @@
 		'MYS' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Maleziji',
 		'JPN' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve na Japonskem',
 		'SGP' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Singapurju',
-		'AUS' = '<div class="blackyo"><a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Avstraliji'
+		'AUS' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Avstraliji'
 	}
 
 	function getMessageForCountry(country: string): string | null {
@@ -239,5 +235,4 @@
 	.map {
 		height: 40vh;
 	}
-
 </style>
