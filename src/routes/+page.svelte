@@ -28,8 +28,7 @@
 				<a
 					class="info-source"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
-					>{$_('source')}</a
-				>
+					>{$_('source')}</a>
 			</div>
 		</div>
 		<div class="info-card info-card-lime">
@@ -46,8 +45,7 @@
 				<a
 					class="info-source"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
-					>{$_('source')}</a
-				>
+					>{$_('source')}</a>
 			</div>
 		</div>
 	</div>
