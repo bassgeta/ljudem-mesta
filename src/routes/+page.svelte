@@ -49,18 +49,21 @@
 			</div>
 		</div>
 	</div>
-	<h2 class="comparison-title">
+	<h2 class="section-title salary-title">
+		{$_('landing.salary.title')}
+	</h2>
+	<div class="chart-container">
+		<IncomeChart />
+	</div>
+	<h2 class="section-title comparison-title">
 		{$_('landing.comparison.title')}
 	</h2>
-	<p class="comparison-subtitle">
+	<p class="section-subtitle comparison-subtitle">
 		{$_('landing.comparison.subtitle')}
 	</p>
 	<ComparisonTable />
 	<div class="small-lore">
 		<p>{$_('landing.guiltTrip')}</p>
-	</div>
-	<div class="chart-container">
-		<IncomeChart />
 	</div>
 	<div class="small-lore">
 		<p>{$_('landing.hotelNumbers')}</p>
@@ -74,7 +77,6 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		gap: 3rem;
 	}
 
 	.top-header {
@@ -94,7 +96,7 @@
 
 		display: flex;
 		flex-wrap: wrap;
-		align-items: flex-start;
+		align-items: stretch;
 		justify-content: center;
 		gap: 2rem;
 
@@ -112,6 +114,7 @@
 	}
 
 	.info-card-body {
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -166,20 +169,32 @@
 		font-style: italic;
 	}
 
-	.comparison-title {
+	.section-title {
 		font-size: var(--font-xl);
 		line-height: var(--lh-xl);
-		margin-top: 10rem;
 		font-weight: 700;
 	}
 
-	.comparison-subtitle {
+	.section-subtitle {
 		font-size: var(--font-m);
 		line-height: var(--lh-m);
-		margin-top: 1rem;
-		margin-bottom: 3rem;
 		text-align: center;
 		font-weight: 500;
+	}
+
+	.comparison-title {
+		margin-top: 10rem;
+	}
+
+	.comparison-subtitle {
+		margin-top: 1rem;
+		margin-bottom: 3rem;
+	}
+
+	.salary-title {
+		text-align: center;
+		margin-top: 10rem;
+		margin-bottom: 3rem;
 	}
 
 	.small-lore {
@@ -191,7 +206,8 @@
 	}
 
 	.chart-container {
-		max-height: 40vh;
-		padding: 0 1.5rem;
+		width: 100vw;
+		min-height: 60vh;
+		padding: 1.5rem;
 	}
 </style>
