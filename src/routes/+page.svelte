@@ -5,6 +5,7 @@
 	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte';
 	import ComparisonTable from '../components/ComparisonTable.svelte';
 	import HotelNumbers from '../components/HotelNumbers.svelte';
+	import Testimonials from '../components/Testimonials.svelte';
 </script>
 
 <svelte:head>
@@ -66,10 +67,16 @@
 	<div class="hotel-section">
 		<HotelNumbers />
 	</div>
-	<h2 class="section-title comparison-title">
+	<h2 class="section-title testimonials-title">
+		{$_('landing.testimonials.title')}
+	</h2>
+	<div class="testimonials-section">
+		<Testimonials />
+	</div>
+	<h2 class="section-title map-title">
 		{$_('landing.map.title')}
 	</h2>
-	<p class="section-subtitle comparison-subtitle">
+	<p class="section-subtitle map-subtitle">
 		{$_('landing.map.subtitle')}
 	</p>
 	<CurrentRestrictionsMap />
@@ -77,6 +84,7 @@
 
 <style>
 	.landing {
+		width: 100%;
 		max-width: 1400px;
 		display: flex;
 		align-items: center;
@@ -192,6 +200,25 @@
 		width: calc(100vw - 3rem);
 		max-width: calc(1400px - 3rem);
 		min-height: 60vh;
+	}
+
+	.salary-title {
+		text-align: center;
+		margin-top: 10rem;
+		margin-bottom: 3rem;
+		padding: 0 1.5rem;
+	}
+
+	.testimonials-title {
+		margin-top: 10rem;
+		margin-bottom: 3rem;
+		padding: 0 1.5rem;
+	}
+
+	.testimonials-section {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 1.5rem;
 	}
 
 	.map-title {
