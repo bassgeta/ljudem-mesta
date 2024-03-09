@@ -210,3 +210,7 @@ a {
   border: 2px solid;
   padding: 1.5rem;
 }
+
+.mapboxgl-popup-content {
+	color: black;
+}
