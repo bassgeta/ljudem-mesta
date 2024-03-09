@@ -19,7 +19,8 @@
 				'pk.eyJ1IjoibG9ja3AiLCJhIjoiY2s0MXE0azU1MDNtaDNrcnczZDlra2VvciJ9.r6EUZP49b1DR9JVVfxOzIQ',
 			style: `mapbox://styles/mapbox/outdoors-v11`,
 			center: [initialState.lng, initialState.lat],
-			zoom: initialState.zoom
+			zoom: initialState.zoom,
+			worldview: 'US'
 		});
 
 		map.on('load', function () {
@@ -35,8 +36,9 @@
 					'source-layer': 'country_boundaries',
 					type: 'fill',
 					paint: {
-						'fill-color': '#90EE90',
-						'fill-opacity': 0.5
+						'fill-outline-color': 'black',
+						'fill-color': '#ffffff',
+						'fill-opacity': 0.7
 					}
 				},
 				'country-label'
@@ -71,8 +73,9 @@
 					'source-layer': 'country_boundaries',
 					type: 'fill',
 					paint: {
-						'fill-color': '#D2042D',
-						'fill-opacity': 0.9
+						'fill-outline-color': 'black',
+						'fill-color': 'grey',
+						'fill-opacity': 1
 					}
 				},
 				'country-label'
@@ -108,6 +111,7 @@
 					'source-layer': 'country_boundaries',
 					type: 'fill',
 					paint: {
+						'fill-outline-color': 'black',
 						'fill-color': '#ffd700',
 						'fill-opacity': 1
 					}
@@ -136,40 +140,16 @@
 				}
 			});
 
-			map.addLayer({
-				id: 'state-borders',
-				type: 'line',
-				source: 'cbs',
-				layout: {},
-				paint: {
-					'line-color': '#627BC1',
-					'line-width': 2
-				}
-			});
-
 			// When the user moves their mouse over the state-fill layer, we'll update the
 			// feature state for the feature under the mouse.
 			map.on('mousemove', 'state-fills', (e) => {
 				if (e.features!.length > 0) {
 					if (hoveredPolygonId !== null) {
-						map.setFeatureState(
-							{
-								source: 'cbs'
-							},
-							{
-								hover: false
-							}
-						);
+						map.setFeatureState({ source: 'cbs', id: hoveredPolygonId }, { hover: false });
 					}
+
 					hoveredPolygonId = e.features![0].properties!.admin;
-					map.setFeatureState(
-						{
-							source: 'cbs'
-						},
-						{
-							hover: true
-						}
-					);
+					map.setFeatureState({ source: 'cbs', id: hoveredPolygonId! }, { hover: true });
 
 					const countryISO3 = e.features![0].properties!.adm0_a3_is;
 
