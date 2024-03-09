@@ -4,6 +4,7 @@
 	import IncomeChart from '../components/IncomeChart.svelte';
 	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte';
 	import ComparisonTable from '../components/ComparisonTable.svelte';
+	import HotelNumbers from '../components/HotelNumbers.svelte';
 </script>
 
 <svelte:head>
@@ -62,18 +63,21 @@
 		{$_('landing.comparison.subtitle')}
 	</p>
 	<ComparisonTable />
-	<div class="small-lore">
-		<p>{$_('landing.guiltTrip')}</p>
+	<div class="hotel-section">
+		<HotelNumbers />
 	</div>
-	<div class="small-lore">
-		<p>{$_('landing.hotelNumbers')}</p>
-	</div>
+	<h2 class="section-title comparison-title">
+		{$_('landing.map.title')}
+	</h2>
+	<p class="section-subtitle comparison-subtitle">
+		{$_('landing.map.subtitle')}
+	</p>
 	<CurrentRestrictionsMap />
 </div>
 
 <style>
 	.landing {
-		max-width: 1200px;
+		max-width: 1400px;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -93,35 +97,23 @@
 
 	.info-cards {
 		width: 100%;
+		padding: 0 1.5rem;
 
 		display: flex;
 		flex-wrap: wrap;
 		align-items: stretch;
-		justify-content: center;
+		justify-content: space-evenly;
 		gap: 2rem;
 
 		@media only screen and (max-width: 767px) {
 			flex-direction: column;
 			align-items: center;
 		}
-	}
 
-	.info-card {
-		max-width: 580px;
-
-		border-radius: 25px;
-		padding: 1rem;
-	}
-
-	.info-card-body {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-
-		border-radius: 11px;
-		border: 2px solid;
-		padding: 1.5rem;
+		& > div {
+			max-width: 580px;
+			flex-grow: 1;
+		}
 	}
 
 	.info-card-title {
@@ -138,6 +130,7 @@
 
 	.info-card-content {
 		margin-top: 2rem;
+		margin-bottom: 1.5rem;
 		font-size: var(--font-m);
 		line-height: var(--lh-m);
 	}
@@ -147,23 +140,13 @@
 		color: var(--color-white);
 	}
 
-	.info-card-light-green {
-		background-color: var(--color-light-green);
-		color: var(--text-secondary);
-	}
-
-	.info-card-pink {
-		background-color: var(--color-pink);
-		color: var(--text-secondary);
-	}
-
 	.info-card-lime {
 		background-color: var(--color-lime);
 		color: var(--text-secondary);
 	}
 
 	.info-source {
-		margin-top: 1rem;
+		margin-top: auto;
 		font-size: var(--font-s);
 		line-height: var(--lh-s);
 		font-style: italic;
@@ -184,6 +167,7 @@
 
 	.comparison-title {
 		margin-top: 10rem;
+		padding: 0 1.5rem;
 	}
 
 	.comparison-subtitle {
@@ -195,19 +179,28 @@
 		text-align: center;
 		margin-top: 10rem;
 		margin-bottom: 3rem;
+		padding: 0 1.5rem;
 	}
 
-	.small-lore {
-		width: 90%;
-		border-top: 1px solid var(--text-primary);
-		border-bottom: 1px solid var(--text-primary);
-		padding: 4rem 2rem;
-		text-align: center;
+	.hotel-section {
+		margin-top: 2rem;
+		width: 100%;
+		padding: 0 1.5rem;
 	}
 
 	.chart-container {
-		width: 100vw;
+		width: calc(100vw - 3rem);
+		max-width: calc(1400px - 3rem);
 		min-height: 60vh;
-		padding: 1.5rem;
+	}
+
+	.map-title {
+		margin-top: 10rem;
+		padding: 0 1.5rem;
+	}
+
+	.map-subtitle {
+		margin-top: 1rem;
+		margin-bottom: 3rem;
 	}
 </style>
