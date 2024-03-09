@@ -81,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<p class="comparison-table-explanation">
+			<p class="comparison-table-explanation shorter-explanation">
 				{$_('comparisonTable.rent.description')}
 			</p>
 		</div>
@@ -115,6 +115,10 @@
 
 	.comparison-table-inner {
 		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
 		padding: 0 1rem;
 		border-radius: 11px;
 		border: 2px solid var(--text-secondary);
@@ -129,12 +133,13 @@
 	}
 
 	.comparison-table-income-title {
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
 		justify-content: space-between;
 
-		margin-top: 2rem;
+		margin-top: auto;
 		margin-bottom: 0.5rem;
 		padding: 0 1rem;
 
@@ -193,9 +198,14 @@
 
 	.comparison-table-explanation {
 		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
 		text-align: start;
 		font-size: var(--font-s);
 		color: var(--text-secondary);
+	}
+
+	.shorter-explanation {
+		margin-bottom: 2.5rem;
 	}
 
 	.comparison-table-airbnb {
