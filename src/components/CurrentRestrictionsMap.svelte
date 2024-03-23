@@ -37,7 +37,7 @@
 					type: 'fill',
 					paint: {
 						'fill-outline-color': 'black',
-						'fill-color': '#ffffff',
+						'fill-color': 'var(--color-dark-grey)fff',
 						'fill-opacity': 0.7
 					}
 				},
@@ -186,7 +186,7 @@
 				const msg = getMessageForCountry(countryISO3);
 
 				if (msg) {
-					new mapbox.Popup().setLngLat(e.lngLat).setHTML(msg).addTo(map);
+					new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(msg).addTo(map);
 				}
 			});
 		});
@@ -234,5 +234,32 @@
 
 	.map {
 		height: 40vh;
+	}
+
+	:global(.mapboxgl-popup-content) {
+		background: var(--color-dark-grey) !important;
+		color: var(--text-primary);
+		border-radius: 19px;
+	}
+
+	:global(
+			.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+			.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+			.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip
+		) {
+		border-bottom-color: var(--color-dark-grey);
+	}
+	:global(
+			.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+			.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+			.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip
+		) {
+		border-top-color: var(--color-dark-grey);
+	}
+	:global(.mapboxgl-popup-anchor-left .mapboxgl-popup-tip) {
+		border-right-color: var(--color-dark-grey);
+	}
+	:global(.mapboxgl-popup-anchor-right .mapboxgl-popup-tip) {
+		border-left-color: var(--color-dark-grey);
 	}
 </style>

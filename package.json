@@ -32,9 +32,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"mapbox-gl": "^3.1.2",
 		"@supabase/supabase-js": "^2.39.3",
 		"chart.js": "^4.4.1",
-		"svelte-i18n": "^4.0.0"
+		"mapbox-gl": "^3.1.2",
+		"svelte-i18n": "^4.0.0",
+		"swiper": "^11.0.7"
 	}
 }

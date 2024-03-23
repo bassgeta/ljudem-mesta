@@ -1,7 +1,7 @@
 :root {
 	--color-black: #000;
 	--color-white: #fff;
-	--color-dark-grey: #1e1e1e;
+	--color-dark-grey: #4a4a4a;
 	--color-light-grey: #f2f2f2;
 	--color-medium-grey: #d9d9d9;
 	--color-purple: #7500eb;
@@ -211,6 +211,3 @@ a {
   padding: 1.5rem;
 }
 
-.mapboxgl-popup-content {
-	color: black;
-}
