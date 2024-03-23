@@ -2,20 +2,22 @@
 	import { _ } from 'svelte-i18n';
 	import Cross from '$lib/assets/icons/cross.svelte';
 	import ShareStep from './blocks/ShareStep.svelte';
+	import ChooseStep from './blocks/ChooseStep.svelte';
+	import { ApartmentType } from '../../utils/liberation';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	export let handleSubmit = (selectedType: number, message: string) => {};
+	export let handleSubmit = (selectedType: ApartmentType, message: string) => {};
 	export let handleClose = () => {};
 
 	let step: 'share' | 'choose' | 'message' = 'share';
-	let selectedType: number;
+	let selectedType: ApartmentType;
 	let message: string = '';
 
 	function onShareComplete() {
 		step = 'choose';
 	}
 
-	function onChooseComplete(type: number) {
+	function onChooseComplete(type: ApartmentType) {
 		selectedType = type;
 		step = 'message';
 	}
@@ -42,6 +44,8 @@
 		<p class="liberate-subtitle">{subtitle}</p>
 		{#if step === 'share'}
 			<ShareStep handleSubmit="{onShareComplete}" />
+		{:else if step === 'choose'}
+			<ChooseStep handleSubmit="{onChooseComplete}" />
 		{:else}
 			<div></div>
 		{/if}
@@ -52,8 +56,10 @@
 	.liberate-popup {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		max-height: 100%;
 		background-color: rgba(255, 255, 255, 0.95);
+		overflow-y: auto;
+		padding-bottom: 1rem;
 	}
 
 	.liberate-content {

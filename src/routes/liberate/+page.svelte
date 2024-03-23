@@ -2,15 +2,16 @@
 	import { _ } from 'svelte-i18n';
 	import { onMount } from 'svelte';
 	import supabase from '$lib/supabase';
-	import { TYPE_TO_IMAGE_URL } from '../../constants/apartments';
+	import { APARTMENT_TYPE_TO_IMAGE_URL, AIRBNB_IMAGE_URL } from '../../constants/apartments';
 	import {
 		ApartmentStatus,
 		fetchApartmentData,
 		generateApartments,
 		liberateApartment,
 		removeAppartments,
-		type Apartment
-	} from './liberation';
+		type Apartment,
+		ApartmentType
+	} from '../../utils/liberation';
 	import LiberateForm from '../../components/LiberateForm/LiberateForm.svelte';
 
 	type Floor = {
@@ -97,7 +98,7 @@
 		apartmentToLiberate = null;
 	}
 
-	function handleLiberateSubmit(selectedType: number, message: string) {
+	function handleLiberateSubmit(selectedType: ApartmentType, message: string) {
 		console.log('sabumito!', { apartmentToLiberate, selectedType, message });
 		apartmentToLiberate = null;
 	}
@@ -117,7 +118,7 @@
 				<!-- {apartment.state} -->
 				<div class="apartment">
 					{#if apartment.state === ApartmentStatus.AIRBNB}
-						<img src="{TYPE_TO_IMAGE_URL.airbnb}" width="50px" height="50px" />
+						<img src="{AIRBNB_IMAGE_URL}" width="50px" height="50px" />
 
 						<button on:click="{() => openLiberatePopup(apartment.id)}">Liberate!</button>
 					{/if}
@@ -128,7 +129,11 @@
 							apartment.apartment_type,
 							TYPE_TO_IMAGE_URL[apartment.apartment_type]
 						)} -->
-						<img src="{TYPE_TO_IMAGE_URL[apartment.apartment_type]}" width="50px" height="50px" />
+						<img
+							src="{APARTMENT_TYPE_TO_IMAGE_URL[apartment.apartment_type] ||
+								APARTMENT_TYPE_TO_IMAGE_URL[ApartmentType.TYPE_1]}"
+							width="50px"
+							height="50px" />
 					{/if}
 				</div>
 			{/each}
@@ -147,7 +152,7 @@
 <style>
 	.building {
 		position: relative;
-		width: 800px;
+		width: 1200px;
 		display: flex;
 		flex-direction: column;
 		min-height: 600px;

@@ -33,7 +33,7 @@
 
 <style>
 	.copy-container {
-		margin-top: 5rem;
+		margin-top: 4rem;
 		display: flex;
 		gap: 1rem;
 	}
