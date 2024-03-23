@@ -3,6 +3,12 @@
 	import { onMount } from 'svelte';
 	import supabase from '$lib/supabase';
 	import { SUPABASE_TABLE_NAME } from '../../constants/supabase';
+	import { error } from '@sveltejs/kit';
+	const houseImagesModules = import.meta.glob("$lib/assets/h/*.{png,svg}", { eager: true });
+	const houseImages = Object.keys(houseImagesModules).map((key) => houseImagesModules[key].default)
+
+	const FLATS_PER_FLOOR = 10;
+	const AIRBNB_PER_FLAT = 0.4;
 
 	enum ApartmentStatus {
 		FREE = 'FREE',
@@ -12,6 +18,7 @@
 	type Apartment = {
 		number: number;
 		state: ApartmentStatus;
+		apartment_type: number;
 	};
 
 	type Floor = {
@@ -25,12 +32,12 @@
 		floors[floorNo] = newFloor;
 	}
 
-	function addNewApartment(floorNo: number, appNo: number, state: ApartmentStatus) {
+	function addNewApartment(floorNo: number, appNo: number, state: ApartmentStatus, type: number) {
 		if (floors[floorNo] === undefined) {
 			addFloor(floorNo);
 		}
 
-		floors[floorNo].apartments[appNo] = { number: appNo, state };
+		floors[floorNo].apartments[appNo] = { number: appNo, state, apartment_type: type };
 	}
 
 	async function fetchApartmentData() {
@@ -44,12 +51,77 @@
 
 			console.log('the dejta', data);
 			data.forEach((apartment) => {
-				addNewApartment(apartment.floor, apartment.apartment, apartment.state);
+				addNewApartment(apartment.floor, apartment.apartment, apartment.state, apartment.apartment_type);
 			});
 		} catch (error) {
 			console.error(error.message);
 		}
 	}
+
+	async function fetchLastFloorData() {
+		try {
+			// Fetch data from Supabase
+			const { data, error } = await supabase.from(SUPABASE_TABLE_NAME).select('floor').order('floor', { ascending: false }).limit(1);
+			
+			if (!data || data?.length == 0) {
+				console.log(data)
+				return null
+			}
+
+			const { count } = await supabase.from(SUPABASE_TABLE_NAME).select('*', { count: 'exact' }).eq('floor', data[0].floor);
+
+			return { floor: data[0].floor, count }
+		} catch (error) {
+			console.error(error.message);
+		}
+	}
+
+	async function removeAppartments(count?: number, floor?: number) {
+		try {
+			const { error } = await supabase.from(SUPABASE_TABLE_NAME).delete().neq("id", 0)
+		} catch(e) {
+			console.error(error.message)
+		}
+	}
+
+	async function generateApartment(floor: number, appartment_number: number) {
+		const state = Math.random() < AIRBNB_PER_FLAT ? ApartmentStatus.AIRBNB : ApartmentStatus.FREE
+
+		const newAppartment = { state, apartment_type: Math.ceil(Math.random() * 10), apartment: appartment_number, floor }
+		const { error } = await supabase
+			.from(SUPABASE_TABLE_NAME)
+			.insert(newAppartment);
+
+		return newAppartment
+	}
+
+	async function generateApartments(quantity: number) {
+		let fresh = false
+		const apartments = []
+		let lastFloorData = await fetchLastFloorData();
+
+		if (lastFloorData === null) {
+			lastFloorData = { floor: 0, count: 0 }
+			fresh = true
+		}
+
+		let missingFlatsTillNextFloor = (FLATS_PER_FLOOR - lastFloorData?.count!) == 0 ? FLATS_PER_FLOOR : FLATS_PER_FLOOR - lastFloorData?.count!;
+		let currentFloor = lastFloorData?.floor!
+
+		for (let i = 0; i < quantity; i++) {
+			currentFloor = missingFlatsTillNextFloor == FLATS_PER_FLOOR && !fresh ? currentFloor + 1 : currentFloor
+
+			const newAppartment = await generateApartment(
+				currentFloor, 
+				FLATS_PER_FLOOR - missingFlatsTillNextFloor
+			);
+
+			apartments.push(newAppartment)
+
+			missingFlatsTillNextFloor -= 1
+		}
+	}
+
 	onMount(async () => {
 		await fetchApartmentData();
 
@@ -63,11 +135,15 @@
 				},
 				(payload) => {
 					const updatedApartment = payload.new;
-
-					floors[updatedApartment.floor].apartments[updatedApartment.apartment] = {
+					if (floors.length - 1 < updatedApartment.floor) {
+						addNewApartment(updatedApartment.floor, updatedApartment.apartment, updatedApartment.state, updatedApartment.apartment_type);
+					} else {
+						floors[updatedApartment.floor].apartments[updatedApartment.apartment] = {
 						number: updatedApartment.apartment,
 						state: updatedApartment.state
-					};
+						};
+					}
+					
 				}
 			)
 			.subscribe();
@@ -81,7 +157,7 @@
 			.eq('floor', floorNo)
 			.eq('apartment', appNo);
 
-		console.log('erar', error);
+		// console.log('erar', error);
 	}
 </script>
 
@@ -92,17 +168,28 @@
 <div class="building">
 	{#each floors as floor}
 		<div class="floor">
-			{#each floor.apartments as apartment}
+		{#each floor.apartments as apartment}
+			<!-- {apartment.state} -->
 				<div class="apartment">
-					{apartment.state}
 					{#if apartment.state === ApartmentStatus.AIRBNB}
+					<img src="{houseImages[0]}" width="50px" height="50px" />
+
 						<button on:click="{() => liberateApartment(floor.number, apartment.number)}"
 							>Liberate!</button>
+					{/if}
+					{#if apartment.state === ApartmentStatus.FREE}
+					<img src="{houseImages[apartment.apartment_type]}" width="50px" height="50px" />
 					{/if}
 				</div>
 			{/each}
 		</div>
 	{/each}
+</div>
+<div class="controls">
+	<button on:click="{() => generateApartments(10)}"
+		>Generate</button>
+	<button on:click="{() => removeAppartments()}"
+		>Clear</button>
 </div>
 
 <style>
@@ -122,5 +209,14 @@
 		width: 33%;
 		padding: 1rem;
 		border: 1px solid black;
+	}
+	
+	button {
+		background-color: darksalmon;
+	}
+
+	.controls {
+		padding: 40px;
+		background-color: black;
 	}
 </style>
