@@ -10,6 +10,7 @@
 	--color-light-green: #dcf8d7;
 	--color-lime: #ecffa2;
 	--color-green: #9bec8e;
+	--color-neon-green: #23FF00;
 	--color-dark-green: #17634e;
 
 	--color-orange: #ef8232;
@@ -215,19 +216,19 @@ a {
 
 .liberate-card {
   position: relative;
-  background-color: white;
   border-radius: 20px;
   border: 2px solid black;
-  overflow: hidden;
+  transform-style: preserve-3d;
 }
 
-.shadow {
+.liberate-card::after {
+  content: '';
   position: absolute;
-  bottom: -2px;
-  right: -2px;
+  bottom: -6px;
+  right: -6px;
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent);
-  z-index: -1;
+  background-color: black;
+  transform: translateZ(-1px);
 }

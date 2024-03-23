@@ -42,7 +42,7 @@
 	"liberate.head.title": "Osvobodi stanovalce",
 	"liberateForm.title": "Odkleni Airbnb",
 	"liberateForm.share-step.subtitle": "Pomagaš lahko tako, da to povezavo deliš s čim več ljudmi!",
-	"liberateForm.share-step.title": "Si delil_a povezavo?",
+	"liberateForm.share-step.prompt": "Si delil_a povezavo?",
 	"liberateForm.share-step.button": "Sem! Pelji me naprej.",
 	"liberateForm.choose-step.subtitle": "Hvala, ker pomagaš! Izberi svoje okno ali balkon.",
 	"liberateForm.choose-step.button": "Naprej",

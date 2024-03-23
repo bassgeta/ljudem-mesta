@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import Cross from '$lib/assets/icons/cross.svelte';
+	import ShareStep from './blocks/ShareStep.svelte';
 
-	export let apartmentNumber = 0;
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	export let handleSubmit = (apartmentId: string, selectedType: number, message: string) => {};
+	export let handleSubmit = (selectedType: number, message: string) => {};
 	export let handleClose = () => {};
 
 	let step: 'share' | 'choose' | 'message' = 'share';
@@ -21,7 +21,7 @@
 	}
 
 	function onMessageComplete(msg: string) {
-		handleSubmit(apartmentNumber, selectedType, message);
+		handleSubmit(selectedType, message);
 	}
 
 	$: subtitle = {
@@ -40,6 +40,11 @@
 			{$_('liberateForm.title')}
 		</h2>
 		<p class="liberate-subtitle">{subtitle}</p>
+		{#if step === 'share'}
+			<ShareStep handleSubmit="{onShareComplete}" />
+		{:else}
+			<div></div>
+		{/if}
 	</div>
 </div>
 
@@ -52,29 +57,36 @@
 	}
 
 	.liberate-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		color: var(--color-black);
 		position: relative;
 		width: 100%;
 		height: 100%;
-		display: flex;
-		align-items: center;
 	}
 
 	.liberate-title {
-		margin-top: 2rem;
+		font-size: var(--font-xxl);
+		margin-top: 4rem;
 		text-transform: uppercase;
 		font-weight: 700;
 	}
 
 	.liberate-subtitle {
+		text-align: center;
+		margin-top: 1rem;
 		font-weight: 500;
+		font-size: var(--font-l);
 	}
 
 	.close-button {
 		position: absolute;
 		width: 48px;
 		height: 48px;
-		top: 1.5rem;
-		right: 1.5rem;
+		top: 1rem;
+		right: 1rem;
 
 		color: black;
 		border: 2px solid black;
