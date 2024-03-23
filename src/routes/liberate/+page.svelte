@@ -100,6 +100,7 @@
 
 	function handleLiberateSubmit(selectedType: ApartmentType, message: string) {
 		console.log('sabumito!', { apartmentToLiberate, selectedType, message });
+		liberateApartment(apartmentToLiberate, selectedType, message);
 		apartmentToLiberate = null;
 	}
 </script>

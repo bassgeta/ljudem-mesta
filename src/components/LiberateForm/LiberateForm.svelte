@@ -4,6 +4,7 @@
 	import ShareStep from './blocks/ShareStep.svelte';
 	import ChooseStep from './blocks/ChooseStep.svelte';
 	import { ApartmentType } from '../../utils/liberation';
+	import MessageStep from './blocks/MessageStep.svelte';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	export let handleSubmit = (selectedType: ApartmentType, message: string) => {};
@@ -11,7 +12,6 @@
 
 	let step: 'share' | 'choose' | 'message' = 'share';
 	let selectedType: ApartmentType;
-	let message: string = '';
 
 	function onShareComplete() {
 		step = 'choose';
@@ -22,7 +22,10 @@
 		step = 'message';
 	}
 
-	function onMessageComplete(msg: string) {
+	function onMessageComplete(message: string) {
+		if (!selectedType) {
+			return;
+		}
 		handleSubmit(selectedType, message);
 	}
 
@@ -46,6 +49,8 @@
 			<ShareStep handleSubmit="{onShareComplete}" />
 		{:else if step === 'choose'}
 			<ChooseStep handleSubmit="{onChooseComplete}" />
+		{:else if step === 'message'}
+			<MessageStep handleSubmit="{onMessageComplete}" />
 		{:else}
 			<div></div>
 		{/if}
@@ -56,6 +61,7 @@
 	.liberate-popup {
 		position: absolute;
 		width: 100%;
+		min-height: 100%;
 		max-height: 100%;
 		background-color: rgba(255, 255, 255, 0.95);
 		overflow-y: auto;

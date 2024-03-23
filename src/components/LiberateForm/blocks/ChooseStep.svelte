@@ -37,7 +37,7 @@
 </div>
 <button
 	disabled="{selectedType === null}"
-	class="liberate-card share-button next-button"
+	class="liberate-card next-button"
 	on:click="{() => handleNextClick()}">
 	<span>{$_('liberateForm.choose-step.button')}</span>
 	<Arrow />

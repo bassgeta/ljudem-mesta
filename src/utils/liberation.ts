@@ -120,13 +120,15 @@ export async function generateApartments(quantity: number) {
 	}
 }
 
-export async function liberateApartment(floorNo: number, appNo: number) {
-	console.log('liberating', floorNo, appNo);
+export async function liberateApartment(
+	apartmentId: number,
+	type: ApartmentType,
+	_message: string
+) {
 	const { error } = await supabase
 		.from(SUPABASE_TABLE_NAME)
-		.update({ state: 'FREE' })
-		.eq('floor', floorNo)
-		.eq('apartment', appNo);
+		.update({ state: 'FREE', apartment_type: type })
+		.eq('id', apartmentId);
 
 	// console.log('erar', error);
 }
