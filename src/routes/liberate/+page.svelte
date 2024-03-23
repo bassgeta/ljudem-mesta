@@ -5,6 +5,7 @@
 	import { SUPABASE_TABLE_NAME } from '../../constants/supabase';
 	import { TYPE_TO_IMAGE_URL } from '../../constants/apartments';
 	import { error } from '@sveltejs/kit';
+	import LiberateForm from '../../components/LiberateForm/LiberateForm.svelte';
 
 	const FLATS_PER_FLOOR = 10;
 	const AIRBNB_PER_FLAT = 0.4;
@@ -181,6 +182,20 @@
 
 		// console.log('erar', error);
 	}
+
+	let apartmentToLiberate: number | null = null;
+	function openLiberatePopup(apartmentId: number) {
+		apartmentToLiberate = apartmentId;
+	}
+
+	function closeLiberatePopup() {
+		apartmentToLiberate = null;
+	}
+
+	function handleLiberateSubmit(apartmentId: string, selectedType: number, message: string) {
+		console.log('sabumito!', { apartmentId, selectedType, message });
+		apartmentToLiberate = null;
+	}
 </script>
 
 <svelte:head>
@@ -188,6 +203,12 @@
 </svelte:head>
 
 <div class="building">
+	{#if apartmentToLiberate !== null}
+		<LiberateForm
+			apartmentNumber="{apartmentToLiberate}"
+			handleSubmit="{handleLiberateSubmit}"
+			handleClose="{closeLiberatePopup}" />
+	{/if}
 	{#each floors as floor}
 		<div class="floor">
 			{#each floor.apartments as apartment}
@@ -196,8 +217,7 @@
 					{#if apartment.state === ApartmentStatus.AIRBNB}
 						<img src="{TYPE_TO_IMAGE_URL.airbnb}" width="50px" height="50px" />
 
-						<button on:click="{() => liberateApartment(floor.number, apartment.number)}"
-							>Liberate!</button>
+						<button on:click="{() => openLiberatePopup()}">Liberate!</button>
 					{/if}
 					{#if apartment.state === ApartmentStatus.FREE}
 						{console.log(
@@ -220,9 +240,13 @@
 
 <style>
 	.building {
+		position: relative;
 		width: 600px;
 		display: flex;
 		flex-direction: column;
+		min-height: 40vh;
+		max-height: 40vh;
+		overflow-y: auto;
 	}
 
 	.floor {

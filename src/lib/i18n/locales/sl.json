@@ -40,5 +40,15 @@
 	"landing.solution.canada": "🇨🇦 Dnevne omejitve v Kaliforniji, Montrealu, Torontu",
 	"landing.solution.asia": "🌏 Omejitve v Maleziji, Tokiu, Singapurju, Sydneyju",
 	"liberate.head.title": "Osvobodi stanovalce",
+	"liberateForm.title": "Odkleni Airbnb",
+	"liberateForm.share-step.subtitle": "Pomagaš lahko tako, da to povezavo deliš s čim več ljudmi!",
+	"liberateForm.share-step.title": "Si delil_a povezavo?",
+	"liberateForm.share-step.button": "Sem! Pelji me naprej.",
+	"liberateForm.choose-step.subtitle": "Hvala, ker pomagaš! Izberi svoje okno ali balkon.",
+	"liberateForm.choose-step.button": "Naprej",
+	"liberateForm.message-step.subtitle": "Želiš pustiti sporočilo? Vpiši ga v spodnje okence.",
+	"liberateForm.message-step.no-message": "Ne, hvala. Oddaj brez sporočila.",
+	"liberateForm.message-step.button": "Oddaj",
+	"copy": "Kopiraj",
 	"source": "Vir"
 }

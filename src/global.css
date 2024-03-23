@@ -23,12 +23,14 @@
 	--text-secondary: var(--color-black);
 
 	--font-xxxl: 8.75rem;
+	--font-xxl: 5.625rem;
 	--font-xl: 2.625rem;
 	--font-l: 1.5rem;
 	--font-m: 1.25rem;
 	--font-s: 1rem;
 
 	--lh-xxxl: 10.5rem;
+	--lh-xxl: 6.75rem;
 	--lh-xl: 3.125rem;
 	--lh-l: 1.75rem;
 	--lh-m: 1.75rem;
@@ -211,3 +213,21 @@ a {
   padding: 1.5rem;
 }
 
+.liberate-card {
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  border: 2px solid black;
+  overflow: hidden;
+}
+
+.shadow {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent);
+  z-index: -1;
+}
