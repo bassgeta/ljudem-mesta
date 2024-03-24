@@ -230,10 +230,14 @@
 	.map-wrap {
 		width: 100%;
 		padding: 1.5rem;
+		margin-bottom: 2rem;
 	}
 
 	.map {
-		height: 40vh;
+		height: 50vh;
+		@media only screen and (max-width: 767px) {
+			height: 65vh;
+		}
 	}
 
 	:global(.mapboxgl-popup-content) {

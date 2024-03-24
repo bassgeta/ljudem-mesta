@@ -6,6 +6,7 @@
 	import ComparisonTable from '../components/ComparisonTable.svelte';
 	import HotelNumbers from '../components/HotelNumbers.svelte';
 	import Testimonials from '../components/Testimonials.svelte';
+	import Liberate from '../components/Liberate.svelte';
 </script>
 
 <svelte:head>
@@ -80,6 +81,9 @@
 		{$_('landing.map.subtitle')}
 	</p>
 	<CurrentRestrictionsMap />
+</div>
+<div class="liberate-section">
+	<Liberate />
 </div>
 
 <style>
@@ -229,5 +233,10 @@
 	.map-subtitle {
 		margin-top: 1rem;
 		margin-bottom: 3rem;
+	}
+
+	.liberate-section {
+		width: 100%;
+		background-color: var(--color-lime);
 	}
 </style>

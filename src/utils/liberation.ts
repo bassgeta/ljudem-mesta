@@ -2,7 +2,7 @@ import supabase from '$lib/supabase';
 import { SUPABASE_TABLE_NAME } from '../constants/supabase';
 import { error } from '@sveltejs/kit';
 
-const FLATS_PER_FLOOR = 10;
+const FLATS_PER_FLOOR = 6;
 const AIRBNB_PER_FLAT = 0.4;
 
 // tmp type for types
