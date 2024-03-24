@@ -5,10 +5,12 @@
 	export let handleSubmit = () => {};
 
 	const url = 'www.airbnbpejddomov.si';
+	let isCopied = false;
 
 	async function copyToClipboard() {
 		try {
 			await navigator.clipboard.writeText(url);
+			isCopied = true;
 		} catch {
 			// we aren't gonna do anything XDDD
 		}
@@ -23,13 +25,15 @@
 		{$_('copy')}
 	</button>
 </div>
-<h4 class="copy-prompt">
-	{$_('liberateForm.share-step.prompt')}
-</h4>
-<button class="liberate-card share-button next-button" on:click="{handleSubmit}">
-	<span>{$_('liberateForm.share-step.button')}</span>
-	<Arrow />
-</button>
+{#if isCopied === true}
+	<h4 class="copy-prompt">
+		{$_('liberateForm.share-step.prompt')}
+	</h4>
+	<button class="liberate-card share-button next-button" on:click="{handleSubmit}">
+		<span>{$_('liberateForm.share-step.button')}</span>
+		<Arrow />
+	</button>
+{/if}
 
 <style>
 	.copy-container {

@@ -119,7 +119,7 @@
 				<!-- {apartment.state} -->
 				<div class="apartment">
 					{#if apartment.state === ApartmentStatus.AIRBNB}
-						<img src="{AIRBNB_IMAGE_URL}" width="50px" height="50px" />
+						<img loading="lazy" src="{AIRBNB_IMAGE_URL}" width="50px" height="50px" />
 
 						<button on:click="{() => openLiberatePopup(apartment.id)}">Liberate!</button>
 					{/if}
@@ -131,6 +131,7 @@
 							TYPE_TO_IMAGE_URL[apartment.apartment_type]
 						)} -->
 						<img
+							loading="lazy"
 							src="{APARTMENT_TYPE_TO_IMAGE_URL[apartment.apartment_type] ||
 								APARTMENT_TYPE_TO_IMAGE_URL[ApartmentType.TYPE_1]}"
 							width="50px"
