@@ -90,25 +90,18 @@ async function generateApartment(floor: number, appartment_number: number) {
 }
 
 export async function generateApartments(quantity: number) {
-	let fresh = false;
 	const apartments = [];
 	let lastFloorData = await fetchLastFloorData();
+	let fresh = lastFloorData === null ? true : false;
 
 	if (lastFloorData === null) {
 		lastFloorData = { floor: 0, count: 0 };
-		fresh = true;
 	}
 
-	let missingFlatsTillNextFloor =
-		FLATS_PER_FLOOR - lastFloorData?.count! == 0
-			? FLATS_PER_FLOOR
-			: FLATS_PER_FLOOR - lastFloorData?.count!;
-	let currentFloor = lastFloorData?.floor!;
+	let missingFlatsTillNextFloor = FLATS_PER_FLOOR
+	const currentFloor = !fresh ? lastFloorData?.floor! + 1 : lastFloorData?.floor!;
 
-	for (let i = 0; i < quantity; i++) {
-		currentFloor =
-			missingFlatsTillNextFloor == FLATS_PER_FLOOR && !fresh ? currentFloor + 1 : currentFloor;
-
+	for (let i = 0; i < FLATS_PER_FLOOR; i++) {
 		const newAppartment = await generateApartment(
 			currentFloor,
 			FLATS_PER_FLOOR - missingFlatsTillNextFloor
