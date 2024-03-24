@@ -87,6 +87,7 @@
 			)
 			.subscribe();
 	});
+	$: console.log('flori', floors);
 
 	let apartmentToLiberate: number | null = null;
 	function openLiberatePopup(apartmentId: number) {
@@ -122,27 +123,20 @@
 				<div class="floor">
 					{#each floor.apartments as apartment}
 						<!-- {apartment.state} -->
-						<div class="apartment">
-							{#if apartment.state === ApartmentStatus.AIRBNB}
-								<img loading="lazy" src="{AIRBNB_IMAGE_URL}" width="100%" height="auto" />
-
-								<button on:click="{() => openLiberatePopup(apartment.id)}">Liberate!</button>
-							{/if}
-							{#if apartment.state === ApartmentStatus.FREE}
-								<!-- {console.log(
-							'apartman',
-							apartment,
-							apartment.apartment_type,
-							TYPE_TO_IMAGE_URL[apartment.apartment_type]
-						)} -->
+						{#if apartment.state === ApartmentStatus.AIRBNB}
+							<button class="apartment" on:click="{() => openLiberatePopup(apartment.id)}">
+								<img loading="lazy" src="{AIRBNB_IMAGE_URL}" class="apartment-image" />
+							</button>
+						{/if}
+						{#if apartment.state === ApartmentStatus.FREE}
+							<div class="apartment">
 								<img
 									loading="lazy"
 									src="{APARTMENT_TYPE_TO_IMAGE_URL[apartment.apartment_type] ||
 										APARTMENT_TYPE_TO_IMAGE_URL[ApartmentType.TYPE_1]}"
-									width="50px"
-									height="50px" />
-							{/if}
-						</div>
+									class="apartment-image" />
+							</div>
+						{/if}
 					{/each}
 				</div>
 			{/each}
@@ -200,7 +194,7 @@
 		position: relative;
 		width: 100%;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		min-height: 70vh;
 		max-height: 70vh;
 		overflow-y: auto;
@@ -208,6 +202,7 @@
 		border: 4px solid var(--color-black);
 		border-radius: 25px;
 		background-color: #87ceeb;
+		padding: 0 2rem;
 
 		@media only screen and (max-width: 767px) {
 			padding: 0 0.5rem;
@@ -230,5 +225,12 @@
 	}
 
 	.apartment {
+		width: calc(100% / 6);
+		height: 250px;
+	}
+
+	.apartment-image {
+		width: 100%;
+		height: 100%;
 	}
 </style>
