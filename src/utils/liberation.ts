@@ -25,6 +25,7 @@ export type Apartment = {
 	number: number;
 	state: ApartmentStatus;
 	apartment_type: number;
+	message: string | null;
 };
 
 export async function fetchApartmentData() {
@@ -92,13 +93,13 @@ async function generateApartment(floor: number, appartment_number: number) {
 export async function generateApartments(quantity: number) {
 	const apartments = [];
 	let lastFloorData = await fetchLastFloorData();
-	let fresh = lastFloorData === null ? true : false;
+	const fresh = lastFloorData === null ? true : false;
 
 	if (lastFloorData === null) {
 		lastFloorData = { floor: 0, count: 0 };
 	}
 
-	let missingFlatsTillNextFloor = FLATS_PER_FLOOR
+	let missingFlatsTillNextFloor = FLATS_PER_FLOOR;
 	const currentFloor = !fresh ? lastFloorData?.floor! + 1 : lastFloorData?.floor!;
 
 	for (let i = 0; i < FLATS_PER_FLOOR; i++) {
@@ -113,14 +114,10 @@ export async function generateApartments(quantity: number) {
 	}
 }
 
-export async function liberateApartment(
-	apartmentId: number,
-	type: ApartmentType,
-	_message: string
-) {
+export async function liberateApartment(apartmentId: number, type: ApartmentType, message: string) {
 	const { error } = await supabase
 		.from(SUPABASE_TABLE_NAME)
-		.update({ state: 'FREE', apartment_type: type })
+		.update({ state: 'FREE', apartment_type: type, message })
 		.eq('id', apartmentId);
 
 	// console.log('erar', error);

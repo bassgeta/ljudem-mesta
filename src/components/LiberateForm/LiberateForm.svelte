@@ -60,12 +60,15 @@
 <style>
 	.liberate-popup {
 		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		min-height: 100%;
 		max-height: 100%;
 		background-color: rgba(255, 255, 255, 0.95);
 		overflow-y: auto;
 		padding-bottom: 1rem;
+		z-index: 3;
 	}
 
 	.liberate-content {

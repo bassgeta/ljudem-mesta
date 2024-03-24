@@ -12,6 +12,7 @@
 	} from '../utils/liberation';
 	import LiberateForm from './LiberateForm/LiberateForm.svelte';
 	import DevDbControls from './DevDBControls.svelte';
+	import LiberationMessage from './LiberationMessage.svelte';
 
 	type Floor = {
 		number: number;
@@ -29,13 +30,14 @@
 		floorNo: number,
 		appNo: number,
 		state: ApartmentStatus,
-		type: number
+		type: number,
+		message: string | null
 	) {
 		if (floors[floorNo] === undefined) {
 			addFloor(floorNo);
 		}
 
-		floors[floorNo].apartments[appNo] = { id, number: appNo, state, apartment_type: type };
+		floors[floorNo].apartments[appNo] = { id, number: appNo, state, apartment_type: type, message };
 	}
 
 	function clearApartments() {
@@ -52,7 +54,8 @@
 					apartment.floor,
 					apartment.apartment,
 					apartment.state,
-					apartment.apartment_type
+					apartment.apartment_type,
+					apartment.message
 				);
 			});
 		}
@@ -118,7 +121,7 @@
 		{#if apartmentToLiberate !== null}
 			<LiberateForm handleSubmit="{handleLiberateSubmit}" handleClose="{closeLiberatePopup}" />
 		{/if}
-		<div class="building-inner">
+		<div class="building-inner" class:disable-scroll="{apartmentToLiberate !== null}">
 			{#each floors as floor}
 				<div class="floor">
 					{#each floor.apartments as apartment}
@@ -135,6 +138,9 @@
 									src="{APARTMENT_TYPE_TO_IMAGE_URL[apartment.apartment_type] ||
 										APARTMENT_TYPE_TO_IMAGE_URL[ApartmentType.TYPE_1]}"
 									class="apartment-image" />
+								{#if apartment.message && apartment.message.length > 0}
+									<LiberationMessage message="{apartment.message}" />
+								{/if}
 							</div>
 						{/if}
 					{/each}
@@ -174,13 +180,12 @@
 	}
 
 	.what-to-do-title {
-		flex: 1;
+		flex-grow: 2;
 		font-size: var(--font-xl);
 		font-weight: 700;
 	}
 
 	.what-to-do-description {
-		width: 40%;
 		border: 2px solid var(--color-black);
 		border-radius: 12px;
 		padding: 1rem 2rem;
@@ -195,18 +200,20 @@
 		width: 100%;
 		display: flex;
 		align-items: flex-start;
-		min-height: 70vh;
-		max-height: 70vh;
-		overflow-y: auto;
+		overflow: hidden;
 
 		border: 4px solid var(--color-black);
 		border-radius: 25px;
 		background-color: #87ceeb;
-		padding: 0 2rem;
+		padding: 0 3rem;
 
 		@media only screen and (max-width: 767px) {
 			padding: 0 0.5rem;
 		}
+	}
+
+	.disable-scroll {
+		overflow: hidden;
 	}
 
 	.building-inner {
@@ -214,6 +221,11 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+
+		min-height: 70vh;
+		max-height: 70vh;
+		overflow-y: auto;
+
 		border-left: 2px solid var(--color-black);
 		border-right: 2px solid var(--color-black);
 	}
@@ -225,7 +237,8 @@
 	}
 
 	.apartment {
-		width: calc(100% / 6);
+		position: relative;
+		width: 200px;
 		height: 250px;
 	}
 
