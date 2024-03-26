@@ -29,11 +29,15 @@
 <style>
 	.message-input {
 		background-color: var(--color-white);
-		width: 440px;
+		width: 60%;
 		height: 120px;
 		padding: 1rem;
 		margin-top: 2rem;
 		font-size: var(--font-s);
+
+		@media screen and (max-width: 767px) {
+			width: 80%;
+		}
 	}
 
 	.no-message-button {

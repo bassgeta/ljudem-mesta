@@ -229,8 +229,6 @@
 <style>
 	.map-wrap {
 		width: 100%;
-		padding: 1.5rem;
-		margin-bottom: 2rem;
 	}
 
 	.map {

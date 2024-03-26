@@ -23,15 +23,15 @@
 	--text-primary: var(--color-white);
 	--text-secondary: var(--color-black);
 
-	--font-xxxl: 8.75rem;
-	--font-xxl: 5.625rem;
-	--font-xl: 2.625rem;
+	--font-xxxl: 7.5rem;
+	--font-xxl: 4rem;
+	--font-xl: 2.5rem;
 	--font-l: 1.5rem;
 	--font-m: 1.25rem;
 	--font-s: 1rem;
 
-	--lh-xxxl: 10.5rem;
-	--lh-xxl: 6.75rem;
+	--lh-xxxl: 8.75rem;
+	--lh-xxl: 6.5rem;
 	--lh-xl: 3.125rem;
 	--lh-l: 1.75rem;
 	--lh-m: 1.75rem;

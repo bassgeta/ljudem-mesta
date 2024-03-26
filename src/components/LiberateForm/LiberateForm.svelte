@@ -69,6 +69,12 @@
 		overflow-y: auto;
 		padding-bottom: 1rem;
 		z-index: 3;
+
+		@media screen and (max-width: 767px) {
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+		}
 	}
 
 	.liberate-content {
@@ -87,6 +93,7 @@
 		margin-top: 4rem;
 		text-transform: uppercase;
 		font-weight: 700;
+		text-align: center;
 	}
 
 	.liberate-subtitle {

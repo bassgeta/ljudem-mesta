@@ -95,8 +95,6 @@
 		gap: 2rem;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
-
-		padding: 0 1.5rem;
 	}
 
 	.comparison-table-outer {

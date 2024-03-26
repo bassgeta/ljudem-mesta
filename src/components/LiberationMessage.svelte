@@ -7,12 +7,10 @@
 	let isExpanded = false;
 
 	function onWindowClick(e) {
-		console.log('opa brtonja', e, container);
-		if (container.contains(e.target) == false) isExpanded = false;
+		if (container.contains(e.target) === false) isExpanded = false;
 	}
 
 	function onBubbleClick(newExpanded: boolean) {
-		console.log('handling baton klik', { isExpanded, newExpanded });
 		isExpanded = newExpanded;
 	}
 	$: console.log('expand dong', isExpanded);
@@ -23,7 +21,7 @@
 <button
 	bind:this="{container}"
 	class="message-wrapper"
-	on:click|stopPropagation="{() => onBubbleClick(!isExpanded)}">
+	on:click="{() => onBubbleClick(!isExpanded)}">
 	{#if !isExpanded}
 		<Message />
 	{:else}

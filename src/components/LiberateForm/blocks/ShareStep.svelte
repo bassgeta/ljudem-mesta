@@ -40,6 +40,11 @@
 		margin-top: 4rem;
 		display: flex;
 		gap: 1rem;
+
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	.address-container {
