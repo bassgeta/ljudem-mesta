@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="liberate-page">
-	<a href="/" class="liberate-card back-to-link">
+	<a href="/" class="shadowed-card shadowed-button back-to-link">
 		<span class="left-arrow">
 			<Arrow />
 		</span>
@@ -30,18 +30,6 @@
 		z-index: 2;
 		top: 16px;
 		left: 16px;
-
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
-		background-color: var(--color-white);
-		font-weight: 700;
-		font-size: var(--font-m);
-		text-decoration: none;
-
-		padding: 1rem 1.5rem;
-		margin-top: 2rem;
 	}
 
 	.left-arrow {

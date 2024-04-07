@@ -214,7 +214,7 @@ a {
   padding: 1.5rem;
 }
 
-.liberate-card {
+.shadowed-card {
   position: relative;
   border-radius: 20px;
   border: 2px solid black;
@@ -222,7 +222,7 @@ a {
   color: var(--color-black);
 }
 
-.liberate-card::after {
+.shadowed-card::after {
   content: '';
   position: absolute;
   bottom: -6px;
@@ -232,4 +232,17 @@ a {
   border-radius: 20px;
   background-color: black;
   transform: translateZ(-1px);
+}
+
+.shadowed-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  background-color: var(--color-white);
+  font-weight: 700;
+  font-size: var(--font-m);
+  text-decoration: none;
+
+  padding: 1rem 1.5rem;
 }

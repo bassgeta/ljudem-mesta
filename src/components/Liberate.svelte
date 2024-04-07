@@ -28,7 +28,7 @@
 	<p class="total-liberated">
 		Skupaj smo osvobodili že <span class="total-number">{totalLiberated}</span> stanovanj!
 	</p>
-	<a class="liberate-card map-link" href="/liberate">
+	<a class="shadowed-card shadowed-button map-link" href="/liberate">
 		<span>{$_('liberate.go-to-map')}</span>
 		<Arrow />
 	</a>
@@ -99,16 +99,7 @@
 	}
 
 	.map-link {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
 		background-color: var(--color-neon-green);
-		font-weight: 700;
-		font-size: var(--font-m);
-		text-decoration: none;
-
-		padding: 1rem 1.5rem;
 		margin-top: 2rem;
 	}
 </style>

@@ -18,10 +18,10 @@
 </script>
 
 <div class="copy-container">
-	<div class="liberate-card address-container">
+	<div class="shadowed-card address-container">
 		<span>{url}</span>
 	</div>
-	<button class="liberate-card share-button" on:click="{copyToClipboard}">
+	<button class="shadowed-card shadowed-button share-button" on:click="{copyToClipboard}">
 		{$_('copy')}
 	</button>
 </div>
@@ -29,7 +29,7 @@
 	<h4 class="copy-prompt">
 		{$_('liberateForm.share-step.prompt')}
 	</h4>
-	<button class="liberate-card share-button next-button" on:click="{handleSubmit}">
+	<button class="shadowed-card shadowed-button next-button" on:click="{handleSubmit}">
 		<span>{$_('liberateForm.share-step.button')}</span>
 		<Arrow />
 	</button>
@@ -56,10 +56,6 @@
 
 	.share-button {
 		background-color: var(--color-neon-green);
-		font-weight: 700;
-		font-size: var(--font-m);
-
-		padding: 1rem 1.5rem;
 	}
 
 	.copy-prompt {
@@ -69,9 +65,7 @@
 	}
 
 	.next-button {
+		background-color: var(--color-neon-green);
 		margin-top: 1.5rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
 	}
 </style>

@@ -27,7 +27,7 @@
 			<div class="type-chosen-indicator" class:type-selected="{selectedType === apartmentType}">
 			</div>
 			<button
-				class="liberate-card type-card"
+				class="shadowed-card type-card"
 				class:type-card-selected="{selectedType === apartmentType}"
 				on:click="{() => handleSelectType(apartmentType)}">
 				<img src="{APARTMENT_TYPE_TO_IMAGE_URL[apartmentType]}" class="type-image" />
@@ -37,7 +37,7 @@
 </div>
 <button
 	disabled="{selectedType === null}"
-	class="liberate-card next-button"
+	class="shadowed-card shadowed-button next-button"
 	on:click="{() => handleNextClick()}">
 	<span>{$_('liberateForm.choose-step.button')}</span>
 	<Arrow />
@@ -88,15 +88,8 @@
 	}
 
 	.next-button {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
+		color: var(--color-black);
 		background-color: var(--color-neon-green);
-		font-weight: 700;
-		font-size: var(--font-m);
-
-		padding: 1rem 1.5rem;
 		margin-top: 2rem;
 	}
 

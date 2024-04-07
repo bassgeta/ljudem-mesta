@@ -15,13 +15,13 @@
 	}
 </script>
 
-<textarea class="liberate-card message-input" bind:value="{message}" maxlength="{100}" autofocus
+<textarea class="shadowed-card message-input" bind:value="{message}" maxlength="{100}" autofocus
 ></textarea>
 <button class="no-message-button" on:click="{() => handleNoMessageClick()}">
 	<span>{$_('liberateForm.message-step.no-message')}</span>
 	<Arrow />
 </button>
-<button class="liberate-card next-button" on:click="{() => handleSubmitClick()}">
+<button class="shadowed-card shadowed-button next-button" on:click="{() => handleSubmitClick()}">
 	<span>{$_('liberateForm.message-step.button')}</span>
 	<Arrow />
 </button>
@@ -49,15 +49,7 @@
 	}
 
 	.next-button {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
 		background-color: var(--color-neon-green);
-		font-weight: 700;
-		font-size: var(--font-m);
-
-		padding: 1rem 1.5rem;
 		margin-top: 2rem;
 	}
 </style>
