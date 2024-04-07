@@ -117,7 +117,7 @@
 			{@html $_('liberate.what-to-do.title')}
 		</h4>
 		<div class="what-to-do-description">
-			{$_('liberate.what-to-do.description')}
+			{@html $_('liberate.what-to-do.description')}
 		</div>
 	</div>
 	<div class="building-outer">
@@ -152,12 +152,10 @@
 		</div>
 	</div>
 </div>
-<DevDbControls clearApartments="{clearApartments}" />
 
 <style>
 	.liberate-container {
 		width: 100%;
-		max-width: 1400px;
 
 		display: flex;
 		flex-direction: column;
@@ -186,12 +184,13 @@
 		flex-grow: 2;
 		font-size: var(--font-xl);
 		font-weight: 700;
+		line-height: 1.2;
 	}
 
 	.what-to-do-description {
 		border: 2px solid var(--color-black);
 		border-radius: 12px;
-		padding: 1rem 2rem;
+		padding: 2rem;
 
 		text-align: center;
 		font-weight: 500;

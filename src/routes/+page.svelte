@@ -7,6 +7,7 @@
 	import HotelNumbers from '../components/HotelNumbers.svelte';
 	import Testimonials from '../components/Testimonials/Testimonials.svelte';
 	import Liberate from '../components/Liberate.svelte';
+	import TestimonialsContact from '../components/TestimonialsContact.svelte';
 </script>
 
 <svelte:head>
@@ -75,6 +76,7 @@
 	</h2>
 	<div class="landing-section testimonials-section">
 		<Testimonials />
+		<TestimonialsContact />
 	</div>
 	<h2 class="section-title map-title">
 		{$_('landing.map.title')}
@@ -87,7 +89,9 @@
 	</div>
 </div>
 <div class="liberate-section">
-	<Liberate />
+	<div class="liberate-container">
+		<Liberate />
+	</div>
 </div>
 
 <style>
@@ -229,6 +233,9 @@
 	}
 
 	.testimonials-section {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
 	}
 
 	.map-title {
@@ -247,5 +254,13 @@
 	.liberate-section {
 		width: 100%;
 		background-color: var(--color-lime);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.liberate-container {
+		width: 100%;
+		max-width: 1400px;
 	}
 </style>

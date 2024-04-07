@@ -41,7 +41,7 @@
 	"landing.solution.asia": "🌏 Omejitve v Maleziji, Tokiu, Singapurju, Sydneyju",
 	"liberatePage.head.title": "Osvobodi stanovalce",
 	"liberate.what-to-do.title": "Kaj lahko storim?<br/>POMAGAJ OZAVEŠČATI!",
-	"liberate.what-to-do.description": "Klikni na ključavnico in spremeni Airbnb nazaj v stanovanje za lokalce.",
+	"liberate.what-to-do.description": "Klikni na ključavnico in spremeni Airbnb<br />nazaj v stanovanje za lokalce.",
 	"liberateForm.title": "Odkleni Airbnb",
 	"liberateForm.share-step.subtitle": "Pomagaš lahko tako, da to povezavo deliš s čim več ljudmi!",
 	"liberateForm.share-step.prompt": "Si delil_a povezavo?",
@@ -51,6 +51,10 @@
 	"liberateForm.message-step.subtitle": "Želiš pustiti sporočilo? Vpiši ga v spodnje okence.",
 	"liberateForm.message-step.no-message": "Ne, hvala. Oddaj brez sporočila.",
 	"liberateForm.message-step.button": "Oddaj",
+	"testimonialsContent.title": "Imaš podobno zgodbo ali si opazil_a problem v tvoji okolici zaradi Airbnb-ja?",
+	"testimonialsContent.description": "Deli svojo izkušnjo in pomagaj pokazati, da so takšne stiske v Sloveniji prej pravilo kot izjema. Tako lahko sodeluješ v boju za pravičnejšo stanovanjsko politiko, saj lahko ukrepanje odgovornih sprožimo le s skupnimi močmi!",
+	"testimonialsContent.mail.part1": "Piši nam na ",
+	"testimonialsContent.mail.part2": " mi pa bomo tvoj zapis anonimizirali in objavili.",
 	"copy": "Kopiraj",
 	"source": "Vir"
 }

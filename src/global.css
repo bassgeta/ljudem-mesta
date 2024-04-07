@@ -34,7 +34,7 @@
 	--lh-xxl: 6.5rem;
 	--lh-xl: 3.125rem;
 	--lh-l: 1.75rem;
-	--lh-m: 1.75rem;
+	--lh-m: 1.5rem;
 	--lh-s: 1.25rem;
 }
 
@@ -219,6 +219,7 @@ a {
   border-radius: 20px;
   border: 2px solid black;
   transform-style: preserve-3d;
+  color: var(--color-black);
 }
 
 .liberate-card::after {
