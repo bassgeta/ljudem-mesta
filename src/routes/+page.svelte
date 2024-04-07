@@ -257,6 +257,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
+		padding-bottom: 3rem;
 	}
 
 	.liberate-container {

@@ -28,6 +28,25 @@ export type Apartment = {
 	message: string | null;
 };
 
+export async function fetchTotalLiberated() {
+	try {
+		const { count, error } = await supabase
+			.from(SUPABASE_TABLE_NAME)
+			.select('*', { count: 'exact' })
+			.eq('state', 'FREE');
+
+		console.log('kaj mona', count);
+
+		if (error) {
+			throw new Error(`Error fetching data: ${error.message}`);
+		}
+
+		return count;
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
 export async function fetchApartmentData() {
 	try {
 		// Fetch data from Supabase
