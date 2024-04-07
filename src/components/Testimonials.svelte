@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { register } from 'swiper/element/bundle';
+	import { register, type SwiperContainer } from 'swiper/element/bundle';
+	import ArrowShort from '$lib/assets/icons/arrow-short.svelte';
 	import { onMount } from 'svelte';
 	import { SHEET_ID } from '../constants/testimonials';
 
 	register();
+
 	let testimonials: string[] = [];
+	let swiperEl: SwiperContainer | undefined;
 
 	interface SheetsRow {
 		c: Array<{ v: string; f: string }>;
@@ -12,6 +15,14 @@
 
 	function extractTestmonials(rows: SheetsRow[]) {
 		testimonials = rows.map((i) => i.c[0].v);
+	}
+
+	function handlePreviousClick() {
+		swiperEl?.swiper?.slidePrev();
+	}
+
+	function handleNextClick() {
+		swiperEl?.swiper?.slideNext();
 	}
 
 	async function fetchTestimonials() {
@@ -28,21 +39,48 @@
 		}
 	}
 
+	function initiateSwiper() {
+		if (!swiperEl) {
+			return;
+		}
+
+		const swiperParams = {
+			slidesPerView: 1,
+			spaceBetween: 16,
+			breakpoints: {
+				1024: {
+					slidesPerView: 1.5
+				}
+			}
+		};
+
+		// now we need to assign all parameters to Swiper element
+		Object.assign(swiperEl, swiperParams);
+
+		// and now initialize it
+		swiperEl.initialize();
+	}
+
 	onMount(async () => {
 		await fetchTestimonials();
+		initiateSwiper();
 	});
-
-	console.log('testi', testimonials);
 </script>
 
 <div class="testimonials-container">
-	<swiper-container slides-per-view="{1}" class="slide" navigation="true">
+	<div class="pagination">
+		<button class="pagination-btn previous-arrow" on:click="{handlePreviousClick}">
+			<ArrowShort />
+		</button>
+		<button class="pagination-btn" on:click="{handleNextClick}">
+			<ArrowShort />
+		</button>
+	</div>
+	<swiper-container bind:this="{swiperEl}" init="false">
 		{#each testimonials as testimonial}
 			<swiper-slide class="slide">
-				<div class="info-card testimonial-card">
-					<div class="info-card-body">
-						{testimonial}
-					</div>
+				<div class="testimonial-card">
+					{testimonial}
 				</div>
 			</swiper-slide>
 		{/each}
@@ -53,12 +91,40 @@
 	.slide {
 		width: 100%;
 	}
+
 	.testimonials-container {
 		width: 100%;
 	}
+
 	.testimonial-card {
 		width: 100%;
 		background-color: var(--color-lime);
 		color: var(--color-black);
+		border-radius: 15px;
+		padding: 2rem;
+		font-size: var(--font-s);
+		line-height: var(--lh-s);
+	}
+
+	.pagination {
+		display: flex;
+		gap: 0.75rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.pagination-btn {
+		width: 48px;
+		height: 48px;
+		border-radius: 100%;
+		background-color: var(--color-white);
+		color: var(--color-black);
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.previous-arrow {
+		transform: rotate(180deg);
 	}
 </style>

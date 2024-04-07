@@ -225,7 +225,7 @@
 
 	.testimonials-title {
 		margin-top: 4rem;
-		margin-bottom: 3rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.testimonials-section {
