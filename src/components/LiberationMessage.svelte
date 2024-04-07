@@ -13,7 +13,6 @@
 	function onBubbleClick(newExpanded: boolean) {
 		isExpanded = newExpanded;
 	}
-	$: console.log('expand dong', isExpanded);
 </script>
 
 <svelte:window on:click="{onWindowClick}" />

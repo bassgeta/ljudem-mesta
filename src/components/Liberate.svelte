@@ -46,6 +46,7 @@
 
 	onMount(async () => {
 		const appartments = await fetchApartmentData();
+		console.log('apartmani', appartments);
 
 		if (appartments) {
 			appartments.forEach((apartment) => {
@@ -70,13 +71,15 @@
 				},
 				(payload) => {
 					const updatedApartment = payload.new;
+					// TODO typecheck here
 					if (floors.length - 1 < updatedApartment.floor) {
 						addNewApartment(
 							updatedApartment.id,
 							updatedApartment.floor,
 							updatedApartment.apartment,
 							updatedApartment.state,
-							updatedApartment.apartment_type
+							updatedApartment.apartment_type,
+							updatedApartment.message
 						);
 					} else {
 						floors[updatedApartment.floor].apartments[updatedApartment.apartment] = {
@@ -126,12 +129,12 @@
 				<div class="floor">
 					{#each floor.apartments as apartment}
 						<!-- {apartment.state} -->
-						{#if apartment.state === ApartmentStatus.AIRBNB}
+						{#if apartment && apartment.state === ApartmentStatus.AIRBNB}
 							<button class="apartment" on:click="{() => openLiberatePopup(apartment.id)}">
 								<img loading="lazy" src="{AIRBNB_IMAGE_URL}" class="apartment-image" />
 							</button>
 						{/if}
-						{#if apartment.state === ApartmentStatus.FREE}
+						{#if apartment && apartment.state === ApartmentStatus.FREE}
 							<div class="apartment">
 								<img
 									loading="lazy"
