@@ -2,7 +2,8 @@
 	import { register, type SwiperContainer } from 'swiper/element/bundle';
 	import ArrowShort from '$lib/assets/icons/arrow-short.svelte';
 	import { onMount } from 'svelte';
-	import { SHEET_ID } from '../constants/testimonials';
+	import { SHEET_ID } from '../../constants/testimonials';
+	import TestimonialCard from './blocks/TestimonialCard.svelte';
 
 	register();
 
@@ -45,7 +46,7 @@
 		}
 
 		const swiperParams = {
-			slidesPerView: 1,
+			slidesPerView: 1.1,
 			spaceBetween: 16,
 			breakpoints: {
 				1024: {
@@ -54,10 +55,8 @@
 			}
 		};
 
-		// now we need to assign all parameters to Swiper element
 		Object.assign(swiperEl, swiperParams);
 
-		// and now initialize it
 		swiperEl.initialize();
 	}
 
@@ -79,9 +78,7 @@
 	<swiper-container bind:this="{swiperEl}" init="false">
 		{#each testimonials as testimonial}
 			<swiper-slide class="slide">
-				<div class="testimonial-card">
-					{testimonial}
-				</div>
+				<TestimonialCard testimonial="{testimonial}" />
 			</swiper-slide>
 		{/each}
 	</swiper-container>
@@ -94,16 +91,6 @@
 
 	.testimonials-container {
 		width: 100%;
-	}
-
-	.testimonial-card {
-		width: 100%;
-		background-color: var(--color-lime);
-		color: var(--color-black);
-		border-radius: 15px;
-		padding: 2rem;
-		font-size: var(--font-s);
-		line-height: var(--lh-s);
 	}
 
 	.pagination {

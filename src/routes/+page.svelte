@@ -5,7 +5,7 @@
 	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte';
 	import ComparisonTable from '../components/ComparisonTable.svelte';
 	import HotelNumbers from '../components/HotelNumbers.svelte';
-	import Testimonials from '../components/Testimonials.svelte';
+	import Testimonials from '../components/Testimonials/Testimonials.svelte';
 	import Liberate from '../components/Liberate.svelte';
 </script>
 
