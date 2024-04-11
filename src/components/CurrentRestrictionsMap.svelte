@@ -2,6 +2,7 @@
 	import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
 	import mapbox from 'mapbox-gl';
 	import { onMount, onDestroy, tick } from 'svelte';
+	import clap from '$lib/assets/clap.png';
 
 	let map: mapbox.Map;
 	let mapContainer: HTMLDivElement;
@@ -37,7 +38,8 @@
 			style: `mapbox://styles/mapbox/outdoors-v11`,
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom,
-			worldview: 'US'
+			worldview: 'US',
+
 		});
 
 		map.on('load', function () {
@@ -188,7 +190,7 @@
 					const msg = getMessageForCountry(countryISO3);
 
 					if (msg) {
-						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(msg).addTo(map);
+						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(`<img class="clap" src="${clap}" />` + msg).addTo(map);
 					}
 				} else {
 					map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', '']);
@@ -250,7 +252,7 @@
 	}
 
 	:global(.mapboxgl-popup-content) {
-		background: var(--color-dark-grey) !important;
+		background: #4A4A4A !important;
 		color: var(--text-primary);
 		border-radius: 19px;
 	}
@@ -274,5 +276,12 @@
 	}
 	:global(.mapboxgl-popup-anchor-right .mapboxgl-popup-tip) {
 		border-left-color: var(--color-dark-grey);
+	}
+	:global(.clap) {
+		width: 60px;
+		height: 50px;
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
 	}
 </style>
