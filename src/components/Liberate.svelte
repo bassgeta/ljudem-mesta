@@ -27,6 +27,11 @@
 	<div class="building-container">
 		<ApartmentBuilding />
 	</div>
+	{#if dev}
+	<div class="devdb">
+		<DevDbControls />
+	</div>
+	{/if}
 	<p class="total-liberated">
 		Skupaj smo osvobodili že <span class="total-number">{totalLiberated}</span> stanovanj!
 	</p>
@@ -35,11 +40,6 @@
 		<Arrow />
 	</a>
 
-	{#if dev}
-	<div class="devdb">
-		<DevDbControls />
-	</div>
-	{/if}
 </div>
 
 <style>
