@@ -1,5 +1,4 @@
 <script lang="ts">
-	import banner from '$lib/assets/banner.png';
 	import { _ } from 'svelte-i18n';
 	import IncomeChart from '../components/IncomeChart.svelte';
 	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte';
@@ -8,6 +7,7 @@
 	import Testimonials from '../components/Testimonials/Testimonials.svelte';
 	import Liberate from '../components/Liberate.svelte';
 	import TestimonialsContact from '../components/TestimonialsContact.svelte';
+	import Header from './blocks/Header.svelte';
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div class="landing">
-	<img class="banner" src="{banner}" alt="airbnb-domov" />
+	<Header />
 	<p class="top-header">{$_('landing.topHeader')}</p>
 	<div class="landing-section info-cards">
 		<div class="info-card info-card-purple">
@@ -103,6 +103,7 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		padding-top: 2rem;
 	}
 
 	.top-header {
