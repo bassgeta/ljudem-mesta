@@ -102,9 +102,16 @@
 		apartmentToLiberate = null;
 	}
 
-	function handleLiberateSubmit(selectedType: ApartmentType, message: string) {
+	async function handleLiberateSubmit(selectedType: ApartmentType, message: string) {
+		const response = await fetch('/api/liberate', {
+			method: 'POST',
+			body: JSON.stringify({ apartmentId: apartmentToLiberate, apartmentType: selectedType, message }),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+
 		console.log('sabumito!', { apartmentToLiberate, selectedType, message });
-		liberateApartment(apartmentToLiberate, selectedType, message);
 		apartmentToLiberate = null;
 	}
 </script>
