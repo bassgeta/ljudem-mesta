@@ -10,6 +10,23 @@
 	let lat = 47.213995;
 	let zoom = 4;
 
+	const goodCountries = [
+		'AUT',
+		'NLD',
+		'ITA',
+		'FRA',
+		'DEU',
+		'ESP',
+		'GBR',
+		'USA',
+		'CAN',
+		'PRT',
+		'MYS',
+		'JPN',
+		'SGP',
+		'AUS'
+	];
+
 	onMount(() => {
 		const initialState = { lng: lng, lat: lat, zoom: zoom };
 
@@ -33,35 +50,19 @@
 						type: 'vector',
 						url: 'mapbox://mapbox.country-boundaries-v1'
 					},
+
 					'source-layer': 'country_boundaries',
 					type: 'fill',
 					paint: {
 						'fill-outline-color': 'black',
-						'fill-color': 'var(--color-dark-grey)fff',
+						'fill-color': '#ADEA98',
 						'fill-opacity': 0.7
 					}
 				},
 				'country-label'
 			);
 
-			map.setFilter('them-good-countries', [
-				'in',
-				'iso_3166_1_alpha_3',
-				'AUT',
-				'NLD',
-				'ITA',
-				'FRA',
-				'DEU',
-				'ESP',
-				'GBR',
-				'USA',
-				'CAN',
-				'PRT',
-				'MYS',
-				'JPN',
-				'SGP',
-				'AUS'
-			]);
+			map.setFilter('them-good-countries', ['in', 'iso_3166_1_alpha_3', goodCountries].flat());
 
 			map.addLayer(
 				{
@@ -74,7 +75,7 @@
 					type: 'fill',
 					paint: {
 						'fill-outline-color': 'black',
-						'fill-color': 'grey',
+						'fill-color': '#F19DAA',
 						'fill-opacity': 1
 					}
 				},
@@ -84,26 +85,24 @@
 			map.setFilter('terrible-countries', [
 				'!in',
 				'iso_3166_1_alpha_3',
-				'AUT',
-				'NLD',
-				'ITA',
-				'FRA',
-				'DEU',
-				'ESP',
-				'GBR',
-				'USA',
-				'CAN',
-				'PRT',
-				'MYS',
-				'JPN',
-				'SGP',
-				'AUS',
-				'SVN'
-			]);
+				goodCountries
+			].flat());
+
+			map.addLayer({
+				id: 'water-overlay-layer',
+				source: 'composite',
+				'source-layer': 'water',
+				type: 'fill',
+				minzoom: 0,
+				paint: {
+					'fill-color': '#8ACCEC',
+					'fill-opacity': 1
+				}
+			});
 
 			map.addLayer(
 				{
-					id: 'slovenialool',
+					id: 'clicked-country',
 					source: {
 						type: 'vector',
 						url: 'mapbox://mapbox.country-boundaries-v1'
@@ -112,14 +111,14 @@
 					type: 'fill',
 					paint: {
 						'fill-outline-color': 'black',
-						'fill-color': '#ffd700',
+						'fill-color': '#79FC4C',
 						'fill-opacity': 1
 					}
 				},
 				'country-label'
 			);
 
-			map.setFilter('slovenialool', ['==', 'iso_3166_1_alpha_3', 'SVN']);
+			map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', '']);
 
 			map.addSource('cbs', {
 				// country-boundaries-simplified
@@ -183,10 +182,22 @@
 			map.on('click', 'state-fills', (e) => {
 				const countryISO3 = e.features![0].properties!.adm0_a3_is;
 
-				const msg = getMessageForCountry(countryISO3);
+				if (goodCountries.includes(countryISO3)) {
+					map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', countryISO3]);
 
-				if (msg) {
-					new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(msg).addTo(map);
+					const msg = getMessageForCountry(countryISO3);
+
+					if (msg) {
+						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(msg).addTo(map);
+					}
+				} else {
+					map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', '']);
+				}
+			});
+
+			map.style.stylesheet.layers.forEach(function (layer) {
+				if (layer.type === 'symbol') {
+					map.setLayoutProperty(layer.id, 'visibility', 'none');
 				}
 			});
 		});
