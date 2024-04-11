@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
 	import { onMount } from 'svelte';
 	import Chart from 'chart.js/auto';
 
@@ -83,9 +84,8 @@
 		</div>
 	</div>
 	<div class="chart-description">
-		Podatki iz tujine kažejo, da enoodstotno povečanje števila enot, ki se oddajajo prek Airbnbja,
-		povzroči, da se za okoli en odstotek zvišajo tudi cene stanovanj in najemnine.
-		<sub>Vir: Lorem ipsum</sub>
+		{$_('incomeChart.description')}
+		<sub>{$_('source')}</sub>
 	</div>
 </div>
 

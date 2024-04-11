@@ -31,6 +31,7 @@
 				<p class="info-card-content">{$_('landing.airbnbApartments.content')}</p>
 				<a
 					class="info-source"
+					target="_blank"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
 					>{$_('source')}</a>
 			</div>
@@ -48,6 +49,7 @@
 				<p class="info-card-content">{$_('landing.hostNumbers.content')}</p>
 				<a
 					class="info-source"
+					target="_blank"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
 					>{$_('source')}</a>
 			</div>

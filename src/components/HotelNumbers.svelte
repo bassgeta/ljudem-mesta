@@ -10,6 +10,7 @@
 			</p>
 			<a
 				class="hotel-numbers-source"
+				target="_blank"
 				href="https://www.mladina.si/229092/airbnb-nepremicninski-divji-zahod/">{$_('source')}</a>
 		</div>
 	</div>
