@@ -4,6 +4,8 @@
 	import { onMount } from 'svelte';
 	import { fetchTotalLiberated } from '../utils/liberation';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
+	import DevDbControls from './DevDBControls.svelte';
+	import { dev } from '$app/environment';
 
 	let totalLiberated = 0;
 
@@ -32,6 +34,12 @@
 		<span>{$_('liberate.go-to-map')}</span>
 		<Arrow />
 	</a>
+
+	{#if dev}
+	<div class="devdb">
+		<DevDbControls />
+	</div>
+	{/if}
 </div>
 
 <style>

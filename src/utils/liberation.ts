@@ -2,7 +2,7 @@ import supabase from '$lib/supabase';
 import { SUPABASE_TABLE_NAME } from '../constants/supabase';
 import { error } from '@sveltejs/kit';
 
-const FLATS_PER_FLOOR = 5;
+const FLATS_PER_FLOOR = 4;
 const AIRBNB_PER_FLAT = 0.4;
 
 // tmp type for types
@@ -109,7 +109,7 @@ async function generateApartment(floor: number, appartment_number: number) {
 	return newAppartment;
 }
 
-export async function generateApartments(quantity: number) {
+export async function generateApartments() {
 	const apartments = [];
 	let lastFloorData = await fetchLastFloorData();
 	const fresh = lastFloorData === null ? true : false;
