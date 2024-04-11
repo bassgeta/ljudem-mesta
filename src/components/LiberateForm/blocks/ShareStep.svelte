@@ -4,7 +4,7 @@
 
 	export let handleSubmit = () => {};
 
-	const url = 'www.airbnbpejddomov.si';
+	const url = 'www.airbnbpejtdomov.si';
 	let isCopied = false;
 
 	async function copyToClipboard() {
