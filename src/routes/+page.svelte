@@ -31,6 +31,7 @@
 				<p class="info-card-content">{$_('landing.airbnbApartments.content')}</p>
 				<a
 					class="info-source"
+					target="_blank"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
 					>{$_('source')}</a>
 			</div>
@@ -48,6 +49,7 @@
 				<p class="info-card-content">{$_('landing.hostNumbers.content')}</p>
 				<a
 					class="info-source"
+					target="_blank"
 					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
 					>{$_('source')}</a>
 			</div>
@@ -109,6 +111,7 @@
 		font-weight: 500;
 		margin: 3rem 0;
 		text-align: center;
+		text-wrap: balance;
 	}
 
 	.banner {
@@ -164,6 +167,7 @@
 		margin-bottom: 1.5rem;
 		font-size: var(--font-m);
 		line-height: var(--lh-m);
+		text-wrap: balance;
 	}
 
 	.info-card-purple {
@@ -220,11 +224,6 @@
 	.chart-container {
 		width: 100%;
 		max-width: calc(1400px - 3rem);
-		min-height: 60vh;
-
-		@media screen and (max-width: 767px) {
-			height: 75vh;
-		}
 	}
 
 	.testimonials-title {
@@ -252,17 +251,35 @@
 	}
 
 	.liberate-section {
-		width: 100%;
+		margin-left: calc(-1 * var(--hpadding));
+		margin-right: calc(-1 * var(--hpadding));
+
+		width: 100vw;
 		background-color: var(--color-lime);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 
+		padding: 0 var(--hpadding);
 		padding-bottom: 3rem;
 	}
 
 	.liberate-container {
 		width: 100%;
 		max-width: 1400px;
+		padding-top: 4rem;
+		position: relative;
+		&::after {
+			content: '';
+			width: 100%;
+			height: 4rem;
+			background: var(--bg-low);
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-bottom-left-radius: 4rem;
+			border-bottom-right-radius: 4rem;
+			box-shadow: 0 0.2rem 1rem var(--color-dark-grey);
+		}
 	}
 </style>

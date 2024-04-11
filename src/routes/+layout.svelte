@@ -17,5 +17,6 @@
 		flex-direction: column;
 		align-items: center;
 		overflow-x: hidden;
+		padding: 0 var(--hpadding);
 	}
 </style>
