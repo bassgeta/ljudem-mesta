@@ -15,8 +15,6 @@
 	}
 </script>
 
-<svelte:window on:click="{onWindowClick}" />
-
 <button
 	bind:this="{container}"
 	class="message-wrapper"

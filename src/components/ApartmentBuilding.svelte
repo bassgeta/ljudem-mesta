@@ -105,7 +105,11 @@
 	async function handleLiberateSubmit(selectedType: ApartmentType, message: string) {
 		const response = await fetch('/api/liberate', {
 			method: 'POST',
-			body: JSON.stringify({ apartmentId: apartmentToLiberate, apartmentType: selectedType, message }),
+			body: JSON.stringify({
+				apartmentId: apartmentToLiberate,
+				apartmentType: selectedType,
+				message
+			}),
 			headers: {
 				'content-type': 'application/json'
 			}
@@ -195,7 +199,7 @@
 	.apartment {
 		position: relative;
 		min-width: 200px;
-		min-height: 250px;
+		min-height: 150px;
 	}
 
 	.apartment-image {
