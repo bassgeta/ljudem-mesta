@@ -135,6 +135,7 @@
 		margin-top: 2rem;
 		font-weight: 900;
 		text-align: center;
+		margin-bottom: 1rem;
 	}
 
 	.comparison-table-income-title {

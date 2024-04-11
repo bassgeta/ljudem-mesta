@@ -8,6 +8,7 @@
 	import Liberate from '../components/Liberate.svelte';
 	import TestimonialsContact from '../components/TestimonialsContact.svelte';
 	import Header from './blocks/Header.svelte';
+	import InfoCards from './blocks/InfoCards.svelte';
 </script>
 
 <svelte:head>
@@ -17,43 +18,8 @@
 <div class="landing">
 	<Header />
 	<p class="top-header">{$_('landing.topHeader')}</p>
-	<div class="landing-section info-cards">
-		<div class="info-card info-card-purple">
-			<div class="info-card-body">
-				<h2 class="info-card-title">
-					{$_('landing.airbnbApartments.title', {
-						values: {
-							total: 1515
-						}
-					})}
-				</h2>
-				<p class="info-card-title-appendix">{$_('landing.airbnbApartments.titleAppendix')}</p>
-				<p class="info-card-content">{$_('landing.airbnbApartments.content')}</p>
-				<a
-					class="info-source"
-					target="_blank"
-					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
-					>{$_('source')}</a>
-			</div>
-		</div>
-		<div class="info-card info-card-lime">
-			<div class="info-card-body">
-				<h2 class="info-card-title">
-					{$_('landing.hostNumbers.title', {
-						values: {
-							percent: 92
-						}
-					})}
-				</h2>
-				<p class="info-card-title-appendix">{$_('landing.hostNumbers.titleAppendix')}</p>
-				<p class="info-card-content">{$_('landing.hostNumbers.content')}</p>
-				<a
-					class="info-source"
-					target="_blank"
-					href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
-					>{$_('source')}</a>
-			</div>
-		</div>
+	<div class="landing-section">
+		<InfoCards />
 	</div>
 	<h2 class="section-title salary-title">
 		{$_('landing.salary.title')}
@@ -129,63 +95,6 @@
 			width: 100%;
 			padding: 0 0.5rem;
 		}
-	}
-
-	.info-cards {
-		width: 100%;
-
-		display: flex;
-		flex-wrap: wrap;
-		align-items: stretch;
-		justify-content: space-between;
-		gap: 2rem;
-
-		@media screen and (max-width: 767px) {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		& > div {
-			max-width: 580px;
-			flex: 1;
-		}
-	}
-
-	.info-card-title {
-		font-size: var(--font-xxxl);
-		line-height: var(--lh-xxxl);
-		font-weight: bold;
-	}
-
-	.info-card-title-appendix {
-		font-size: var(--font-l);
-		line-height: var(--lh-l);
-		font-weight: bold;
-	}
-
-	.info-card-content {
-		margin-top: 2rem;
-		margin-bottom: 1.5rem;
-		font-size: var(--font-m);
-		line-height: var(--lh-m);
-		text-wrap: balance;
-	}
-
-	.info-card-purple {
-		background-color: var(--color-purple);
-		color: var(--color-white);
-	}
-
-	.info-card-lime {
-		background-color: var(--color-lime);
-		color: var(--text-secondary);
-	}
-
-	.info-source {
-		margin-top: auto;
-		font-size: var(--font-s);
-		line-height: var(--lh-s);
-		font-style: italic;
 	}
 
 	.section-title {
