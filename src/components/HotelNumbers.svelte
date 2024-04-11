@@ -35,6 +35,7 @@
 	.hotel-numbers-text {
 		font-size: var(--font-m);
 		line-height: var(--lh-m);
+		text-wrap: balance;
 	}
 
 	.hotel-numbers-source {

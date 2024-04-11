@@ -3,19 +3,19 @@
 	import Chart from 'chart.js/auto';
 
 	let chartValues = [1480, 1800, 2200, 2450];
-	let chartLabels = ['Plača neto', 'AirBnB neto', 'Plača bruto', 'AirBnB bruto'];
+	let chartLabels = ['Neto Plača', 'AirBnB neto', 'Bruto plača', 'AirBnB bruto'];
 	let ctx;
-	let chartCanvas;
+	let chartCanvas: HTMLCanvasElement;
 
 	onMount(() => {
 		const style = getComputedStyle(document.body);
-		const greenColor = style.getPropertyValue('--color-green');
+		const blueColor = style.getPropertyValue('--color-blue');
 		const redColor = style.getPropertyValue('--color-red');
 		const blackColor = style.getPropertyValue('--color-black');
 
 		ctx = chartCanvas.getContext('2d');
 
-		new Chart(ctx, {
+		new Chart(ctx!, {
 			type: 'bar',
 			options: {
 				maintainAspectRatio: false,
@@ -33,6 +33,9 @@
 						}
 					},
 					y: {
+						grid: {
+							drawOnChartArea: false
+						},
 						ticks: {
 							color: blackColor,
 							font: {
@@ -40,7 +43,9 @@
 								size: 14
 							},
 							callback: function (value) {
-								return value + '€';
+								if (value === 0) return '0€';
+								if (typeof value === 'string') return `${value}€`;
+								return `${Math.round(value / 100) / 10}k`;
 							}
 						}
 					}
@@ -48,6 +53,9 @@
 				plugins: {
 					legend: {
 						display: false
+					},
+					tooltip: {
+						caretSize: 0
 					}
 				}
 			},
@@ -55,9 +63,10 @@
 				labels: chartLabels,
 				datasets: [
 					{
-						backgroundColor: [greenColor, redColor, greenColor, redColor],
+						backgroundColor: [blueColor, redColor, blueColor, redColor],
 						label: 'Plača',
-						data: chartValues
+						data: chartValues,
+						borderRadius: 20
 					}
 				]
 			}
@@ -65,19 +74,73 @@
 	});
 </script>
 
-<div class="chart-container-outer">
-	<div class="chart-container-inner">
-		<canvas class="canvas-container" bind:this="{chartCanvas}" id="incomeChart"></canvas>
+<div class="chart-content">
+	<div class="chart-section">
+		<div class="chart-container-outer">
+			<div class="chart-container-inner">
+				<canvas class="canvas-container" bind:this="{chartCanvas}" id="incomeChart"></canvas>
+			</div>
+		</div>
+	</div>
+	<div class="chart-description">
+		Podatki iz tujine kažejo, da enoodstotno povečanje števila enot, ki se oddajajo prek Airbnbja,
+		povzroči, da se za okoli en odstotek zvišajo tudi cene stanovanj in najemnine.
+		<sub>Vir: Lorem ipsum</sub>
 	</div>
 </div>
 
 <style>
+	.chart-content {
+		display: flex;
+		background: var(--color-blue);
+		border-radius: 25px;
+		@media screen and (max-width: 900px) {
+			flex-direction: column;
+			& > .chart-description,
+			& > .chart-section {
+				flex: unset;
+			}
+		}
+	}
+	.chart-description {
+		flex: 1;
+		color: var(--color-black);
+		padding: 32px;
+		text-wrap: balance;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 16px;
+		line-height: 1.5rem;
+		& > sub {
+			font-size: 0.8rem;
+			font-style: italic;
+		}
+	}
+	.chart-section {
+		flex: 2;
+		height: 60vh;
+		/* max-width: 100%; */
+		min-height: min(60vh, 500px);
+		max-height: min(60vh, 500px);
+		position: relative;
+		min-width: 0;
+
+		@media screen and (max-width: 767px) {
+			height: 40vh;
+			min-height: min(40vh, 500px);
+			max-height: min(40vh, 500px);
+		}
+	}
 	.chart-container-outer {
+		min-width: 0;
+		width: 100%;
 		width: 100%;
 		height: 100%;
 		background-color: var(--color-white);
 		border-radius: 25px;
 		padding: 1rem;
+		position: relative;
 	}
 
 	.chart-container-inner {
@@ -92,5 +155,8 @@
 
 	.canvas-container {
 		width: 100%;
+		@media screen and (max-width: 767px) {
+			pointer-events: none;
+		}
 	}
 </style>

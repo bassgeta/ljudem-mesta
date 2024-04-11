@@ -45,10 +45,15 @@
 		color: var(--color-white);
 		border-radius: 25px;
 		border: 2px solid var(--color-white);
+		text-wrap: balance;
 
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: 1000px) {
 			flex-direction: column;
 			text-align: center;
+
+			& .contact-arrow {
+				transform: rotate(90deg);
+			}
 		}
 	}
 
