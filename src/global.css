@@ -3,18 +3,18 @@
 	--color-white: #fff;
 	--color-dark-grey: #1e1e1e;
 	--color-light-grey: #f2f2f2;
-	--color-medium-grey: #DBDBDB;
+	--color-medium-grey: #dbdbdb;
 	--color-purple: #7500eb;
 	--color-blue: #00a3ff;
 
 	--color-light-green: #dcf8d7;
 	--color-lime: #ecffa2;
 	--color-green: #9bec8e;
-	--color-neon-green: #23FF00;
+	--color-neon-green: #23ff00;
 	--color-dark-green: #17634e;
 
 	--color-orange: #ef8232;
-	--color-red: #ff98aa;
+	--color-red: #ff385c;
 	--color-pink: #ffe0e5;
 
 	--bg-low: var(--color-dark-grey);
@@ -36,6 +36,9 @@
 	--lh-l: 1.75rem;
 	--lh-m: 1.5rem;
 	--lh-s: 1.25rem;
+
+	--size: 1000px;
+	--hpadding: max(16px, calc(calc(100vw - var(--size)) / 2));
 }
 
 * {
@@ -199,50 +202,50 @@ a {
 }
 
 .info-card {
-  border-radius: 25px;
-  padding: 1rem;
+	border-radius: 25px;
+	padding: 1rem;
 }
 
 .info-card-body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
-  border-radius: 11px;
-  border: 2px solid;
-  padding: 1.5rem;
+	border-radius: 11px;
+	border: 2px solid;
+	padding: 1.5rem;
 }
 
 .shadowed-card {
-  position: relative;
-  border-radius: 20px;
-  border: 2px solid black;
-  transform-style: preserve-3d;
-  color: var(--color-black);
+	position: relative;
+	border-radius: 20px;
+	border: 2px solid black;
+	transform-style: preserve-3d;
+	color: var(--color-black);
 }
 
 .shadowed-card::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  right: -6px;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: black;
-  transform: translateZ(-1px);
+	content: '';
+	position: absolute;
+	bottom: -6px;
+	right: -6px;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	background-color: black;
+	transform: translateZ(-1px);
 }
 
 .shadowed-button {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 
-  background-color: var(--color-white);
-  font-weight: 700;
-  font-size: var(--font-m);
-  text-decoration: none;
+	background-color: var(--color-white);
+	font-weight: 700;
+	font-size: var(--font-m);
+	text-decoration: none;
 
-  padding: 1rem 1.5rem;
+	padding: 1rem 1.5rem;
 }

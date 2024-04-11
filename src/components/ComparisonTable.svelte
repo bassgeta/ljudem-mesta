@@ -95,11 +95,15 @@
 		gap: 2rem;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+		}
 	}
 
 	.comparison-table-outer {
-		height: 50rem;
-		max-width: 580px;
+		flex: 1;
+		/* height: 50rem; */
+		/* max-width: 580px; */
 
 		border-radius: 25px;
 		padding: 1rem;
@@ -203,6 +207,7 @@
 		text-align: start;
 		font-size: var(--font-s);
 		color: var(--text-secondary);
+		text-wrap: balance;
 	}
 
 	.shorter-explanation {
@@ -210,7 +215,7 @@
 	}
 
 	.comparison-table-airbnb {
-		height: 29.25rem;
+		height: 20.25rem;
 	}
 
 	.comparison-table-rent {

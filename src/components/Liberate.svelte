@@ -66,6 +66,7 @@
 		font-size: var(--font-xl);
 		font-weight: 700;
 		line-height: 1.2;
+		text-wrap: balance;
 	}
 
 	.what-to-do-description {
@@ -76,6 +77,7 @@
 		text-align: center;
 		font-weight: 500;
 		font-size: var(--font-m);
+		text-wrap: balance;
 	}
 
 	.building-container {
