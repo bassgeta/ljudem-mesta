@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../supress-console';
 	import { _ } from 'svelte-i18n';
 	import IncomeChart from '../components/IncomeChart.svelte';
 	import CurrentRestrictionsMap from '../components/CurrentRestrictionsMap.svelte';
