@@ -23,7 +23,7 @@
 	}
 
 	function onMessageComplete(message: string) {
-		if (!selectedType) {
+		if (typeof selectedType !== 'number' || selectedType < 0) {
 			return;
 		}
 		handleSubmit(selectedType, message);
