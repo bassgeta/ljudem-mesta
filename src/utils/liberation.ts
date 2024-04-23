@@ -1,9 +1,12 @@
 import supabase from '$lib/supabase';
 import { SUPABASE_TABLE_NAME } from '../constants/supabase';
 import { error } from '@sveltejs/kit';
+import { z } from 'zod';
+import thenby from 'thenby';
+const { firstBy } = thenby;
 
-const FLATS_PER_FLOOR = 4;
-const AIRBNB_PER_FLAT = 0.4;
+const FLATS_PER_FLOOR = 3;
+const AIRBNB_PER_FLAT = 1;
 
 // tmp type for types
 export enum ApartmentType {
@@ -20,13 +23,22 @@ export enum ApartmentStatus {
 	AIRBNB = 'AIRBNB'
 }
 
-export type Apartment = {
-	id: number;
-	number: number;
-	state: ApartmentStatus;
-	apartment_type: number;
-	message: string | null;
-};
+const ApartmentSchema = z.object({
+	id: z.number(),
+	created_at: z.string().transform((s) => new Date(s)),
+	floor: z.number(),
+	apartment: z.number(),
+	state: z.enum(['AIRBNB', 'FREE']),
+	apartment_type: z.number(),
+	unlocked_at: z
+		.string()
+		.transform((s) => new Date(s))
+		.nullable(),
+	message: z.string().nullable()
+});
+export type Apartment = z.infer<typeof ApartmentSchema>;
+
+const ApartmentArray = ApartmentSchema.array();
 
 export async function fetchTotalLiberated() {
 	try {
@@ -56,9 +68,11 @@ export async function fetchApartmentData() {
 			throw new Error(`Error fetching data: ${error.message}`);
 		}
 
-		return data;
+		return ApartmentArray.parse(data);
 	} catch (error) {
 		console.error(error.message);
+
+		return [] as z.infer<typeof ApartmentArray>;
 	}
 }
 
@@ -71,17 +85,20 @@ export async function fetchLastFloorData() {
 			.order('floor', { ascending: false })
 			.limit(1);
 
-		if (!data || data?.length == 0) {
-			console.log(data);
+		const apartments = ApartmentArray.parse(data ?? []);
+
+		if (apartments.length == 0) {
 			return null;
 		}
+		const [apartment] = apartments;
 
 		const { count } = await supabase
 			.from(SUPABASE_TABLE_NAME)
 			.select('*', { count: 'exact' })
-			.eq('floor', data[0].floor);
+			.eq('floor', apartment.floor)
+			.limit(3);
 
-		return { floor: data[0].floor, count };
+		return { floor: apartment.floor, count };
 	} catch (error) {
 		console.error(error.message);
 	}
@@ -96,7 +113,7 @@ export async function removeAppartments(count?: number, floor?: number) {
 }
 
 async function generateApartment(floor: number, appartment_number: number) {
-	const state = Math.random() < AIRBNB_PER_FLAT ? ApartmentStatus.AIRBNB : ApartmentStatus.FREE;
+	const state = Math.random() <= AIRBNB_PER_FLAT ? ApartmentStatus.AIRBNB : ApartmentStatus.FREE;
 
 	const newAppartment = {
 		state,
@@ -105,32 +122,20 @@ async function generateApartment(floor: number, appartment_number: number) {
 		floor
 	};
 	const { error } = await supabase.from(SUPABASE_TABLE_NAME).insert(newAppartment);
+	if (error) console.error(error);
 
 	return newAppartment;
 }
 
 export async function generateApartments() {
-	const apartments = [];
-	let lastFloorData = await fetchLastFloorData();
-	const fresh = lastFloorData === null ? true : false;
-
-	if (lastFloorData === null) {
-		lastFloorData = { floor: 0, count: 0 };
-	}
-
-	let missingFlatsTillNextFloor = FLATS_PER_FLOOR;
-	const currentFloor = !fresh ? lastFloorData?.floor! + 1 : lastFloorData?.floor!;
-
-	for (let i = 0; i < FLATS_PER_FLOOR; i++) {
-		const newAppartment = await generateApartment(
-			currentFloor,
-			FLATS_PER_FLOOR - missingFlatsTillNextFloor
-		);
-
-		apartments.push(newAppartment);
-
-		missingFlatsTillNextFloor -= 1;
-	}
+	const current = await fetchApartmentData();
+	const plusOneGrid = apartmentGrid(current, 1);
+	const newApartments = plusOneGrid
+		.filter((app) => app.id === -1)
+		.map(({ id: _, ...rest }) => rest);
+	await Promise.all(
+		newApartments.map((newApp) => supabase.from(SUPABASE_TABLE_NAME).insert(newApp))
+	);
 }
 
 export async function liberateApartment(apartmentId: number, type: ApartmentType, message: string) {
@@ -140,4 +145,83 @@ export async function liberateApartment(apartmentId: number, type: ApartmentType
 		.eq('id', apartmentId);
 
 	// console.log('erar', error);
+}
+
+export async function handleLiberateSubmit(
+	apartmentId: number,
+	apartmentType: number,
+	message?: string
+) {
+	return fetch('/api/liberate', {
+		method: 'POST',
+		body: JSON.stringify({
+			apartmentId,
+			apartmentType,
+			message
+		}),
+		headers: {
+			'content-type': 'application/json'
+		}
+	});
+}
+
+export function subscribeToApartments(callback: (app: Apartment) => any) {
+	const connection = supabase
+		.channel('schema-db-changes')
+		.on(
+			'postgres_changes',
+			{
+				event: '*',
+				schema: 'public',
+				table: SUPABASE_TABLE_NAME
+			},
+			(payload) => {
+				console.log({ payload });
+				if (payload.new) callback(ApartmentSchema.parse(payload.new));
+			}
+		)
+		.subscribe();
+	return () => connection.unsubscribe();
+}
+
+export function applyNewApartment(apartments: Apartment[], apartment: Apartment) {
+	const obj = Object.fromEntries(apartments.map((app) => [getApartmentKey(app), app]));
+	obj[getApartmentKey(apartment)] = apartment;
+	return Object.values(obj);
+}
+
+function getApartmentKey(app: Apartment) {
+	return `${app.floor}-${app.apartment}` as `${number}-${number}`;
+}
+
+export function apartmentGrid(aparments: Apartment[], plusRows = 0) {
+	const current = Object.fromEntries(aparments.map((app) => [getApartmentKey(app), app]));
+
+	const floors = aparments.reduce((max, curr) => Math.max(max, curr.floor), 0) + 1 + plusRows;
+	const blanks = Object.fromEntries(
+		new Array(floors).fill(null).flatMap((_, floor) =>
+			new Array(3).fill(null).map(
+				(_, apartment) =>
+					[
+						`${floor}-${apartment}`,
+						{
+							floor,
+							apartment,
+							apartment_type: 0,
+							created_at: new Date(),
+							message: null,
+							state: 'AIRBNB',
+							unlocked_at: null,
+							id: -1
+						}
+					] as const
+			)
+		)
+	);
+	return (
+		Object.values({
+			...blanks,
+			...current
+		}) as Apartment[]
+	).sort(firstBy('floor', 'desc').thenBy('apartment', 'asc'));
 }
