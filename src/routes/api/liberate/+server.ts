@@ -23,7 +23,7 @@ export async function POST(data) {
 
 	const { error } = await supabase
 		.from(SUPABASE_TABLE_NAME)
-		.update({ state: 'FREE', apartment_type: apartmentType })
+		.update({ state: 'FREE', apartment_type: apartmentType, message: message.substring(0, 500) })
 		.eq('id', apartmentId);
 
 	if (error) {
