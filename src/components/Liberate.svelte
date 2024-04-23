@@ -6,6 +6,7 @@
 	import Arrow from '$lib/assets/icons/arrow.svelte';
 	import DevDbControls from './DevDBControls.svelte';
 	import { dev } from '$app/environment';
+	import Block from './Block/Block.svelte';
 
 	let totalLiberated = 0;
 
@@ -24,22 +25,25 @@
 			{@html $_('liberate.what-to-do.description')}
 		</div>
 	</div>
-	<div class="building-container">
+	<!-- <div class="building-container">
 		<ApartmentBuilding />
-	</div>
+	</div> -->
+	<Block />
 	{#if dev}
-	<div class="devdb">
-		<DevDbControls />
-	</div>
+		<div class="devdb">
+			<DevDbControls />
+		</div>
 	{/if}
 	<p class="total-liberated">
-		Skupaj smo osvobodili že <span class="total-number">{totalLiberated}</span> stanovanj!
+		<!-- Skupaj smo osvobodili že <span class="total-number">{totalLiberated}</span> stanovanj! -->
+		{@html $_('liberatePage.counter.message', {
+			values: { n: totalLiberated }
+		})}
 	</p>
 	<a class="shadowed-card shadowed-button map-link" href="/liberate">
 		<span>{$_('liberate.go-to-map')}</span>
 		<Arrow />
 	</a>
-
 </div>
 
 <style>
@@ -51,6 +55,9 @@
 		align-items: center;
 
 		padding: 0 1.5rem;
+		@media only screen and (max-width: 767px) {
+			padding: 0;
+		}
 		padding-bottom: 4rem;
 		color: var(--color-black);
 	}
@@ -102,10 +109,9 @@
 		font-size: var(--font-xl);
 		font-weight: 900;
 		margin: 3rem 0 1.5rem 0;
-	}
-
-	.total-number {
-		background-color: var(--color-neon-green);
+		& span {
+			background-color: var(--color-neon-green);
+		}
 	}
 
 	.map-link {
