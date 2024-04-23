@@ -47,8 +47,6 @@ export async function fetchTotalLiberated() {
 			.select('*', { count: 'exact' })
 			.eq('state', 'FREE');
 
-		console.log('kaj mona', count);
-
 		if (error) {
 			throw new Error(`Error fetching data: ${error.message}`);
 		}
@@ -143,8 +141,6 @@ export async function liberateApartment(apartmentId: number, type: ApartmentType
 		.from(SUPABASE_TABLE_NAME)
 		.update({ state: 'FREE', apartment_type: type, message })
 		.eq('id', apartmentId);
-
-	// console.log('erar', error);
 }
 
 export async function handleLiberateSubmit(
@@ -176,7 +172,6 @@ export function subscribeToApartments(callback: (app: Apartment) => any) {
 				table: SUPABASE_TABLE_NAME
 			},
 			(payload) => {
-				console.log({ payload });
 				if (payload.new) callback(ApartmentSchema.parse(payload.new));
 			}
 		)
@@ -195,7 +190,9 @@ function getApartmentKey(app: Apartment) {
 }
 
 export function apartmentGrid(aparments: Apartment[], plusRows = 0) {
-	const current = Object.fromEntries(aparments.map((app) => [getApartmentKey(app), app]));
+	const current = Object.fromEntries(
+		aparments.filter((app) => app.apartment < 3).map((app) => [getApartmentKey(app), app])
+	);
 
 	const floors = aparments.reduce((max, curr) => Math.max(max, curr.floor), 0) + 1 + plusRows;
 	const blanks = Object.fromEntries(

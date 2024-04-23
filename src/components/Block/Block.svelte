@@ -46,7 +46,6 @@
 		flats = apartments;
 		refreshScroll();
 		subscribeToApartments((app) => {
-			console.log({ app });
 			flats = applyNewApartment(flats, app);
 		});
 	});
