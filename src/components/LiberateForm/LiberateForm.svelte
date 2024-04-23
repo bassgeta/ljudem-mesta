@@ -7,17 +7,17 @@
 	import MessageStep from './blocks/MessageStep.svelte';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	export let handleSubmit = (selectedType: ApartmentType, message: string) => {};
+	export let handleSubmit = (selectedType: number, message: string) => {};
 	export let handleClose = () => {};
 
 	let step: 'share' | 'choose' | 'message' = 'share';
-	let selectedType: ApartmentType;
+	let selectedType: number;
 
 	function onShareComplete() {
 		step = 'choose';
 	}
 
-	function onChooseComplete(type: ApartmentType) {
+	function onChooseComplete(type: number) {
 		selectedType = type;
 		step = 'message';
 	}
@@ -86,6 +86,8 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
+		box-sizing: border-box;
+		padding: 0 var(--hpadding);
 	}
 
 	.liberate-title {
