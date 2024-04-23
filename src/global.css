@@ -37,7 +37,7 @@
 	--lh-m: 1.5rem;
 	--lh-s: 1.25rem;
 
-	--size: 1000px;
+	--size: min(1000px, 100vw);
 	--hpadding: max(16px, calc(calc(100vw - var(--size)) / 2));
 }
 
@@ -223,18 +223,7 @@ a {
 	border: 2px solid black;
 	transform-style: preserve-3d;
 	color: var(--color-black);
-}
-
-.shadowed-card::after {
-	content: '';
-	position: absolute;
-	bottom: -6px;
-	right: -6px;
-	width: 100%;
-	height: 100%;
-	border-radius: 20px;
-	background-color: black;
-	transform: translateZ(-1px);
+	filter: drop-shadow(6px 6px 0px black);
 }
 
 .shadowed-button {
