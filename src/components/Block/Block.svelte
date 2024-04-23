@@ -31,7 +31,7 @@
 	} from '../../utils/liberation';
 	import LiberateForm from '../LiberateForm/LiberateForm.svelte';
 
-	let flats: Apartment[] = [];
+	let flats = apartmentGrid([], 4);
 	const fades = [fade_4, fade_3, fade_2, fade_1];
 	const id = `building-${Math.round(Math.random() * 1000)}`;
 	function refreshScroll() {
