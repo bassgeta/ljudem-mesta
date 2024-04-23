@@ -41,6 +41,7 @@
 	"landing.solution.canada": "🇨🇦 Dnevne omejitve v Kaliforniji, Montrealu, Torontu",
 	"landing.solution.asia": "🌏 Omejitve v Maleziji, Tokiu, Singapurju, Sydneyju",
 	"liberatePage.head.title": "Osvobodi stanovalce",
+	"liberatePage.counter.message": "Skupaj smo osvobodili že <span>{n}</span> {n, plural, one{stanovanje}two{stanovanji}other{stanovanja}}!",
 	"liberatePage.go-to-campaign": "Nazaj na kampanjo",
 	"liberate.what-to-do.title": "Kaj lahko storim?<br/>POMAGAJ OZAVEŠČATI!",
 	"liberate.what-to-do.description": "Klikni na ključavnico in spremeni Airbnb<br />nazaj v stanovanje za lokalce.",

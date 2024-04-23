@@ -172,12 +172,6 @@
 
 		padding: 0 var(--hpadding);
 		padding-bottom: 3rem;
-	}
-
-	.liberate-container {
-		width: 100%;
-		max-width: 1400px;
-		padding-top: 4rem;
 		position: relative;
 		&::after {
 			content: '';
@@ -191,5 +185,12 @@
 			border-bottom-right-radius: 4rem;
 			box-shadow: 0 0.2rem 1rem var(--color-dark-grey);
 		}
+	}
+
+	.liberate-container {
+		width: 100%;
+		max-width: 1400px;
+		padding-top: 4rem;
+		position: relative;
 	}
 </style>

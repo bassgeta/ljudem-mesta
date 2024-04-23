@@ -3,12 +3,13 @@
 	import { _ } from 'svelte-i18n';
 	import { ApartmentType } from '../../../utils/liberation';
 	import { APARTMENT_TYPE_TO_IMAGE_URL } from '../../../constants/apartments';
+	import { Flats } from '../../Block/blocks';
 
-	export let handleSubmit = (type: ApartmentType) => {};
+	export let handleSubmit = (type: number) => {};
 
-	let selectedType: ApartmentType | null = null;
+	let selectedType: number | null = null;
 
-	function handleSelectType(type: ApartmentType) {
+	function handleSelectType(type: number) {
 		selectedType = type;
 	}
 
@@ -22,15 +23,21 @@
 </script>
 
 <div class="types-container">
-	{#each Object.values(ApartmentType) as apartmentType}
+	{#each Object.entries(Flats) as [id, apartmentType]}
 		<div class="type-selector">
-			<div class="type-chosen-indicator" class:type-selected="{selectedType === apartmentType}">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<div
+				class="type-chosen-indicator"
+				on:click="{() => handleSelectType(Number(id))}"
+				class:type-selected="{selectedType === Number(id)}">
 			</div>
 			<button
 				class="shadowed-card type-card"
-				class:type-card-selected="{selectedType === apartmentType}"
-				on:click="{() => handleSelectType(apartmentType)}">
-				<img src="{APARTMENT_TYPE_TO_IMAGE_URL[apartmentType]}" class="type-image" />
+				class:type-card-selected="{selectedType === Number(id)}"
+				on:click="{() => handleSelectType(Number(id))}">
+				<svelte:component this="{apartmentType.flat}" />
+				<!-- <img src="{APARTMENT_TYPE_TO_IMAGE_URL[apartmentType]}" class="type-image" /> -->
 			</button>
 		</div>
 	{/each}
@@ -65,26 +72,22 @@
 		border: 1px solid var(--color-black);
 		background-color: var(--color-medium-grey);
 		border-radius: 50%;
-	}
-
-	.type-selected {
-		background-color: var(--color-neon-green);
+		cursor: pointer;
+		&.type-selected {
+			background-color: var(--color-neon-green);
+		}
 	}
 
 	.type-card {
 		width: 140px;
-		height: 140px;
+		overflow: hidden;
 		background-color: var(--color-white);
+		cursor: pointer;
 	}
 
 	.type-card-selected {
 		box-shadow: 0px 0px 15px 0px var(--color-neon-green);
-	}
-
-	.type-image {
-		width: 100%;
-		height: 100%;
-		border-radius: 20px;
+		filter: drop-shadow(6px 6px 0px var(--color-neon-green));
 	}
 
 	.next-button {
