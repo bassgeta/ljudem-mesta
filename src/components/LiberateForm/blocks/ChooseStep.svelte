@@ -55,7 +55,7 @@
 		margin: 1rem 1rem 0 1rem;
 		display: flex;
 		gap: 1rem;
-		justify-content: space-between;
+		justify-content: center;
 		flex-flow: wrap;
 	}
 
