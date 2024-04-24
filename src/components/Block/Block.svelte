@@ -176,7 +176,8 @@
 			& svg {
 				height: 110%;
 				width: 110%;
-				
+				transform: scaleY(1.1);
+				transform-origin: top center;
 			}
 
 			&.fade_bottom {
