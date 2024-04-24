@@ -2,9 +2,23 @@ import { json } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import supabase from '$lib/supabase';
 import { IP_TABLE_NAME, SUPABASE_TABLE_NAME } from '../../../constants/supabase';
+import {findAndFilter} from 'swearify';
+
 
 export async function POST(data) {
-	const { apartmentId, apartmentType, message } = await data.request.json();
+	let { apartmentId, apartmentType, message } = await data.request.json();
+
+	if (message) {
+		const result = findAndFilter(message,
+			'☠️',                                          // placeholder
+			['en', 'sl'],                                     // filter in which languages
+			[],                                               // allowed swears
+			[],                                               // add your own words
+		)
+		if (result.found) {
+			message = result.filtered_sentense
+		}
+	}
 
 	if (!apartmentId || !apartmentType) {
 		return json({ status: 400 });
