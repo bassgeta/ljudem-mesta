@@ -174,13 +174,13 @@
 				}
 			}
 			& svg {
-				height: 100%;
-				width: 104%;
-				transform: translateX(-2%);
+				height: 110%;
+				width: 110%;
+				
 			}
 
 			&.fade_bottom {
-				padding-bottom: 30vh;
+				padding-bottom: calc(var(--size) / 8);
 			}
 		}
 
@@ -194,7 +194,7 @@
 		& .blokovi {
 			position: absolute;
 			left: 0;
-			bottom: 35vh;
+			bottom: calc(var(--size) / 2.9);
 			right: 0;
 		}
 	}
@@ -205,6 +205,7 @@
 		padding: 0 calc(calc(100% - var(--width)) / 2);
 		@media screen and (max-width: 767px) {
 			padding: 0 calc(calc(83.5% - var(--width)) / 2);
+			padding-top: calc(var(--size) / 5);
 		}
 		padding-top: 20%;
 		box-sizing: border-box;
@@ -226,7 +227,7 @@
 
 		& .floor {
 			grid-column: 1 / span 3;
-			padding-bottom: 15%;
+			padding-bottom: calc(var(--size) / 6.9);
 		}
 	}
 	.apartment {
