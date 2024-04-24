@@ -41,6 +41,8 @@
 	}
 
 	.no-message-button {
+		display: flex;
+		align-items: center;
 		gap: 0.75rem;
 		text-decoration: underline;
 		margin: 1.5rem 0;

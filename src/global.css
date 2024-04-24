@@ -237,4 +237,8 @@ a {
 	text-decoration: none;
 
 	padding: 1rem 1.5rem;
+	&:hover {
+		transform: translate(3px, 3px);
+		filter: drop-shadow(3px 3px 0px black);
+	}
 }

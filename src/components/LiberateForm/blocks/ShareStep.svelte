@@ -3,6 +3,7 @@
 	import { _ } from 'svelte-i18n';
 
 	export let handleSubmit = () => {};
+	export let isDone = false;
 
 	const url = 'www.airbnbpejtdomov.si';
 	let isCopied = false;
@@ -25,7 +26,7 @@
 		{$_('copy')}
 	</button>
 </div>
-{#if isCopied === true}
+{#if isCopied === true && !isDone}
 	<h4 class="copy-prompt">
 		{$_('liberateForm.share-step.prompt')}
 	</h4>

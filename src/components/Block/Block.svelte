@@ -55,8 +55,14 @@
 		liberatingId = id;
 	}
 
+	let added = false;
+
 	function handleSubmit(selectedType: number, message: string) {
-		if (liberatingId) handleLiberateSubmit(liberatingId, selectedType, message);
+		if (liberatingId) {
+			handleLiberateSubmit(liberatingId, selectedType, message).finally(() => {
+				added = true;
+			});
+		}
 		liberatingId = null;
 		refreshScroll();
 	}
@@ -70,7 +76,7 @@
 
 <div class="building-container" id="{id}">
 	{#if liberatingId !== null}
-		<LiberateForm handleClose="{handleClose}" handleSubmit="{handleSubmit}" />
+		<LiberateForm handleClose="{handleClose}" handleSubmit="{handleSubmit}" isDone="{added}" />
 	{:else}
 		<div class="building">
 			<div class="bg">

@@ -9,6 +9,7 @@
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	export let handleSubmit = (selectedType: number, message: string) => {};
 	export let handleClose = () => {};
+	export let isDone = false;
 
 	let step: 'share' | 'choose' | 'message' = 'share';
 	let selectedType: number;
@@ -44,9 +45,13 @@
 		<h2 class="liberate-title">
 			{$_('liberateForm.title')}
 		</h2>
-		<p class="liberate-subtitle">{subtitle}</p>
+		{#if isDone}
+			<p class="liberate-subtitle">{$_('liberateForm.denyAccess')}</p>
+		{:else}
+			<p class="liberate-subtitle">{subtitle}</p>
+		{/if}
 		{#if step === 'share'}
-			<ShareStep handleSubmit="{onShareComplete}" />
+			<ShareStep handleSubmit="{onShareComplete}" isDone="{isDone}" />
 		{:else if step === 'choose'}
 			<ChooseStep handleSubmit="{onChooseComplete}" />
 		{:else if step === 'message'}
@@ -69,6 +74,7 @@
 		overflow-y: auto;
 		padding-bottom: 1rem;
 		z-index: 3;
+		display: flex;
 
 		@media screen and (max-width: 767px) {
 			position: fixed;
@@ -88,6 +94,7 @@
 		height: 100%;
 		box-sizing: border-box;
 		padding: 0 2rem;
+		padding-bottom: 2rem;
 	}
 
 	.liberate-title {
@@ -100,6 +107,7 @@
 
 	.liberate-subtitle {
 		text-align: center;
+		text-wrap: balance;
 		margin-top: 1rem;
 		font-weight: 500;
 		font-size: var(--font-l);

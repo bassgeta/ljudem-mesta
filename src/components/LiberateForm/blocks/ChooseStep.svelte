@@ -32,13 +32,15 @@
 				on:click="{() => handleSelectType(Number(id))}"
 				class:type-selected="{selectedType === Number(id)}">
 			</div>
-			<button
-				class="shadowed-card type-card"
-				class:type-card-selected="{selectedType === Number(id)}"
-				on:click="{() => handleSelectType(Number(id))}">
-				<svelte:component this="{apartmentType.flat}" />
-				<!-- <img src="{APARTMENT_TYPE_TO_IMAGE_URL[apartmentType]}" class="type-image" /> -->
-			</button>
+			<div class="button-wrapper" class:button-wrapper-selected="{selectedType === Number(id)}">
+				<button
+					class="type-card"
+					class:type-card-selected="{selectedType === Number(id)}"
+					on:click="{() => handleSelectType(Number(id))}">
+					<svelte:component this="{apartmentType.flat}" />
+					<!-- <img src="{APARTMENT_TYPE_TO_IMAGE_URL[apartmentType]}" class="type-image" /> -->
+				</button>
+			</div>
 		</div>
 	{/each}
 </div>
@@ -83,11 +85,35 @@
 		overflow: hidden;
 		background-color: var(--color-white);
 		cursor: pointer;
+
+		position: relative;
+		border-radius: 20px;
+		border: 2px solid black;
+		transform-style: preserve-3d;
+		color: var(--color-black);
 	}
 
 	.type-card-selected {
-		box-shadow: 0px 0px 15px 0px var(--color-neon-green);
-		filter: drop-shadow(6px 6px 0px var(--color-neon-green));
+		border-color: var(--color-neon-green);
+	}
+
+	.button-wrapper {
+		filter: drop-shadow(6px 6px 0px black);
+		/* transition:
+			filter 0.2s linear,
+			transform 0.2s linear; */
+		transform: translate(-3px, -3px);
+		&:hover {
+			filter: drop-shadow(3px 3px 0px black);
+			transform: translate(0, 0);
+		}
+	}
+
+	.button-wrapper.button-wrapper-selected {
+		/* filter: drop-shadow(6px 6px 0px var(--color-neon-green)); */
+		&:hover {
+			/* filter: drop-shadow(3px 3px 0px var(--color-neon-green)); */
+		}
 	}
 
 	.next-button {
