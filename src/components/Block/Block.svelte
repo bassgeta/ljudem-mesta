@@ -31,6 +31,8 @@
 	} from '../../utils/liberation';
 	import LiberateForm from '../LiberateForm/LiberateForm.svelte';
 
+	export let onAdd = () => null as any;
+
 	let flats = apartmentGrid([], 4);
 	const fades = [fade_4, fade_3, fade_2, fade_1];
 	const id = `building-${Math.round(Math.random() * 1000)}`;
@@ -57,13 +59,24 @@
 
 	let added = false;
 
-	function handleSubmit(selectedType: number, message: string) {
-		if (liberatingId) {
-			handleLiberateSubmit(liberatingId, selectedType, message).finally(() => {
-				added = true;
-			});
+	function handleSubmit(selectedType: number, message?: string) {
+		let id = liberatingId;
+		if (id) {
+			handleLiberateSubmit(id, selectedType, message)
+				.then(() => {
+					onAdd();
+				})
+				.finally(() => {
+					added = true;
+				});
 		}
 		liberatingId = null;
+		flats = applyNewApartment(flats, {
+			...flats.find((flat) => flat.id === id)!,
+			apartment_type: selectedType,
+			message: message || null,
+			state: 'FREE'
+		});
 		refreshScroll();
 	}
 	function handleClose() {

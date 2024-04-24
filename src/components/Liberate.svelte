@@ -12,8 +12,12 @@
 
 	onMount(async () => {
 		const total = await fetchTotalLiberated();
-		totalLiberated = total;
+		totalLiberated = total ?? 0;
 	});
+
+	function onAdd() {
+		totalLiberated += 1;
+	}
 </script>
 
 <div class="liberate-container">
@@ -28,7 +32,7 @@
 	<!-- <div class="building-container">
 		<ApartmentBuilding />
 	</div> -->
-	<Block />
+	<Block onAdd="{onAdd}" />
 	{#if dev}
 		<div class="devdb">
 			<DevDbControls />
