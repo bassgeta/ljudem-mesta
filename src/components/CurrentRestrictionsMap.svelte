@@ -3,6 +3,7 @@
 	import mapbox from 'mapbox-gl';
 	import { onMount, onDestroy, tick } from 'svelte';
 	import clap from '$lib/assets/clap.png';
+	import xx from '$lib/assets/xx.png';
 
 	let map: mapbox.Map;
 	let mapContainer: HTMLDivElement;
@@ -154,9 +155,7 @@
 
 					const countryISO3 = e.features![0].properties!.adm0_a3_is;
 
-					const msg = getMessageForCountry(countryISO3);
-
-					if (msg) {
+					if (countryISO3) {
 						map.getCanvas().style.cursor = 'pointer';
 					} else {
 						map.getCanvas().style.cursor = '';
@@ -190,10 +189,13 @@
 					const msg = getMessageForCountry(countryISO3);
 
 					if (msg) {
-						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(`<img class="clap" src="${clap}" />` + msg).addTo(map);
+						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(`<img class="mapIcon" src="${clap}" />` + msg).addTo(map);
 					}
 				} else {
 					map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', '']);
+
+					const msg = getMessageForBadCountry();
+					new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(msg).addTo(map);
 				}
 			});
 
@@ -211,19 +213,19 @@
 
 	enum CountryMessages {
 		'AUT' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Dunaj omejuje število dni za najem</a>',
-		'FRA' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Pariz omejuje število dni za najem',
-		'DEU' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Berlin je predhodno uvedel prepoved Airbnb. Ta je zdaj odpravljena, vendar ostajajo stroga pravila - uveljavljajo se z visokimi kaznimi.',
-		'ITA' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Načrtujejo omejitve na nacionalni ravni',
-		'NLD' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Amsterdam omejuje bivanje prek Airbnbja',
-		'PRT' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Dovoljenja za Airbnbje niso več izdana',
-		'ESP' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Najemi zasebnih sob so omejeni v Barceloni',
-		'GBR' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">London je omejil število letnih najemov v Airbnbjih',
-		'USA' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Konec Airbnbja v New Yorku',
-		'CAN' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
-		'MYS' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Maleziji',
-		'JPN' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve na Japonskem',
-		'SGP' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Singapurju',
-		'AUS' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Omejitve v Avstraliji'
+		'FRA' = '<a href="https://www.thelocal.fr/20230807/paris-increasing-crackdowns-on-airbnb-rentals">Pariz omejuje število dni za najem',
+		'DEU' = '<a href="https://www.dw.com/en/airbnb-berlin-court-deals-blow-to-holiday-home-platform/a-68510966">Berlin zopet omejuje Airbnb pogoje.',
+		'ITA' = '<a href="https://www.reuters.com/markets/europe/italy-crackdown-targets-1-bln-euros-undeclared-short-term-flat-rental-tax-2023-10-30/">Načrtujejo omejitve na nacionalni ravni',
+		'NLD' = '<a href="https://www.justtravelous.com/en/airbnb-amsterdam-regels/">Amsterdam omejuje bivanje prek Airbnbja',
+		'PRT' = '<a href="https://www.businessinsider.com/portugal-bans-new-airbnbs-fears-becoming-some-sort-of-disneyland-2023-2">Dovoljenja za Airbnbje niso več izdana',
+		'ESP' = '<a href="https://www.nytimes.com/2021/09/22/travel/barcelona-airbnb.html">Najemi zasebnih sob so omejeni v Barceloni',
+		'GBR' = '<a href="https://www.wired.co.uk/article/airbnb-london-short-term-rentals">London je omejil število letnih najemov v Airbnbjih',
+		'USA' = '<a href="https://www.theguardian.com/us-news/2023/oct/23/new-york-airbnb-crackdown-rules-housing">Konec Airbnbja v New Yorku',
+		'CAN' = '<a href="https://storeys.com/bc-short-term-rentals-legislation/">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
+		'MYS' = '<a href="https://www.business-standard.com/world-news/this-malaysian-island-has-now-banned-airbnb-and-it-isn-t-first-to-do-so-123060600627_1.html">Omejitve v Maleziji',
+		'JPN' = '<a href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/',
+		'SGP' = '<a href="https://www.techerati.com/the-stack-archive/cloud/2017/02/07/singapore-rules-airbnb-short-term-rentals-illegal/">Omejitve v Singapurju',
+		'AUS' = '<a href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji'
 	}
 
 	function getMessageForCountry(country: string): string | null {
@@ -233,9 +235,18 @@
 
 		return null;
 	}
+
+	function getMessageForBadCountry(): string {
+		return `<img class="mapIcon" src="${xx}" />Ni regulacije.`
+	}
+
 </script>
 
 <div class="map-wrap">
+	<div id="state-legend" class="legend">
+		<span class="dot" style="background-color: #ADEA98"></span> Države z regulacijo&nbsp;&nbsp;
+		<span class="dot" style="background-color: #F19DAA"></span> Države brez regulacije
+	</div>
 	<div class="map" bind:this="{mapContainer}"></div>
 </div>
 
@@ -277,11 +288,22 @@
 	:global(.mapboxgl-popup-anchor-right .mapboxgl-popup-tip) {
 		border-left-color: var(--color-dark-grey);
 	}
-	:global(.clap) {
+	:global(.mapIcon) {
 		width: 60px;
 		height: 50px;
 		display: block;
   		margin-left: auto;
   		margin-right: auto;
+	}
+	:global(.dot) {
+		height: 13px;
+		width: 13px;
+		background-color: #bbb;
+		border-radius: 50%;
+  		display: inline-block;
+	}
+	:global(.legend) {
+		padding: 5px;
+		font-size: 15px;
 	}
 </style>
