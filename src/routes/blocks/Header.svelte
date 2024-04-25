@@ -3,7 +3,7 @@
 </script>
 
 <div class="header">
-	<h1 class="title">Airbnb, pejt domov!</h1>
+	<h1 class="title">Airbnb,<br /> pejt domov!</h1>
 	<div class="cloud-container">
 		<Cloud />
 		<h2 class="cloud-text">Stanovanja za ljudi,<br />ne zaslužek.</h2>
@@ -14,23 +14,34 @@
 	.header {
 		width: 100%;
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-end;
+		@media only screen and (max-width: 767px) {
+			align-items: flex-start;
+		}
 		flex-wrap: wrap;
 		gap: 1.5rem;
 		padding-bottom: 10rem;
+		padding-right: 32px;
 
 		background-image: url('$lib/assets/main.png');
 		background-repeat: no-repeat;
-		background-size: auto 70%;
-		background-position: right bottom;
+		/* background-size: auto 70%; */
+		background-size: min(90vw, 600px);
+		background-position: left bottom;
+
+		@media only screen and (max-width: 767px) {
+			background-position: right bottom;
+		}
 	}
 
 	.title {
 		flex: 1;
 		font-weight: 600;
 		color: var(--color-red);
-		font-size: 8rem;
+		font-size: clamp(3rem, 20vw, 8rem);
+		max-width: min(710px, 100%);
 	}
 
 	.cloud-container {
@@ -46,6 +57,7 @@
 		left: 20px;
 
 		font-size: 2.25rem;
+		font-size: clamp(1.5rem, 8vw, 2.25rem);
 		line-height: 2.75rem;
 		font-weight: 500;
 		color: var(--color-black);
