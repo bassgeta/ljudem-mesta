@@ -7,6 +7,7 @@
 	import DevDbControls from './DevDBControls.svelte';
 	import { dev } from '$app/environment';
 	import Block from './Block/Block.svelte';
+	import nalepka from '../lib/assets/nalepka.png';
 
 	let totalLiberated = 0;
 
@@ -21,6 +22,9 @@
 </script>
 
 <div class="liberate-container">
+	<div class="liberate-nalepka">
+		<img src="{nalepka}" alt="nalepka za ozavescanje" />
+	</div>
 	<div class="what-to-do">
 		<h4 class="what-to-do-title">
 			{@html $_('liberate.what-to-do.title')}
@@ -67,20 +71,20 @@
 	}
 
 	.what-to-do {
+		width: 100%;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
 		gap: 1.5rem;
-
-		@media only screen and (max-width: 767px) {
-			flex-direction: column;
-		}
 
 		margin: 3rem 0;
 		padding: 0 2rem;
+		padding-top: 3rem;
 	}
 
 	.what-to-do-title {
+		padding-top: 1rem;
 		flex-grow: 2;
 		font-size: var(--font-xl);
 		font-weight: 700;
@@ -121,5 +125,31 @@
 	.map-link {
 		background-color: var(--color-neon-green);
 		margin-top: 2rem;
+	}
+
+	.liberate-nalepka {
+		z-index: 2;
+		position: absolute;
+		top: 2rem;
+		right: 1rem;
+
+		animation: roottt 3s infinite alternate;
+		animation-play-state: paused;
+		&:hover {
+			animation-play-state: running;
+		}
+
+		& img {
+			width: min(30vw, 450px);
+			height: min(30vw, 450px);
+		}
+	}
+	@keyframes roottt {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
 </style>
