@@ -87,6 +87,15 @@
 <style>
 	.slide {
 		width: 100%;
+		&:nth-child(even) > div {
+			& > div:first-child {
+				background-color: var(--color-green);
+			}
+			& > div:nth-child(2) {
+				border-color: var(--color-green) transparent transparent transparent;
+
+			}
+		}
 	}
 
 	.testimonials-container {
