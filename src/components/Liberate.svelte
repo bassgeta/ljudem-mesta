@@ -133,7 +133,7 @@
 		top: 2rem;
 		right: 1rem;
 
-		animation: roottt 3s infinite alternate;
+		animation: roottt 5s infinite forwards ease;
 		animation-play-state: paused;
 		&:hover {
 			animation-play-state: running;
@@ -146,10 +146,13 @@
 	}
 	@keyframes roottt {
 		0% {
-			transform: rotate(0deg);
+			transform: rotate(0deg) scale(0.93);
+		}
+		50% {
+			transform: rotate(180deg) scale(1.12);
 		}
 		100% {
-			transform: rotate(360deg);
+			transform: rotate(360deg) scale(0.93);
 		}
 	}
 </style>

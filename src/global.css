@@ -7,6 +7,8 @@
 	--color-purple: #7500eb;
 	--color-blue: #00a3ff;
 
+	--color-green-vibe: #00FF66;
+	--color-green-vibier: #D8FFE8;
 	--color-light-green: #dcf8d7;
 	--color-lime: #ecffa2;
 	--color-green: #9bec8e;
@@ -37,7 +39,7 @@
 	--lh-m: 1.5rem;
 	--lh-s: 1.25rem;
 
-	--size: min(1000px, calc(100vw - 32px));
+	--size: min(1100px, calc(100vw - 32px));
 	--hpadding: max(16px, calc(calc(100vw - var(--size)) / 2));
 }
 

@@ -2,42 +2,38 @@
 	import { _ } from 'svelte-i18n';
 	import avto from '../../lib/assets/figure/Avto.png';
 	import kockaFigura from '../../lib/assets/figure/KockaFigura.png';
+	import hiskaGreen from '../../lib/assets/hiska_green.png';
+	import hiskaRed from '../../lib/assets/hiska_red.png';
 </script>
 
 <div class="info-cards">
-	<div class="info-card info-card-purple">
+	<div class="info-card info-card-white span-2">
 		<div class="info-card-body">
-			<h2 class="info-card-title">
-				{$_('landing.airbnbApartments.title', {
-					values: {
-						total: 1515
-					}
-				})}
-			</h2>
-			<p class="info-card-title-appendix">{$_('landing.airbnbApartments.titleAppendix')}</p>
-			<p class="info-card-content">{$_('landing.airbnbApartments.content')}</p>
-			<a
-				class="info-source"
-				target="_blank"
-				href="https://podcrto.si/stanovanjska-problematika-kdo-si-lahko-privosci-lasten-dom-v-ljubljani/"
-				>{$_('source')}</a>
+			<div class="info-chart info-chart-stonks">
+				<p class="info-chart-caption">{@html $_('landing.airbnbApartments.titleAppendix')}</p>
+				<div class="chart-measure">
+					<span>1515</span>
+					<div class="indicator">
+						<img src="{hiskaRed}" />
+					</div>
+				</div>
+			</div>
+			<div class="info-chart info-chart-not-stonks chart-green">
+				<p class="info-chart-caption">{@html $_('landing.nepremicnine.title')}</p>
+				<div class="chart-measure">
+					<span>577</span>
+					<div class="indicator">
+						<img src="{hiskaGreen}" />
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="info-card info-card-lime">
-		<div class="info-card-body">
-			<h2 class="info-card-title">577</h2>
-			<p class="info-card-title-appendix">trenutno aktivnih oglasov na Nepremicnine.net</p>
-			<p class="info-card-content"></p>
-			<a
-				class="info-source"
-				target="_blank"
-				href="https://www.nepremicnine.net/oglasi-oddaja/ljubljana-mesto/stanovanje/"
-				>{$_('source')}</a>
-		</div>
-	</div>
+	
+	
 	<div class="info-card info-card-purple">
 		<div class="info-card-body">
-			<h2 class="info-card-title">33<span>%</span></h2>
+			<h2 class="info-card-title">33<span>&nbsp;%</span></h2>
 			<div class="info-card-figure">
 				<img src="{avto}" alt="Slika avta" />
 			</div>
@@ -55,7 +51,7 @@
 	</div>
 	<div class="info-card info-card-lime">
 		<div class="info-card-body">
-			<h2 class="info-card-title">20<span>%</span></h2>
+			<h2 class="info-card-title">20<span>&nbsp;%</span></h2>
 			<div class="info-card-figure">
 				<img src="{kockaFigura}" alt="Slika kocke in figure" />
 			</div>
@@ -87,6 +83,14 @@
 		}
 	}
 
+	.info-cards > .span-2 {
+		grid-column: 1/3;
+
+		@media screen and (max-width: 767px) {
+			grid-column: unset;
+		}
+	}
+
 	.info-card-title {
 		font-size: clamp(var(--font-xxxl), 10vw, var(--font-xxxl));
 		line-height: clamp(var(--lh-xxl), 10vw, var(--lh-xxxl));
@@ -98,7 +102,7 @@
 			}
 		}
 		@media screen and (min-width: 700px) {
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.1rem;
 		}
 	}
 
@@ -107,12 +111,12 @@
 		border-radius: 50%;
 
 		position: absolute;
-		top: 2%;
-		right: 2%;
+		top: 4%;
+		right: 0.5%;
 
 		width: var(--s);
 		height: var(--s);
-		--s: calc(var(--size) * 0.15);
+		--s: calc(var(--size) * 0.13);
 		@media screen and (max-width: 767px) {
 			--s: min(calc(var(--size) * 0.3), 140px);
 		}
@@ -145,6 +149,12 @@
 		color: var(--color-white);
 	}
 
+	.info-card-white {
+		background-color: white;
+		--contrast: black;
+		color: black;
+	}
+
 	.info-card-lime {
 		background-color: var(--color-lime);
 		--contrast: var(--color-purple);
@@ -171,4 +181,66 @@
 	.info-card {
 		position: relative;
 	}
+
+	.info-chart-stonks {
+		--w: min(90%, 80vw);
+	}
+
+	.info-chart-not-stonks {
+		--w: min(50%, 60vw);
+	}
+
+	.info-chart {
+		--color: var(--color-red);
+		--sub: var(--color-pink);
+		&.chart-green {
+			--color: var(--color-green-vibe);
+			--sub: var(--color-green-vibier);
+		}
+		width: 100%;
+		margin-bottom: 2rem;
+		& .info-chart-caption {
+			font-size: clamp(var(--font-m), 10vw, var(--font-l));
+			padding-bottom: 1rem;
+			font-weight: bold;
+		}
+		& .chart-measure {
+			position: relative;
+			width: var(--w);
+			border: 6px solid black;
+			background: var(--color);
+			animation: charter 1s ease-in alternate;
+			& span {
+				padding-left: 1rem;
+				font-size: clamp(var(--font-xl), 10vw, var(--font-xxxl));
+				line-height: clamp(var(--lh-xl), 10vw, var(--lh-xxl));
+				font-weight: bold;
+			}
+
+			& .indicator {
+				--siz: 10rem;
+				will-change: width;
+				@media screen and (max-width: 767px) {
+					--siz: min(calc(var(--size) / 5.1), 8rem);
+				}
+				position: absolute;
+				height: var(--siz);
+				width: var(--siz);
+				top: 50%;
+				transform: translate(50%, -50%);
+				right: 0;
+				border: 4px solid black;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: var(--sub);
+				& img {
+					width: 75%;
+					height: auto;
+				}
+			}
+		}
+	}
+
 </style>

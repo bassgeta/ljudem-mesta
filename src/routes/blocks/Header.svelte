@@ -3,6 +3,10 @@
 </script>
 
 <div class="header">
+	<div class="status">
+		<div class="indicator"></div>
+		&nbsp;Stran v izdelavi<span>⚒️</span>
+	</div>
 	<h1 class="title">Airbnb,<br /> pejt domov!</h1>
 	<div class="cloud-container">
 		<Cloud />
@@ -12,6 +16,7 @@
 
 <style>
 	.header {
+		position: relative;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -21,7 +26,7 @@
 			align-items: flex-start;
 			min-height: 100vh;
 			justify-content: flex-start;
-			gap: 3rem
+			gap: 3rem;
 		}
 		flex-wrap: wrap;
 		gap: 1.5rem;
@@ -67,5 +72,44 @@
 		line-height: 2.75rem;
 		font-weight: 500;
 		color: var(--color-black);
+	}
+
+	.status {
+		user-select: none;
+		& span {
+			font-family: sans-serif;
+		}
+		position: absolute;
+		bottom: 4rem;
+		transform: rotate(2deg) translate(0px, 0px);
+		right: 1rem;
+		/* font-family: monospace; */
+		padding: 0.2rem 1rem;
+		border: 2px solid white;
+		border-radius: 1rem;
+		font-weight: bolder;
+		filter: drop-shadow(3px 3px 0 var(--color-red));
+		transform-origin: left center;
+		transition: filter 0.3s , tansform 0.3s ease-in-out;
+		&:hover {
+			transform: rotate(2deg) translate(3px, 3px);
+			filter: drop-shadow(0px 0px 0px var(--color-red));
+		}
+
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: white;
+		color: black;
+
+		& .indicator {
+			display: none;
+			--s: 6px;
+			width: var(--s);
+			height: var(--s);
+			background: var(--color-red);
+			border-radius: 50%;
+			box-shadow: 0 0 5px var(--color-red);
+		}
 	}
 </style>
