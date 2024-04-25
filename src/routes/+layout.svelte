@@ -9,8 +9,8 @@
 <style>
 	.page {
 		height: 100vh;
-		max-height: 100vh;
-		overflow-y: auto;
+		/* max-height: 100vh; */
+		/* overflow-y: auto; */
 		background-color: var(--bg-low);
 		width: 100%;
 		display: flex;

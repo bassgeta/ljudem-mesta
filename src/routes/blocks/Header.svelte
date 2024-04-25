@@ -19,6 +19,9 @@
 		align-items: flex-end;
 		@media only screen and (max-width: 767px) {
 			align-items: flex-start;
+			min-height: 100vh;
+			justify-content: flex-start;
+			gap: 3rem
 		}
 		flex-wrap: wrap;
 		gap: 1.5rem;
@@ -32,12 +35,15 @@
 		background-position: left bottom;
 
 		@media only screen and (max-width: 767px) {
-			background-position: right bottom;
+			background-position: right 60vh;
 		}
 	}
 
 	.title {
 		flex: 1;
+		@media only screen and (max-width: 767px) {
+			flex: unset;
+		}
 		font-weight: 600;
 		color: var(--color-red);
 		font-size: clamp(3rem, 20vw, 8rem);

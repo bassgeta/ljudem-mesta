@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import avto from '../../lib/assets/figure/Avto.png';
+	import kockaFigura from '../../lib/assets/figure/KockaFigura.png';
 </script>
 
 <div class="info-cards">
@@ -33,9 +35,12 @@
 				>{$_('source')}</a>
 		</div>
 	</div>
-	<div class="info-card info-card-green">
+	<div class="info-card info-card-purple">
 		<div class="info-card-body">
-			<h2 class="info-card-title">33%</h2>
+			<h2 class="info-card-title">33<span>%</span></h2>
+			<div class="info-card-figure">
+				<img src="{avto}" alt="Slika avta" />
+			</div>
 			<p class="info-card-title-appendix">nepremičnin je kupljenih kot naložba</p>
 			<p class="info-card-content">
 				Čeprav cene v nekaterih drugih državah padejo, pri nas vztrajno rasejo. Približno tretjina
@@ -48,9 +53,12 @@
 				>{$_('source')}</a>
 		</div>
 	</div>
-	<div class="info-card info-card-orange">
+	<div class="info-card info-card-lime">
 		<div class="info-card-body">
-			<h2 class="info-card-title">20%</h2>
+			<h2 class="info-card-title">20<span>%</span></h2>
+			<div class="info-card-figure">
+				<img src="{kockaFigura}" alt="Slika kocke in figure" />
+			</div>
 			<p class="info-card-title-appendix">kupcev novogradnje živi v njej</p>
 			<p class="info-card-content">
 				Nekaj manj kot polovica novozgrajenih stanovanj v mestnem središču je naložbenih, lastniki
@@ -80,9 +88,41 @@
 	}
 
 	.info-card-title {
-		font-size: var(--font-xxxl);
-		line-height: var(--lh-xxxl);
+		font-size: clamp(var(--font-xxxl), 10vw, var(--font-xxxl));
+		line-height: clamp(var(--lh-xxl), 10vw, var(--lh-xxxl));
 		font-weight: bold;
+
+		@media screen and (max-width: 950px) {
+			& span {
+				font-size: 3rem;
+			}
+		}
+		@media screen and (min-width: 700px) {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.info-card-figure {
+		background: var(--contrast);
+		border-radius: 50%;
+
+		position: absolute;
+		top: 2%;
+		right: 2%;
+
+		width: var(--s);
+		height: var(--s);
+		--s: calc(var(--size) * 0.15);
+		@media screen and (max-width: 767px) {
+			--s: min(calc(var(--size) * 0.3), 140px);
+		}
+		& img {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.1) rotate(-4deg);
+		}
 	}
 
 	.info-card-title-appendix {
@@ -101,11 +141,13 @@
 
 	.info-card-purple {
 		background-color: var(--color-purple);
+		--contrast: var(--color-lime);
 		color: var(--color-white);
 	}
 
 	.info-card-lime {
 		background-color: var(--color-lime);
+		--contrast: var(--color-purple);
 		color: var(--text-secondary);
 	}
 
@@ -124,5 +166,9 @@
 		font-size: var(--font-s);
 		line-height: var(--lh-s);
 		font-style: italic;
+	}
+
+	.info-card {
+		position: relative;
 	}
 </style>
