@@ -2,6 +2,7 @@
 	import { _ } from 'svelte-i18n';
 	import ApartmentBuilding from '../../components/ApartmentBuilding.svelte';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
+	import Block from '../../components/Block/Block.svelte';
 </script>
 
 <svelte:head>
@@ -15,19 +16,19 @@
 		</span>
 		{$_('liberatePage.go-to-campaign')}
 	</a>
-	<ApartmentBuilding />
+	<Block fullscreen />
 </div>
 
 <style>
 	.liberate-page {
 		position: relative;
 		width: 100vw;
-		height: 100%;
+		/* height: 100%; */
 	}
 
 	.back-to-link {
 		position: absolute;
-		z-index: 2;
+		z-index: 5;
 		top: 16px;
 		left: 16px;
 	}

@@ -32,6 +32,7 @@
 	import LiberateForm from '../LiberateForm/LiberateForm.svelte';
 
 	export let onAdd = () => null as any;
+	export let fullscreen = false;
 
 	let flats = apartmentGrid([], 4);
 	const fades = [fade_4, fade_3, fade_2, fade_1];
@@ -87,7 +88,7 @@
 	$: safeFlats = apartmentGrid(flats);
 </script>
 
-<div class="building-container" id="{id}">
+<div class="building-container" class:building-container-fullscreen="{fullscreen}" id="{id}">
 	{#if liberatingId !== null}
 		<LiberateForm handleClose="{handleClose}" handleSubmit="{handleSubmit}" isDone="{added}" />
 	{:else}
@@ -162,6 +163,10 @@
 		& svg {
 			display: block;
 		}
+	}
+	.building-container-fullscreen {
+		margin-top: 10vh;
+		height: 80vh;
 	}
 
 	.building {
