@@ -35,7 +35,6 @@
 	<meta property="twitter:title" content={$_('landing.head.title')} />
 	<meta property="twitter:description" content={$_('landing.head.description')} />
 	<meta property="twitter:image" content="/airbnb-og.jpg" />
-
 	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
 
