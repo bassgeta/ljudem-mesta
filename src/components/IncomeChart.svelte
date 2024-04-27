@@ -85,7 +85,7 @@
 	</div>
 	<div class="chart-description">
 		{$_('incomeChart.description')}
-		<sub>{$_('source')}</sub>
+		<sub><a href="https://www.mladina.si/229092/airbnb-nepremicninski-divji-zahod/" target="_blank">{$_('source')}</a></sub>
 	</div>
 </div>
 
