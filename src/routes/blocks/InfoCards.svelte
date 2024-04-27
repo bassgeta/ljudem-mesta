@@ -33,11 +33,11 @@
 				<a
 					href="https://web.archive.org/web/20240404221249/https://www.nepremicnine.net/oglasi-oddaja/ljubljana-mesto/stanovanje/"
 					target="_blank">
-					Vir</a>,
+					Vir</a
+				>,
 				<a
 					href="https://n1info.si/gospodarstvo/nepremicnine/slovenija-na-airbnb-v-kamniku-grad-v-ljubljani-stanovanje-za-2-000-evrov/"
-					target="_blank"
-				>vir</a>
+					target="_blank">vir</a>
 			</sub>
 		</div>
 	</div>
@@ -48,10 +48,10 @@
 			<div class="info-card-figure">
 				<img src="{avto}" alt="Slika avta" />
 			</div>
-			<p class="info-card-title-appendix">nepremičnin je kupljenih kot naložba</p>
+			<p class="info-card-title-appendix">nakupov nepremičnin je naložb</p>
 			<p class="info-card-content">
-				Čeprav cene v nekaterih drugih državah padejo, pri nas vztrajno rasejo. Približno tretjina
-				kupcev stanovanje kupi zgolj kot naložbo.
+				“Čeprav cene v nekaterih drugih državah padajo, pri nas vztrajno rastejo. Približno tretjina
+				kupcev stanovanje kupi zgolj kot naložbo.”
 			</p>
 			<a
 				class="info-source"
@@ -62,15 +62,15 @@
 	</div>
 	<div class="info-card info-card-lime">
 		<div class="info-card-body">
-			<h2 class="info-card-title">20<span>&nbsp;%</span></h2>
+			<h2 class="info-card-title">80<span>&nbsp;%</span></h2>
 			<div class="info-card-figure">
 				<img src="{kockaFigura}" alt="Slika kocke in figure" />
 			</div>
-			<p class="info-card-title-appendix">kupcev novogradnje živi v njej</p>
+			<p class="info-card-title-appendix">kupcev novogradnje ne živi v njej</p>
 			<p class="info-card-content">
-				Nekaj manj kot polovica novozgrajenih stanovanj v mestnem središču je naložbenih, lastniki
+				“Nekaj manj kot polovica novozgrajenih stanovanj v mestnem središču je naložbenih, lastniki
 				pa živijo le v vsakem petem. Naložbena stanovanja so večinoma v lasti podjetij. V celotni
-				Ljubljani pa lastniki živijo v polovici vseh prodanih tržnih stanovanj v novogradnjah.
+				Ljubljani pa lastniki živijo v polovici vseh prodanih tržnih stanovanj v novogradnjah.”
 			</p>
 			<a
 				class="info-source"
@@ -234,10 +234,10 @@
 			}
 
 			& .indicator {
-				--siz: 10rem;
+				--siz: 9rem;
 				will-change: width;
 				@media screen and (max-width: 767px) {
-					--siz: min(calc(var(--size) / 5.1), 8rem);
+					--siz: min(calc(var(--size) / 5.1), 7rem);
 				}
 				position: absolute;
 				height: var(--siz);

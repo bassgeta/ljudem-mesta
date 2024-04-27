@@ -19,20 +19,21 @@
 
 	<!-- Primary Meta Tags -->
 	<meta name="title" content={$_('landing.head.title')} />
-	<meta name="description" content="Stanovanja za ljudi, ne zaslužek." />
+	<meta name="description" content={$_('landing.head.description')} />
+	<meta name="keywords" content={$_('landing.head.keywords')} />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="og:title" content={$_('landing.head.title')} />
-	<meta property="og:description" content="Stanovanja za ljudi, ne zaslužek." />
+	<meta property="og:description" content={$_('landing.head.description')} />
 	<meta property="og:image" content="/airbnb-og.jpg" />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="twitter:title" content={$_('landing.head.title')} />
-	<meta property="twitter:description" content="Stanovanja za ljudi, ne zaslužek." />
+	<meta property="twitter:description" content={$_('landing.head.description')} />
 	<meta property="twitter:image" content="/airbnb-og.jpg" />
 
 	<!-- Meta Tags Generated with https://metatags.io -->
@@ -50,8 +51,14 @@
 	<div class="landing-section chart-container">
 		<IncomeChart />
 	</div>
-	<h2 class="section-title comparison-title">
+	<h2 class="section-title comparison-title ct-1">
 		{$_('landing.comparison.title')}
+	</h2>
+	<h2 class="section-title comparison-title ct-2">
+		{$_('landing.comparison.title2')}
+	</h2>
+	<h2 class="section-title comparison-title ct-3">
+		{$_('landing.comparison.title3')}
 	</h2>
 	<p class="section-subtitle comparison-subtitle">
 		{$_('landing.comparison.subtitle')}
@@ -142,8 +149,21 @@
 	}
 
 	.comparison-title {
-		margin-top: 3rem;
+		margin: 2rem 0;
+		text-wrap: balance;
+		&.ct-1 {
+			padding-top: 2rem;
+			color: var(--color-lime);
+		}
+		&.ct-2 {
+			color: var(--color-orange);
+		}
+		&.ct-3 {
+			color: var(--color-red);
+			padding-bottom: 2rem;
+		}
 	}
+
 
 	.comparison-subtitle {
 		margin-top: 1rem;
