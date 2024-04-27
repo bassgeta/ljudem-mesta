@@ -10,6 +10,7 @@
 	import TestimonialsContact from '../components/TestimonialsContact.svelte';
 	import Header from './blocks/Header.svelte';
 	import InfoCards from './blocks/InfoCards.svelte';
+	import { browser, dev } from '$app/environment';
 </script>
 
 <svelte:head>
@@ -62,6 +63,10 @@
 		<Liberate />
 	</div>
 </div>
+
+{#if browser && !dev}
+  <script defer data-domain="airbnbpejtdomov.si" src="https://plausible.lb.djnd.si/js/plausible.js"></script>
+{/if}
 
 <style>
 	.landing {
