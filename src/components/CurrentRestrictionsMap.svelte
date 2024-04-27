@@ -30,7 +30,7 @@
 		'TUR',
 		'ISL',
 		'DNK',
-		
+
 	];
 
 	onMount(() => {
@@ -223,11 +223,11 @@
 		'NLD' = '<a target="_blank" href="https://www.justtravelous.com/en/airbnb-amsterdam-regels/">Amsterdam omejuje bivanje prek Airbnbja',
 		'PRT' = '<a target="_blank" href="https://www.businessinsider.com/portugal-bans-new-airbnbs-fears-becoming-some-sort-of-disneyland-2023-2">Dovoljenja za Airbnbje niso več izdana',
 		'ESP' = '<a target="_blank" href="https://www.nytimes.com/2021/09/22/travel/barcelona-airbnb.html">Najemi zasebnih sob so omejeni v Barceloni',
-		'GBR' = '<a target="_blank" href="https://www.wired.co.uk/article/airbnb-london-short-term-rentals">London je omejil število letnih najemov v Airbnbjih',
+		'GBR' = '<a target="_blank" href="https://www.theupperkey.com/post/the-rules-and-regulations-of-short-term-letting-in-london">London je omejil število letnih najemov v Airbnbjih',
 		'USA' = '<a target="_blank" href="https://www.theguardian.com/us-news/2023/oct/23/new-york-airbnb-crackdown-rules-housing">Konec Airbnbja v New Yorku',
-		'CAN' = '<a target="_blank" href="https://storeys.com/bc-short-term-rentals-legislation/">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
+		'CAN' = '<a target="_blank" href="https://www.reuters.com/business/canada-tax-rule-curbs-airbnb-deductions-ease-rental-shortage-2023-11-21/">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
 		'MYS' = '<a target="_blank" href="https://www.business-standard.com/world-news/this-malaysian-island-has-now-banned-airbnb-and-it-isn-t-first-to-do-so-123060600627_1.html">Omejitve v Maleziji',
-		'JPN' = '<a target="_blank" href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/',
+		'JPN' = '<a target="_blank" href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/">Različne omejitve na Japonskem',
 		'SGP' = '<a target="_blank" href="https://www.techerati.com/the-stack-archive/cloud/2017/02/07/singapore-rules-airbnb-short-term-rentals-illegal/">Omejitve v Singapurju',
 		'AUS' = '<a target="_blank" href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji',
 		'TUR' = '<a target="_blank" href="https://balkaninsight.com/2023/10/11/turkey-imposes-tougher-rules-for-airbnb-rentals/">Omejevanje z dovoljenji v Turčiji',
