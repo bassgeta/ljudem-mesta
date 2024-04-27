@@ -212,20 +212,20 @@
 	});
 
 	enum CountryMessages {
-		'AUT' = '<a href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Dunaj omejuje število dni za najem</a>',
-		'FRA' = '<a href="https://www.thelocal.fr/20230807/paris-increasing-crackdowns-on-airbnb-rentals">Pariz omejuje število dni za najem',
-		'DEU' = '<a href="https://www.dw.com/en/airbnb-berlin-court-deals-blow-to-holiday-home-platform/a-68510966">Berlin zopet omejuje Airbnb pogoje.',
-		'ITA' = '<a href="https://www.reuters.com/markets/europe/italy-crackdown-targets-1-bln-euros-undeclared-short-term-flat-rental-tax-2023-10-30/">Načrtujejo omejitve na nacionalni ravni',
-		'NLD' = '<a href="https://www.justtravelous.com/en/airbnb-amsterdam-regels/">Amsterdam omejuje bivanje prek Airbnbja',
-		'PRT' = '<a href="https://www.businessinsider.com/portugal-bans-new-airbnbs-fears-becoming-some-sort-of-disneyland-2023-2">Dovoljenja za Airbnbje niso več izdana',
-		'ESP' = '<a href="https://www.nytimes.com/2021/09/22/travel/barcelona-airbnb.html">Najemi zasebnih sob so omejeni v Barceloni',
-		'GBR' = '<a href="https://www.wired.co.uk/article/airbnb-london-short-term-rentals">London je omejil število letnih najemov v Airbnbjih',
-		'USA' = '<a href="https://www.theguardian.com/us-news/2023/oct/23/new-york-airbnb-crackdown-rules-housing">Konec Airbnbja v New Yorku',
-		'CAN' = '<a href="https://storeys.com/bc-short-term-rentals-legislation/">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
-		'MYS' = '<a href="https://www.business-standard.com/world-news/this-malaysian-island-has-now-banned-airbnb-and-it-isn-t-first-to-do-so-123060600627_1.html">Omejitve v Maleziji',
-		'JPN' = '<a href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/',
-		'SGP' = '<a href="https://www.techerati.com/the-stack-archive/cloud/2017/02/07/singapore-rules-airbnb-short-term-rentals-illegal/">Omejitve v Singapurju',
-		'AUS' = '<a href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji'
+		'AUT' = '<a target="_blank" href="https://www.thelocal.at/20230822/vienna-tightens-airbnb-and-other-rules-for-short-term-tourist-rentals">Dunaj omejuje število dni za najem</a>',
+		'FRA' = '<a target="_blank" href="https://www.thelocal.fr/20230807/paris-increasing-crackdowns-on-airbnb-rentals">Pariz omejuje število dni za najem',
+		'DEU' = '<a target="_blank" href="https://www.dw.com/en/airbnb-berlin-court-deals-blow-to-holiday-home-platform/a-68510966">Berlin zopet omejuje Airbnb pogoje.',
+		'ITA' = '<a target="_blank" href="https://www.reuters.com/markets/europe/italy-crackdown-targets-1-bln-euros-undeclared-short-term-flat-rental-tax-2023-10-30/">Načrtujejo omejitve na nacionalni ravni',
+		'NLD' = '<a target="_blank" href="https://www.justtravelous.com/en/airbnb-amsterdam-regels/">Amsterdam omejuje bivanje prek Airbnbja',
+		'PRT' = '<a target="_blank" href="https://www.businessinsider.com/portugal-bans-new-airbnbs-fears-becoming-some-sort-of-disneyland-2023-2">Dovoljenja za Airbnbje niso več izdana',
+		'ESP' = '<a target="_blank" href="https://www.nytimes.com/2021/09/22/travel/barcelona-airbnb.html">Najemi zasebnih sob so omejeni v Barceloni',
+		'GBR' = '<a target="_blank" href="https://www.wired.co.uk/article/airbnb-london-short-term-rentals">London je omejil število letnih najemov v Airbnbjih',
+		'USA' = '<a target="_blank" href="https://www.theguardian.com/us-news/2023/oct/23/new-york-airbnb-crackdown-rules-housing">Konec Airbnbja v New Yorku',
+		'CAN' = '<a target="_blank" href="https://storeys.com/bc-short-term-rentals-legislation/">Omejitve v Montrealu, Torontu, Britanski Kolumbiji',
+		'MYS' = '<a target="_blank" href="https://www.business-standard.com/world-news/this-malaysian-island-has-now-banned-airbnb-and-it-isn-t-first-to-do-so-123060600627_1.html">Omejitve v Maleziji',
+		'JPN' = '<a target="_blank" href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/',
+		'SGP' = '<a target="_blank" href="https://www.techerati.com/the-stack-archive/cloud/2017/02/07/singapore-rules-airbnb-short-term-rentals-illegal/">Omejitve v Singapurju',
+		'AUS' = '<a target="_blank" href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji'
 	}
 
 	function getMessageForCountry(country: string): string | null {
