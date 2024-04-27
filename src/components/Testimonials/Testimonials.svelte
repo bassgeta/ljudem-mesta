@@ -19,11 +19,19 @@
 	}
 
 	function handlePreviousClick() {
-		swiperEl?.swiper?.slidePrev();
+		if (swiperEl?.swiper.isBeginning) {
+			swiperEl?.swiper?.slideTo(swiperEl.swiper.slides.length - 1);
+		} else {
+			swiperEl?.swiper?.slidePrev();
+		}
 	}
 
 	function handleNextClick() {
-		swiperEl?.swiper?.slideNext();
+		if (swiperEl?.swiper.isEnd) {
+			swiperEl?.swiper?.slideTo(0);
+		} else {
+			swiperEl?.swiper?.slideNext();
+		}
 	}
 
 	async function fetchTestimonials() {
