@@ -127,7 +127,7 @@
 		min-width: 0;
 
 		@media screen and (max-width: 767px) {
-			height: 40vh;
+			height: 45vh;
 			min-height: min(40vh, 500px);
 			max-height: min(40vh, 500px);
 		}
