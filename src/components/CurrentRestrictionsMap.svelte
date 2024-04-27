@@ -30,7 +30,9 @@
 		'TUR',
 		'ISL',
 		'DNK',
-
+		'CHE',
+		'BEL',
+		'LUX',
 	];
 
 	onMount(() => {
@@ -233,6 +235,9 @@
 		'TUR' = '<a target="_blank" href="https://balkaninsight.com/2023/10/11/turkey-imposes-tougher-rules-for-airbnb-rentals/">Omejevanje z dovoljenji v Turčiji',
 		'ISL' = '<a target="_blank" href="https://www.loc.gov/item/global-legal-monitor/2016-11-29/iceland-new-home-sharing-law-to-take-effect-january-1-2017/">Islandija ena prvih držav s strogimi omejitvami',
 		'DNK' = '<a target="_blank" href="https://hostminded.com/denmark-new-airbnb-regulations/">Omejitve na Danskem',
+		'CHE' = '<a target="_blank" href="https://www.srf.ch/news/abstimmung-stadt-luzern-airbnb-wird-in-der-stadt-luzern-deutlich-eingeschraenkt">Stroge omejitve v Lucernu, prav tako Bernu in Ženevi',
+		'BEL' = '<a target="_blank" href="https://www.brusselstimes.com/768722/brussels-vs-airbnb-city-authorities-win-legal-battle-to-enforce-tighter-limits">Bruselj v bitki z AirBNB',
+		'LUX' = '<a target="_blank" href="https://today.rtl.lu/news/luxembourg/a/2122353.html">Luxemburg začenja z regulacijo',
 	}
 
 	function getMessageForCountry(country: string): string | null {
