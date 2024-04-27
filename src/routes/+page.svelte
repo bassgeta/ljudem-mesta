@@ -11,10 +11,31 @@
 	import Header from './blocks/Header.svelte';
 	import InfoCards from './blocks/InfoCards.svelte';
 	import { browser, dev } from '$app/environment';
+	import og from '../lib/assets/airbnb-og.jpg'
 </script>
 
 <svelte:head>
 	<title>{$_('landing.head.title')}</title>
+
+	<!-- Primary Meta Tags -->
+	<meta name="title" content={$_('landing.head.title')} />
+	<meta name="description" content="Stanovanja za ljudi, ne zaslužek." />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://airbnbpejtdomov.si/" />
+	<meta property="og:title" content={$_('landing.head.title')} />
+	<meta property="og:description" content="Stanovanja za ljudi, ne zaslužek." />
+	<meta property="og:image" content="{og}" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
+	<meta property="twitter:title" content={$_('landing.head.title')} />
+	<meta property="twitter:description" content="Stanovanja za ljudi, ne zaslužek." />
+	<meta property="twitter:image" content="{og}" />
+
+	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
 
 <div class="landing">
@@ -67,6 +88,7 @@
 {#if browser && !dev}
   <script defer data-domain="airbnbpejtdomov.si" src="https://plausible.lb.djnd.si/js/plausible.js"></script>
 {/if}
+
 
 <style>
 	.landing {
