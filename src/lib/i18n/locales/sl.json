@@ -5,6 +5,8 @@
 	"landing.topHeader": "Odsotnost regulacije kratkoročnega oddajanja nepremičnin preko platform, kot sta Airbnb in Booking, poglablja stanovanjsko krizo.",
 	"landing.airbnbApartments.title": "{total}",
 	"landing.airbnbApartments.titleAppendix": "Trenutno aktivnih Airbnb<br /> oglasov v Ljubljani",
+	"landing.airbnbApartments.shortTerm": "Kratkoročni najem",
+	"landing.airbnbApartments.longTerm": "Dolgoročni najem",
 	"landing.nepremicnine.title": "Trenutno aktivnih oglasov<br /> na Nepremicnine.net",
 	"landing.airbnbApartments.content": "V mestu je trenutno aktivnih 1515 oglasov. Povprečna dnevna cena je 115,60 EUR, stopnja zasedenosti pa 64 %, kar pomeni, da je povprečen dnevni dohodek oddaje prek Airbnb 78,30 EUR.",
 	"landing.hostNumbers.title": "{percent}%",

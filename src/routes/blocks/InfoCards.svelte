@@ -10,27 +10,38 @@
 	<div class="info-card info-card-white span-2">
 		<div class="info-card-body">
 			<div class="info-chart info-chart-stonks">
-				<p class="info-chart-caption">{@html $_('landing.airbnbApartments.titleAppendix')}</p>
+				<p class="info-chart-title">{@html $_('landing.airbnbApartments.shortTerm')}</p>
 				<div class="chart-measure">
-					<span>1515</span>
+					<span>1640</span>
 					<div class="indicator">
 						<img src="{hiskaRed}" />
 					</div>
 				</div>
+				<p class="info-chart-caption">{@html $_('landing.airbnbApartments.titleAppendix')}</p>
 			</div>
 			<div class="info-chart info-chart-not-stonks chart-green">
-				<p class="info-chart-caption">{@html $_('landing.nepremicnine.title')}</p>
+				<p class="info-chart-title">{@html $_('landing.airbnbApartments.longTerm')}</p>
 				<div class="chart-measure">
-					<span>577</span>
+					<span>538</span>
 					<div class="indicator">
 						<img src="{hiskaGreen}" />
 					</div>
 				</div>
+				<p class="info-chart-caption">{@html $_('landing.nepremicnine.title')}</p>
 			</div>
+			<sub>
+				<a
+					href="https://web.archive.org/web/20240404221249/https://www.nepremicnine.net/oglasi-oddaja/ljubljana-mesto/stanovanje/"
+					target="_blank">
+					Vir</a>,
+				<a
+					href="https://n1info.si/gospodarstvo/nepremicnine/slovenija-na-airbnb-v-kamniku-grad-v-ljubljani-stanovanje-za-2-000-evrov/"
+					target="_blank"
+				>vir</a>
+			</sub>
 		</div>
 	</div>
-	
-	
+
 	<div class="info-card info-card-purple">
 		<div class="info-card-body">
 			<h2 class="info-card-title">33<span>&nbsp;%</span></h2>
@@ -187,7 +198,7 @@
 	}
 
 	.info-chart-not-stonks {
-		--w: min(50%, 60vw);
+		--w: min(47%, 60vw);
 	}
 
 	.info-chart {
@@ -199,9 +210,14 @@
 		}
 		width: 100%;
 		margin-bottom: 2rem;
-		& .info-chart-caption {
+		& .info-chart-title {
 			font-size: clamp(var(--font-m), 10vw, var(--font-l));
 			padding-bottom: 1rem;
+			font-weight: bold;
+		}
+		& .info-chart-caption {
+			font-size: clamp(var(--font-xs), 10vw, var(--font-s));
+			padding-top: 1rem;
 			font-weight: bold;
 		}
 		& .chart-measure {
@@ -211,7 +227,7 @@
 			background: var(--color);
 			animation: charter 1s ease-in alternate;
 			& span {
-				padding-left: 1rem;
+				padding-left: 0.2rem;
 				font-size: clamp(var(--font-xl), 10vw, var(--font-xxxl));
 				line-height: clamp(var(--lh-xl), 10vw, var(--lh-xxl));
 				font-weight: bold;
@@ -242,5 +258,4 @@
 			}
 		}
 	}
-
 </style>
