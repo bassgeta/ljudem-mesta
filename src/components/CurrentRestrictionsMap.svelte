@@ -26,7 +26,11 @@
 		'MYS',
 		'JPN',
 		'SGP',
-		'AUS'
+		'AUS',
+		'TUR',
+		'ISL',
+		'DNK',
+		
 	];
 
 	onMount(() => {
@@ -225,7 +229,10 @@
 		'MYS' = '<a target="_blank" href="https://www.business-standard.com/world-news/this-malaysian-island-has-now-banned-airbnb-and-it-isn-t-first-to-do-so-123060600627_1.html">Omejitve v Maleziji',
 		'JPN' = '<a target="_blank" href="https://blog.keycafe.com/understanding-japans-short-term-rental-regulations/',
 		'SGP' = '<a target="_blank" href="https://www.techerati.com/the-stack-archive/cloud/2017/02/07/singapore-rules-airbnb-short-term-rentals-illegal/">Omejitve v Singapurju',
-		'AUS' = '<a target="_blank" href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji'
+		'AUS' = '<a target="_blank" href="https://www.thestratacollective.com.au/education/crackdown-on-airbnb-holiday-rentals/">Omejitve v Avstraliji',
+		'TUR' = '<a target="_blank" href="https://balkaninsight.com/2023/10/11/turkey-imposes-tougher-rules-for-airbnb-rentals/">Omejevanje z dovoljenji v Turčiji',
+		'ISL' = '<a target="_blank" href="https://www.loc.gov/item/global-legal-monitor/2016-11-29/iceland-new-home-sharing-law-to-take-effect-january-1-2017/">Islandija ena prvih držav s strogimi omejitvami',
+		'DNK' = '<a target="_blank" href="https://hostminded.com/denmark-new-airbnb-regulations/">Omejitve na Danskem',
 	}
 
 	function getMessageForCountry(country: string): string | null {
