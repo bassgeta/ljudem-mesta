@@ -25,7 +25,7 @@
 	<div class="liberate-nalepka">
 		<img src="{nalepka}" alt="nalepka za ozavescanje" />
 	</div>
-	<div class="what-to-do">
+	<div class="what-to-do wip">
 		<h4 class="what-to-do-title">
 			{@html $_('liberate.what-to-do.title')}
 		</h4>
@@ -42,13 +42,13 @@
 			<DevDbControls />
 		</div>
 	{/if}
-	<p class="total-liberated">
+	<p class="total-liberated wip">
 		<!-- Skupaj smo osvobodili že <span class="total-number">{totalLiberated}</span> stanovanj! -->
 		{@html $_('liberatePage.counter.message', {
 			values: { n: totalLiberated }
 		})}
 	</p>
-	<a class="shadowed-card shadowed-button map-link" href="/liberate">
+	<a class="shadowed-card shadowed-button map-link wip" href="/liberate">
 		<span>{$_('liberate.go-to-map')}</span>
 		<Arrow />
 	</a>

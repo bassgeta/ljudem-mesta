@@ -88,11 +88,13 @@
 	$: safeFlats = apartmentGrid(flats);
 </script>
 
-<div class="building-container" class:building-container-fullscreen="{fullscreen}" id="{id}">
+<div class="under-construction">🚧 Under construction 👷‍♀️</div>
+		
+<div class="building-container wip-overflow-hidden" class:building-container-fullscreen="{fullscreen}" id="{id}">
 	{#if liberatingId !== null}
 		<LiberateForm handleClose="{handleClose}" handleSubmit="{handleSubmit}" isDone="{added}" />
 	{:else}
-		<div class="building">
+		<div class="building wip-blur">
 			<div class="bg">
 				<div class="fade">
 					<img src="{fade_4}" alt="background" />
@@ -351,5 +353,11 @@
 				}
 			}
 		}
+	}
+
+	.under-construction {
+		font-weight: bold;
+		letter-spacing: 0.3rem;
+		margin-top: calc(var(--size) / 5);
 	}
 </style>

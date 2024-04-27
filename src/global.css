@@ -244,3 +244,18 @@ a {
 		filter: drop-shadow(3px 3px 0px black);
 	}
 }
+
+.wip {
+	opacity: 0 !important;
+	pointer-events: none !important;
+	display: none !important;
+}
+
+.wip-blur {
+	pointer-events: none !important;
+	filter: blur(10px) !important;
+}
+
+.wip-overflow-hidden {
+	overflow: hidden !important;
+}
