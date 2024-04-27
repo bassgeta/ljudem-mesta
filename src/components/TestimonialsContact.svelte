@@ -23,10 +23,10 @@
 	<p class="contact-text">
 		{$_('testimonialsContent.mail.part1')}
 		<a
-			href="mailto:airbnbpejtstran@djnd.si?subject=Izjava o AirBnB"
+			href="mailto:kontakt@airbnbpejtdomov.si?subject=Izjava o AirBnB"
 			class="contact-link"
 			target="_blank"
-			rel="external noopener noreferrer">airbnbpejtstran@djnd.si</a
+			rel="external noopener noreferrer">kontakt@airbnbpejtdomov.si</a
 		>,
 		{$_('testimonialsContent.mail.part2')}
 	</p>
