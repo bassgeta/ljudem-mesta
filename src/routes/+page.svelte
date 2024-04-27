@@ -35,8 +35,6 @@
 	<meta property="twitter:title" content={$_('landing.head.title')} />
 	<meta property="twitter:description" content={$_('landing.head.description')} />
 	<meta property="twitter:image" content="/airbnb-og.jpg" />
-
-	<meta name="google-site-verification" content="qipYjZl25gtrZwmvlQRPRDkbCJyErbpJ4k8OSXuGCqk" />
 	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
 
