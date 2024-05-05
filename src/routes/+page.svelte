@@ -11,29 +11,30 @@
 	import Header from './blocks/Header.svelte';
 	import InfoCards from './blocks/InfoCards.svelte';
 	import { browser, dev } from '$app/environment';
-	import og from '../lib/assets/airbnb-og.jpg'
+	import og from '../lib/assets/airbnb-og.jpg';
+	import PriceChart from '../components/PriceChart.svelte';
 </script>
 
 <svelte:head>
 	<title>{$_('landing.head.title')}</title>
 
 	<!-- Primary Meta Tags -->
-	<meta name="title" content={$_('landing.head.title')} />
-	<meta name="description" content={$_('landing.head.description')} />
-	<meta name="keywords" content={$_('landing.head.keywords')} />
+	<meta name="title" content="{$_('landing.head.title')}" />
+	<meta name="description" content="{$_('landing.head.description')}" />
+	<meta name="keywords" content="{$_('landing.head.keywords')}" />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://airbnbpejtdomov.si/" />
-	<meta property="og:title" content={$_('landing.head.title')} />
-	<meta property="og:description" content={$_('landing.head.description')} />
+	<meta property="og:title" content="{$_('landing.head.title')}" />
+	<meta property="og:description" content="{$_('landing.head.description')}" />
 	<meta property="og:image" content="/airbnb-og.jpg" />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
-	<meta property="twitter:title" content={$_('landing.head.title')} />
-	<meta property="twitter:description" content={$_('landing.head.description')} />
+	<meta property="twitter:title" content="{$_('landing.head.title')}" />
+	<meta property="twitter:description" content="{$_('landing.head.description')}" />
 	<meta property="twitter:image" content="/airbnb-og.jpg" />
 	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
@@ -49,6 +50,9 @@
 	</h2>
 	<div class="landing-section chart-container">
 		<IncomeChart />
+	</div>
+	<div class="landing-section chart-container">
+		<PriceChart />
 	</div>
 	<h2 class="section-title comparison-title ct-1">
 		{$_('landing.comparison.title')}
@@ -92,9 +96,11 @@
 </div>
 
 {#if browser && !dev}
-  <script defer data-domain="airbnbpejtdomov.si" src="https://plausible.lb.djnd.si/js/plausible.js"></script>
+	<script
+		defer
+		data-domain="airbnbpejtdomov.si"
+		src="https://plausible.lb.djnd.si/js/plausible.js"></script>
 {/if}
-
 
 <style>
 	.landing {
@@ -163,7 +169,6 @@
 		}
 	}
 
-
 	.comparison-subtitle {
 		margin-top: 1rem;
 		margin-bottom: 3rem;
@@ -181,6 +186,7 @@
 	.chart-container {
 		width: 100%;
 		max-width: calc(1400px - 3rem);
+		margin-bottom: 4rem;
 	}
 
 	.testimonials-title {
