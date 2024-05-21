@@ -49,18 +49,15 @@
 		{$_('landing.salary.title')}
 	</h2>
 	<div class="landing-section chart-container">
-		<IncomeChart />
-	</div>
-	<div class="landing-section chart-container">
 		<PriceChart />
 	</div>
-	<h2 class="section-title comparison-title ct-1">
+	<h2 class="section-title comparison-title">
 		{$_('landing.comparison.title')}
 	</h2>
-	<h2 class="section-title comparison-title ct-2">
-		{$_('landing.comparison.title2')}
-	</h2>
-	<h2 class="section-title comparison-title ct-3">
+	<div class="landing-section chart-container">
+		<IncomeChart />
+	</div>
+	<h2 class="section-title comparison-title">
 		{$_('landing.comparison.title3')}
 	</h2>
 	<p class="section-subtitle comparison-subtitle">

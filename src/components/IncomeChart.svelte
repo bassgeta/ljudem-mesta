@@ -84,7 +84,7 @@
 		</div>
 	</div>
 	<div class="chart-description">
-		{$_('incomeChart.description')}
+		{$_('landing.comparison.title2')}
 		<sub><a href="https://www.arvio.si/" target="_blank">{$_('source')}</a></sub>
 	</div>
 </div>

@@ -90,7 +90,9 @@
 		font-weight: bolder;
 		filter: drop-shadow(3px 3px 0 var(--color-red));
 		transform-origin: left center;
-		transition: filter 0.3s , tansform 0.3s ease-in-out;
+		transition:
+			filter 0.3s,
+			tansform 0.3s ease-in-out;
 		&:hover {
 			transform: rotate(2deg) translate(3px, 3px);
 			filter: drop-shadow(0px 0px 0px var(--color-red));

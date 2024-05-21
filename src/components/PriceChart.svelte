@@ -50,6 +50,9 @@
 						},
 						ticks: {
 							color: (ctx) => {
+								if (window.innerWidth < 700) {
+									if (/Q[24]/.test(shortLabels[ctx.index])) return 'transparent';
+								}
 								return shortLabels[ctx.index].startsWith('Q') ? blackColor : 'white';
 							},
 							mirror: true,
@@ -67,7 +70,7 @@
 							z: 1,
 							maxRotation: -90,
 							minRotation: -90,
-							padding: 4,
+							padding: 6,
 							callback(tickValue, index, ticks) {
 								return shortLabels[index];
 							}
@@ -178,10 +181,10 @@
 	}
 	.chart-section {
 		flex: 2;
-		height: 60vh;
+		height: 50vh;
 		/* max-width: 100%; */
-		min-height: min(60vh, 500px);
-		max-height: min(60vh, 500px);
+		min-height: min(50vh, 500px);
+		max-height: min(50vh, 500px);
 		position: relative;
 		min-width: 0;
 
@@ -214,7 +217,7 @@
 
 	.canvas-container {
 		transform-origin: center center;
-		transform: translate(0px, 10px) scale(1.01);
+		transform: translate(0px, 10px) scale(1.025);
 		width: 100%;
 		@media screen and (max-width: 767px) {
 			/* pointer-events: none; */

@@ -88,9 +88,10 @@
 	$: safeFlats = apartmentGrid(flats);
 </script>
 
-<div class="under-construction">🚧 Under construction 👷‍♀️</div>
-		
-<div class="building-container wip-overflow-hidden" class:building-container-fullscreen="{fullscreen}" id="{id}">
+<div
+	class="building-container wip-overflow-hidden"
+	class:building-container-fullscreen="{fullscreen}"
+	id="{id}">
 	{#if liberatingId !== null}
 		<LiberateForm handleClose="{handleClose}" handleSubmit="{handleSubmit}" isDone="{added}" />
 	{:else}
