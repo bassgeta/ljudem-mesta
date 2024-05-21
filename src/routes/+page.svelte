@@ -108,7 +108,7 @@
 	}
 
 	.top-header {
-		max-width: 600px;
+		max-width: 680px;
 		font-size: 2.25rem;
 		line-height: 2.875rem;
 		font-weight: 500;
