@@ -7,8 +7,8 @@
 	--color-purple: #7500eb;
 	--color-blue: #00a3ff;
 
-	--color-green-vibe: #00FF66;
-	--color-green-vibier: #D8FFE8;
+	--color-green-vibe: #00ff66;
+	--color-green-vibier: #d8ffe8;
 	--color-light-green: #dcf8d7;
 	--color-lime: #ecffa2;
 	--color-green: #9bec8e;
@@ -246,16 +246,16 @@ a {
 }
 
 .wip {
-	opacity: 0 !important;
+	/* opacity: 0 !important;
 	pointer-events: none !important;
-	display: none !important;
+	display: none !important; */
 }
 
 .wip-blur {
-	pointer-events: none !important;
-	filter: blur(10px) !important;
+	/* pointer-events: none !important;
+	filter: blur(10px) !important; */
 }
 
 .wip-overflow-hidden {
-	overflow: hidden !important;
+	/* overflow: hidden !important; */
 }
