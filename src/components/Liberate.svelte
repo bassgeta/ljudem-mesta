@@ -76,15 +76,14 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-start;
-		gap: 1.5rem;
+		gap: 1.25rem;
 
-		margin: 3rem 0;
+		margin: 8.5rem 0 4.125rem 0;
 		padding: 0 2rem;
 		padding-top: 3rem;
 	}
 
 	.what-to-do-title {
-		padding-top: 1rem;
 		flex-grow: 2;
 		font-size: var(--font-xl);
 		font-weight: 700;
@@ -116,7 +115,7 @@
 		text-align: center;
 		font-size: var(--font-xl);
 		font-weight: 900;
-		margin: 3rem 0 1.5rem 0;
+		margin: 4.125rem 0 2rem 0;
 		& span {
 			background-color: var(--color-neon-green);
 		}
@@ -167,7 +166,7 @@
 			transform: rotate(180deg) scale(0.93);
 		}
 		65% {
-			transform: rotate(180deg)scale(0.93);
+			transform: rotate(180deg) scale(0.93);
 		}
 		70% {
 			transform: rotate(180deg) scale(0.93);

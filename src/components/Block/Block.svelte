@@ -283,7 +283,8 @@
 
 		&:hover {
 			& svg .bump {
-				transform: translateY(calc(-1 * var(--size) / 35));
+				/* transform: translateY(calc(-1 * var(--size) / 35)); */
+				transform: scaleY(0.6);
 			}
 			--siz: calc(var(--size) / 8.9);
 			& .bang {
@@ -304,7 +305,8 @@
 			cursor: pointer;
 
 			& .bubble {
-				font-size: 0.8rem;
+				font-size: 1rem;
+				line-height: 1.08;
 				z-index: 3;
 				opacity: 0;
 				transform: translateY(-80%);

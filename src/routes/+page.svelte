@@ -51,7 +51,7 @@
 	<div class="landing-section chart-container">
 		<PriceChart />
 	</div>
-	<h2 class="section-title comparison-title">
+	<h2 class="section-title">
 		{$_('landing.comparison.title')}
 	</h2>
 	<div class="landing-section chart-container">
@@ -102,18 +102,17 @@
 <style>
 	.landing {
 		width: 100%;
-		max-width: 1400px;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		padding-top: 2rem;
 	}
 
 	.top-header {
 		max-width: 600px;
 		font-size: 2.25rem;
+		line-height: 2.875rem;
 		font-weight: 500;
-		margin: 3rem 0;
+		margin: 132px 0 128px 0;
 		text-align: center;
 		text-wrap: balance;
 	}
@@ -140,6 +139,9 @@
 		font-weight: 700;
 		padding: 0 1.5rem;
 		text-align: center;
+
+		margin-top: 10.375rem;
+		margin-bottom: 2.375rem;
 	}
 
 	.section-subtitle {
@@ -151,29 +153,17 @@
 	}
 
 	.comparison-title {
-		margin: 2rem 0;
 		text-wrap: balance;
-		&.ct-1 {
-			padding-top: 2rem;
-			color: var(--color-lime);
-		}
-		&.ct-2 {
-			color: var(--color-orange);
-		}
-		&.ct-3 {
-			color: var(--color-red);
-			padding-bottom: 2rem;
-		}
+		margin-bottom: 0.6875rem;
 	}
 
 	.comparison-subtitle {
-		margin-top: 1rem;
-		margin-bottom: 3rem;
+		margin-bottom: 3.75rem;
 	}
 
 	.salary-title {
-		margin-top: 4rem;
-		margin-bottom: 3rem;
+		margin-top: 10.375rem;
+		margin-bottom: 2.375rem;
 	}
 
 	.hotel-section {
@@ -183,27 +173,26 @@
 	.chart-container {
 		width: 100%;
 		max-width: calc(1400px - 3rem);
-		margin-bottom: 4rem;
 	}
 
 	.testimonials-title {
-		margin-top: 4rem;
-		margin-bottom: 1.5rem;
+		margin-top: 9.875rem;
+		margin-bottom: 1.125rem;
 	}
 
 	.testimonials-section {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 4rem;
 	}
 
 	.map-title {
-		margin-top: 4rem;
+		margin-top: 10.5rem;
+		margin-bottom: 0.375rem;
 	}
 
 	.map-subtitle {
-		margin-top: 1rem;
-		margin-bottom: 3rem;
+		margin-bottom: 1.624rem;
 	}
 
 	.map-section {

@@ -92,7 +92,7 @@
 	.comparison-tables {
 		width: 100%;
 		display: flex;
-		gap: 2rem;
+		gap: 2.625rem;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
 		@media screen and (max-width: 767px) {

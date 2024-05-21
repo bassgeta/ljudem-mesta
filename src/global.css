@@ -39,7 +39,7 @@
 	--lh-m: 1.5rem;
 	--lh-s: 1.25rem;
 
-	--size: min(1100px, calc(100vw - 32px));
+	--size: min(1200px, calc(100vw - 32px));
 	--hpadding: max(16px, calc(calc(100vw - var(--size)) / 2));
 }
 

@@ -30,13 +30,14 @@
 		}
 		flex-wrap: wrap;
 		gap: 1.5rem;
-		padding-bottom: 10rem;
+		padding-bottom: 218px;
 		padding-right: 32px;
+		margin-top: 5.25rem;
 
 		background-image: url('$lib/assets/main.png');
 		background-repeat: no-repeat;
 		/* background-size: auto 70%; */
-		background-size: min(90vw, 600px);
+		background-size: min(90vw, 888px);
 		background-position: left bottom;
 
 		@media only screen and (max-width: 767px) {
@@ -51,7 +52,8 @@
 		}
 		font-weight: 600;
 		color: var(--color-red);
-		font-size: clamp(3rem, 20vw, 8rem);
+		font-size: clamp(3rem, 20vw, 6.25rem);
+		line-height: 1.08;
 		max-width: min(710px, 100%);
 	}
 
