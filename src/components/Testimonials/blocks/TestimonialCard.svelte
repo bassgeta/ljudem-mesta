@@ -23,7 +23,7 @@
 		border-radius: 15px;
 		padding: 2rem;
 		font-size: var(--font-s);
-		line-height: var(--lh-s);
+		line-height: 1.625rem;
 		max-height: 60vh;
 		overflow-y: auto;
 	}
