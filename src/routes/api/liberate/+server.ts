@@ -28,7 +28,8 @@ const BodySchema = z.object({
 			return str?.substring(0, char_limit);
 		})
 		.optional()
-		.nullable()
+		.nullable(),
+	fp: z.string()
 });
 
 export async function POST(data) {
@@ -38,11 +39,13 @@ export async function POST(data) {
 		return svError(400, { message: JSON.stringify(parsed.error) });
 	}
 
-	const { apartmentId, apartmentType, message } = parsed.data;
+	const { apartmentId, apartmentType, message, fp } = parsed.data;
 
+	console.log({ fp });
 	if (!dev) {
-		const ip = data.getClientAddress();
-		const { error } = await supabase.from(IP_TABLE_NAME).insert({ ip, apartment_id: apartmentId });
+		const { error } = await supabase
+			.from(IP_TABLE_NAME)
+			.insert({ ip: fp, apartment_id: apartmentId });
 
 		if (error) {
 			return svError(403);

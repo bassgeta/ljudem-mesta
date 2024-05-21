@@ -3,6 +3,7 @@ import { SUPABASE_TABLE_NAME } from '../constants/supabase';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
 import thenby from 'thenby';
+import getBrowserFingerprint from 'get-browser-fingerprint';
 const { firstBy } = thenby;
 
 const FLATS_PER_FLOOR = 3;
@@ -102,27 +103,13 @@ export async function fetchLastFloorData() {
 	}
 }
 
-export async function removeAppartments(count?: number, floor?: number) {
+export async function removeAppartments() {
 	try {
 		const { error } = await supabase.from(SUPABASE_TABLE_NAME).delete().neq('id', 0);
-	} catch (e) {
-		console.error(error.message);
+		if (error) console.error(error);
+	} catch (error: unknown) {
+		console.error(error);
 	}
-}
-
-async function generateApartment(floor: number, appartment_number: number) {
-	const state = Math.random() <= AIRBNB_PER_FLAT ? ApartmentStatus.AIRBNB : ApartmentStatus.FREE;
-
-	const newAppartment = {
-		state,
-		apartment_type: Math.ceil(Math.random() * 6),
-		apartment: appartment_number,
-		floor
-	};
-	const { error } = await supabase.from(SUPABASE_TABLE_NAME).insert(newAppartment);
-	if (error) console.error(error);
-
-	return newAppartment;
 }
 
 export async function generateApartments() {
@@ -136,13 +123,6 @@ export async function generateApartments() {
 	);
 }
 
-export async function liberateApartment(apartmentId: number, type: ApartmentType, message: string) {
-	const { error } = await supabase
-		.from(SUPABASE_TABLE_NAME)
-		.update({ state: 'FREE', apartment_type: type, message })
-		.eq('id', apartmentId);
-}
-
 export async function handleLiberateSubmit(
 	apartmentId: number,
 	apartmentType: number,
@@ -153,7 +133,10 @@ export async function handleLiberateSubmit(
 		body: JSON.stringify({
 			apartmentId,
 			apartmentType,
-			message
+			message,
+			fp: getBrowserFingerprint({
+				enableScreen: false
+			}).toString()
 		}),
 		headers: {
 			'content-type': 'application/json'

@@ -5,7 +5,6 @@
 	import {
 		ApartmentStatus,
 		fetchApartmentData,
-		liberateApartment,
 		type Apartment,
 		ApartmentType
 	} from '../utils/liberation';
