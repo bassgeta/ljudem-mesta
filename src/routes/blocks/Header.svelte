@@ -65,7 +65,7 @@
 		width: 80%;
 		position: absolute;
 		top: 45%;
-		left: 45%;
+		left: 50%;
 		transform: translate(-50%, -50%);
 
 		font-size: 2.25rem;
@@ -73,7 +73,6 @@
 		line-height: 2.25rem;
 		font-weight: 500;
 		color: var(--color-black);
-		text-align: center;
 	}
 
 	.status {
