@@ -140,8 +140,8 @@
 		padding: 0 1.5rem;
 		text-align: center;
 
-		margin-top: 10.375rem;
-		margin-bottom: 2.375rem;
+		margin-top: 7rem;
+		margin-bottom: 2rem;
 	}
 
 	.section-subtitle {
@@ -162,8 +162,8 @@
 	}
 
 	.salary-title {
-		margin-top: 10.375rem;
-		margin-bottom: 2.375rem;
+		margin-top: 7rem;
+		margin-bottom: 2rem;
 	}
 
 	.hotel-section {
@@ -176,7 +176,7 @@
 	}
 
 	.testimonials-title {
-		margin-top: 9.875rem;
+		margin-top: 7rem;
 		margin-bottom: 1.125rem;
 	}
 
@@ -187,8 +187,8 @@
 	}
 
 	.map-title {
-		margin-top: 10.5rem;
-		margin-bottom: 0.375rem;
+		margin-top: 7rem;
+		margin-bottom: 2rem;
 	}
 
 	.map-subtitle {
