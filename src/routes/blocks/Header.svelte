@@ -62,16 +62,18 @@
 	}
 
 	.cloud-text {
-		max-width: 80%;
+		width: 80%;
 		position: absolute;
-		top: 30px;
-		left: 20px;
+		top: 45%;
+		left: 45%;
+		transform: translate(-50%, -50%);
 
 		font-size: 2.25rem;
 		font-size: clamp(1.5rem, 8vw, 2.25rem);
-		line-height: 2.75rem;
+		line-height: 2.25rem;
 		font-weight: 500;
 		color: var(--color-black);
+		text-align: center;
 	}
 
 	.status {
