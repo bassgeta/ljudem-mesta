@@ -139,8 +139,8 @@
 		}
 
 		& img {
-			width: min(30vw, 450px);
-			height: min(30vw, 450px);
+			width: min(30vw, 400px);
+			height: min(30vw, 400px);
 		}
 	}
 	@keyframes roottt {
