@@ -96,7 +96,7 @@
 		border-radius: 12px;
 		padding: 2rem;
 
-		text-align: center;
+		text-align: left;
 		font-weight: 500;
 		font-size: var(--font-m);
 		text-wrap: balance;
