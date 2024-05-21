@@ -41,7 +41,6 @@ export async function POST(data) {
 
 	const { apartmentId, apartmentType, message, fp } = parsed.data;
 
-	console.log({ fp });
 	if (!dev) {
 		const { error } = await supabase
 			.from(IP_TABLE_NAME)
