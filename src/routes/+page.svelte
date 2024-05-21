@@ -108,11 +108,11 @@
 	}
 
 	.top-header {
-		max-width: 600px;
+		max-width: 700px;
 		font-size: 2.25rem;
 		line-height: 2.875rem;
 		font-weight: 500;
-		margin: 132px 0 128px 0;
+		margin: 7rem 0;
 		text-align: center;
 		text-wrap: balance;
 	}
