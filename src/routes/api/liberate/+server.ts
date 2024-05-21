@@ -3,46 +3,49 @@ import { dev } from '$app/environment';
 import supabase from '$lib/supabase';
 import { IP_TABLE_NAME, SUPABASE_TABLE_NAME } from '../../../constants/supabase';
 import { findAndFilter } from 'swearify';
-import { z } from 'zod'
-import { ApartmentType } from '../../../utils/liberation';
+import { z } from 'zod';
 
-const char_limit = 5000
+const char_limit = 5000;
 const BodySchema = z.object({
 	apartmentId: z.number(),
 	apartmentType: z.number(),
-	message: z.string().transform(str => {
-		if (str) {
-			const result = findAndFilter(str.substring(0, char_limit),
-				'☠️',                                          // placeholder
-				['en', 'sl'],                                     // filter in which languages
-				[],                                               // allowed swears
-				[],                                               // add your own words
-			)
-			if (result.found) {
-				return result.filtered_sentense
+	message: z
+		.string()
+		.transform((str) => {
+			if (str) {
+				const result = findAndFilter(
+					str.substring(0, char_limit),
+					'☠️', // placeholder
+					['en', 'sl'], // filter in which languages
+					[], // allowed swears
+					[] // add your own words
+				);
+				if (result.found) {
+					return result.filtered_sentense;
+				}
 			}
-		}
 
-		return str?.substring(0, char_limit)
-	}).optional().nullable()
-})
-
+			return str?.substring(0, char_limit);
+		})
+		.optional()
+		.nullable()
+});
 
 export async function POST(data) {
 	const body = await data.request.json();
-	const parsed = BodySchema.safeParse(body)
+	const parsed = BodySchema.safeParse(body);
 	if (!parsed.success) {
-		return svError(400, { message: JSON.stringify(parsed.error) })
+		return svError(400, { message: JSON.stringify(parsed.error) });
 	}
 
-	const { apartmentId, apartmentType, message } = parsed.data
+	const { apartmentId, apartmentType, message } = parsed.data;
 
 	if (!dev) {
 		const ip = data.getClientAddress();
 		const { error } = await supabase.from(IP_TABLE_NAME).insert({ ip, apartment_id: apartmentId });
 
 		if (error) {
-			return svError(403)
+			return svError(403);
 		}
 	}
 
@@ -54,7 +57,7 @@ export async function POST(data) {
 	if (error) {
 		console.error(error.message);
 
-		return svError(400)
+		return svError(400);
 	}
 
 	return json({ status: 200 });
