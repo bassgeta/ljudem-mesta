@@ -106,16 +106,12 @@
 
 	.info-card-title {
 		font-size: clamp(var(--font-xxxl), 10vw, var(--font-xxxl));
-		line-height: clamp(var(--lh-xxl), 10vw, var(--lh-xxxl));
 		font-weight: bold;
 
 		@media screen and (max-width: 950px) {
 			& span {
 				font-size: 3rem;
 			}
-		}
-		@media screen and (min-width: 700px) {
-			margin-bottom: 1.1rem;
 		}
 	}
 
