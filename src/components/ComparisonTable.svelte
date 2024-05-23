@@ -16,27 +16,9 @@
 				<div class="comparison-table-expenses">
 					<div class="comparison-table-expense-row">
 						<span>
-							{$_('comparisonTable.airbnb.expense1')}
+							Airbnb strošek (2.700 EUR) + DDV (3.366 EUR) + obratovalni stroški (1.200 EUR) + 4 %
+							davek s.p. (477 EUR) = 7.743 EUR
 						</span>
-						<span>2.000 EUR</span>
-					</div>
-					<div class="comparison-table-expense-row">
-						<span>
-							{$_('comparisonTable.airbnb.expense2')}
-						</span>
-						<span>3.366 EUR</span>
-					</div>
-					<div class="comparison-table-expense-row">
-						<span>
-							{$_('comparisonTable.airbnb.expense3')}
-						</span>
-						<span>1.200 EUR</span>
-					</div>
-					<div class="comparison-table-expense-row">
-						<span>
-							{$_('comparisonTable.airbnb.expense4')}
-						</span>
-						<span>477 EUR</span>
 					</div>
 				</div>
 				<div class="comparison-table-income">
@@ -65,7 +47,7 @@
 			</div>
 			<div class="comparison-table-container comparison-table-rent">
 				<div class="comparison-table-expenses">
-					<div class="comparison-table-expense-row">
+					<div class="comparison-table-expense-row small">
 						<span>
 							{$_('comparisonTable.rent.expense1')}
 						</span>
@@ -130,12 +112,13 @@
 	}
 
 	.comparison-table-title {
-		font-size: var(--font-l);
-		line-height: var(--lh-l);
 		margin-top: 2rem;
-		font-weight: 900;
 		text-align: center;
-		margin-bottom: 1rem;
+		margin-bottom: 1.57rem;
+
+		font-size: 1.5rem;
+		font-weight: 900;
+		line-height: 1.8rem;
 	}
 
 	.comparison-table-income-title {
@@ -149,8 +132,8 @@
 		margin-bottom: 0.5rem;
 		padding: 0 1rem;
 
-		font-size: var(--font-l);
-		line-height: var(--lh-l);
+		font-size: 1.3125rem;
+		line-height: 1.75;
 		font-weight: 700;
 	}
 
@@ -165,7 +148,7 @@
 	}
 
 	.comparison-table-expenses {
-		background-color: var(--color-red);
+		background-color: var(--color-pinker);
 		padding: 0 0.5rem;
 		border-bottom: 2px solid var(--text-secondary);
 	}
@@ -176,8 +159,15 @@
 		align-items: center;
 		justify-content: space-between;
 
-		padding: 0.5rem 0.5rem;
-		font-size: var(--font-s);
+		padding: 2.4375rem 2.1875rem 1.1875rem 1.1875rem;
+		font-size: 1.125rem;
+		line-height: 1.625rem;
+		height: 10.125rem;
+
+		&.small {
+			padding: 0.125rem 2.1875rem 0 1.1875rem;
+			height: 2.125rem;
+		}
 	}
 
 	.comparison-table-expense-row:not(:last-child) {
@@ -192,34 +182,39 @@
 
 	.comparison-table-income-text {
 		width: 100%;
-		margin: auto 1rem 1rem 1rem;
+		margin: auto 1.25rem 0.8125rem 1.25rem;
 
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 
-		font-size: var(--font-l);
 		font-weight: 700;
+		font-size: 1.3125rem;
+		line-height: 1.75;
 	}
 
 	.comparison-table-explanation {
 		margin-top: 1.5rem;
 		margin-bottom: 1.5rem;
 		text-align: start;
-		font-size: var(--font-s);
 		color: var(--text-secondary);
 		text-wrap: balance;
+
+		font-size: 1rem;
+		line-height: 1.2rem;
+		max-width: 29.6875rem;
+		min-height: 6rem;
 	}
 
 	.shorter-explanation {
-		margin-bottom: 2.5rem;
+		/* margin-bottom: 2.6875rem; */
 	}
 
 	.comparison-table-airbnb {
-		height: 20.25rem;
+		height: 28.125rem;
 	}
 
 	.comparison-table-rent {
-		height: 11rem;
+		height: 9.375rem;
 	}
 </style>
