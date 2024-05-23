@@ -198,7 +198,6 @@
 		margin-bottom: 1.5rem;
 		text-align: start;
 		color: var(--text-secondary);
-		text-wrap: balance;
 
 		font-size: 1rem;
 		line-height: 1.2rem;
