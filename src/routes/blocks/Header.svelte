@@ -53,7 +53,7 @@
 		font-weight: 600;
 		color: var(--color-red);
 		font-size: clamp(3rem, 20vw, 6.25rem);
-		line-height: 1.08;
+		line-height: 0.88;
 		max-width: min(710px, 100%);
 	}
 

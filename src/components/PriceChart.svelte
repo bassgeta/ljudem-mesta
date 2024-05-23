@@ -3,10 +3,15 @@
 	import { onMount, tick } from 'svelte';
 	import Chart from 'chart.js/auto';
 	import { priceData } from '$lib/price_data';
+	import { airbnbsData } from '$lib/airbnbs_data';
 	import { cleanENLocale } from '../utils/i18n';
 
 	let chartValues = priceData.map((pd) => pd.y);
 	let chartLabels = priceData.map((pd) => pd.x);
+	let countValues = [
+		...new Array(chartValues.length - airbnbsData.length).fill(null),
+		...airbnbsData.map((pd) => pd.y)
+	];
 
 	const shortLabels = [
 		'',
@@ -53,7 +58,11 @@
 								if (window.innerWidth < 700) {
 									if (/Q[24]/.test(shortLabels[ctx.index])) return 'transparent';
 								}
-								return shortLabels[ctx.index].startsWith('Q') ? blackColor : 'white';
+								return shortLabels[ctx.index].startsWith('Q')
+									? countValues[ctx.index] === null
+										? blackColor
+										: redColor
+									: 'white';
 							},
 							mirror: true,
 							autoSkip: false,
@@ -106,8 +115,9 @@
 					tooltip: {
 						caretSize: 0,
 						callbacks: {
-							title: ([cena]) => chartLabels[cena.dataIndex].replace('Q', ' Q'),
-							label: (cena) => `Cena m²: ${chartValues[cena.dataIndex].toFixed(2)} €`
+							title: ([cena]) => chartLabels[cena.dataIndex].replace('Q', ' Q')
+							// label: (cena) => `Cena m²: ${chartValues[cena.dataIndex].toFixed(2)} €`
+							// label: (...params) => (console.log({ params }), '')
 						}
 					}
 				}
@@ -116,6 +126,20 @@
 				// labels: chartLabels,
 				xLabels: shortLabels,
 				datasets: [
+					{
+						backgroundColor: ['black'],
+						borderColor: ['black'],
+						label: 'Aktivnih listingov',
+						data: countValues,
+						fill: false,
+
+						pointRadius: 0,
+						pointBackgroundColor: 'black',
+
+						pointHitRadius: 10,
+						pointHoverRadius: 10,
+						fill: true
+					},
 					{
 						backgroundColor: [redColor],
 						borderColor: [redColor],
