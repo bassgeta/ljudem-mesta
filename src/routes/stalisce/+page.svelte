@@ -6,6 +6,7 @@
 	import hat from '../../lib/assets/figure/Hat.png';
 	import Nalepka from '../../components/Nalepka.svelte';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
+	import Footer from '../../components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -71,6 +72,8 @@
 		</div>
 	</div>
 </div>
+
+<Footer />
 
 <style>
 	.position-page {
