@@ -1,10 +1,12 @@
 <script lang="ts">
 	export let testimonial: string = '';
+	export let source: string = 'Anonimno';
 </script>
 
 <div class="testimonial-card">
 	<div class="testimonial-content">
-		{testimonial}
+		{@html testimonial}
+		<div>Vir: {source}</div>
 	</div>
 	<div class="triangle"></div>
 </div>
@@ -26,6 +28,18 @@
 		line-height: 1.625rem;
 		max-height: 60vh;
 		overflow-y: auto;
+
+		& br {
+			margin-bottom: 1rem;
+		}
+
+		& div {
+			margin-top: 1.375rem;
+			font-size: 0.875rem;
+			font-style: italic;
+			font-weight: 400;
+			line-height: 1.05rem;
+		}
 	}
 
 	.triangle {

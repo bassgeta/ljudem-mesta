@@ -7,7 +7,11 @@
 
 	register();
 
-	let testimonials: string[] = [];
+	type Testimonial = {
+		message: string;
+		source?: string;
+	};
+	let testimonials: Testimonial[] = [];
 	let swiperEl: SwiperContainer | undefined;
 
 	interface SheetsRow {
@@ -15,7 +19,7 @@
 	}
 
 	function extractTestmonials(rows: SheetsRow[]) {
-		testimonials = rows.map((i) => i.c[0].v);
+		testimonials = rows.map((i) => ({ message: i.c[0].v, source: i.c[1].v }));
 	}
 
 	function handlePreviousClick() {
@@ -42,6 +46,7 @@
 			const data = await response.text();
 			const jsonContent = JSON.parse(data.substring(47).slice(0, -2));
 
+			console.log({ rows: jsonContent?.table?.rows });
 			extractTestmonials(jsonContent?.table?.rows ?? []);
 		} catch (error) {
 			console.error('Error fetching data:', error);
@@ -86,7 +91,9 @@
 	<swiper-container bind:this="{swiperEl}" init="false">
 		{#each testimonials as testimonial}
 			<swiper-slide class="slide">
-				<TestimonialCard testimonial="{testimonial}" />
+				<TestimonialCard
+					testimonial="{testimonial.message}"
+					source="{testimonial.source ?? 'Anonimno'}" />
 			</swiper-slide>
 		{/each}
 	</swiper-container>
@@ -101,7 +108,6 @@
 			}
 			& > div:nth-child(2) {
 				border-color: var(--color-green) transparent transparent transparent;
-
 			}
 		}
 	}
