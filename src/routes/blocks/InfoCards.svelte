@@ -48,7 +48,7 @@
 		<div class="info-card-body">
 			<h2 class="info-card-title">33<span>&nbsp;%</span></h2>
 			<div class="info-card-figure">
-				<img src="{avto}" alt="Slika avta" />
+				<img src="{avto}" class="car" alt="Slika avta" />
 			</div>
 			<p class="info-card-title-appendix">nakupov nepremičnin je naložb</p>
 			<p class="info-card-content">
@@ -142,7 +142,10 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%, -50%) scale(1.1) rotate(-4deg);
+			transform: translate(-52%, -53%) scale(1.1) rotate(1deg);
+			&.car {
+				transform: translate(-66%, -30%) scale(1.1) rotate(-1deg);
+			}
 		}
 	}
 

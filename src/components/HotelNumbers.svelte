@@ -102,12 +102,9 @@
 			z-index: 2;
 			width: var(--siz);
 			transform-origin: center right;
-			transform: scale(0.8) rotate(-5deg);
-			&:nth-child(even) {
-				transform: scale(0.8) rotate(2deg);
-			}
+			transform: scale(0.8);
 			&:not(:first-child) {
-				margin-left: calc(var(--siz) * -0.2);
+				margin-left: calc(var(--siz) * -0.22);
 			}
 		}
 	}
