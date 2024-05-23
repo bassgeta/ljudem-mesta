@@ -32,7 +32,7 @@
 		'DNK',
 		'CHE',
 		'BEL',
-		'LUX',
+		'LUX'
 	];
 
 	onMount(() => {
@@ -45,8 +45,7 @@
 			style: `mapbox://styles/mapbox/outdoors-v11`,
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom,
-			worldview: 'US',
-
+			worldview: 'US'
 		});
 
 		map.on('load', function () {
@@ -91,11 +90,7 @@
 				'country-label'
 			);
 
-			map.setFilter('terrible-countries', [
-				'!in',
-				'iso_3166_1_alpha_3',
-				goodCountries
-			].flat());
+			map.setFilter('terrible-countries', ['!in', 'iso_3166_1_alpha_3', goodCountries].flat());
 
 			map.addLayer({
 				id: 'water-overlay-layer',
@@ -195,7 +190,10 @@
 					const msg = getMessageForCountry(countryISO3);
 
 					if (msg) {
-						new mapbox.Popup({ className: 'popup' }).setLngLat(e.lngLat).setHTML(`<img class="mapIcon" src="${clap}" />` + msg).addTo(map);
+						new mapbox.Popup({ className: 'popup' })
+							.setLngLat(e.lngLat)
+							.setHTML(`<img class="mapIcon" src="${clap}" />` + msg)
+							.addTo(map);
 					}
 				} else {
 					map.setFilter('clicked-country', ['in', 'iso_3166_1_alpha_3', '']);
@@ -237,7 +235,7 @@
 		'DNK' = '<a target="_blank" href="https://hostminded.com/denmark-new-airbnb-regulations/">Omejitve na Danskem',
 		'CHE' = '<a target="_blank" href="https://www.srf.ch/news/abstimmung-stadt-luzern-airbnb-wird-in-der-stadt-luzern-deutlich-eingeschraenkt">Stroge omejitve v Lucernu, prav tako Bernu in Ženevi',
 		'BEL' = '<a target="_blank" href="https://www.brusselstimes.com/768722/brussels-vs-airbnb-city-authorities-win-legal-battle-to-enforce-tighter-limits">Bruselj v bitki z AirBNB',
-		'LUX' = '<a target="_blank" href="https://today.rtl.lu/news/luxembourg/a/2122353.html">Luxemburg začenja z regulacijo',
+		'LUX' = '<a target="_blank" href="https://today.rtl.lu/news/luxembourg/a/2122353.html">Luxemburg začenja z regulacijo'
 	}
 
 	function getMessageForCountry(country: string): string | null {
@@ -249,9 +247,8 @@
 	}
 
 	function getMessageForBadCountry(): string {
-		return `<img class="mapIcon" src="${xx}" />Ni regulacije.`
+		return `<img class="mapIcon" src="${xx}" />Ni regulacije.`;
 	}
-
 </script>
 
 <div class="map-wrap">
@@ -275,8 +272,13 @@
 	}
 
 	:global(.mapboxgl-popup-content) {
-		background: #4A4A4A !important;
+		font-family: 'Figtree', sans-serif;
+		background: var(--color-medium-dark-grey) !important;
 		color: var(--text-primary);
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		font-weight: 500;
+		text-align: center;
 		border-radius: 19px;
 	}
 
@@ -285,34 +287,38 @@
 			.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 			.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip
 		) {
-		border-bottom-color: var(--color-dark-grey);
+		border-bottom-color: var(--color-medium-dark-grey);
 	}
 	:global(
 			.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 			.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 			.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip
 		) {
-		border-top-color: var(--color-dark-grey);
+		border-top-color: var(--color-medium-dark-grey);
 	}
 	:global(.mapboxgl-popup-anchor-left .mapboxgl-popup-tip) {
-		border-right-color: var(--color-dark-grey);
+		border-right-color: var(--color-medium-dark-grey);
 	}
 	:global(.mapboxgl-popup-anchor-right .mapboxgl-popup-tip) {
-		border-left-color: var(--color-dark-grey);
+		border-left-color: var(--color-medium-dark-grey);
+	}
+	:global(.mapboxgl-popup-close-button) {
+		display: none;
 	}
 	:global(.mapIcon) {
 		width: 60px;
 		height: 50px;
 		display: block;
-  		margin-left: auto;
-  		margin-right: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0.25rem;
 	}
 	:global(.dot) {
 		height: 13px;
 		width: 13px;
 		background-color: #bbb;
 		border-radius: 50%;
-  		display: inline-block;
+		display: inline-block;
 	}
 	:global(.legend) {
 		padding: 5px;
