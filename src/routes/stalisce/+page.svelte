@@ -15,7 +15,7 @@
 
 <div class="position-page">
 	<div class="heading">
-		<h1>Airbnb, pejd domov!</h1>
+		<h1>Airbnb, pejt domov!</h1>
 
 		<p>
 			13. maja 2024 je Ministrstvo za gospodarstvo, turizem in šport v javno obravnavo končno
