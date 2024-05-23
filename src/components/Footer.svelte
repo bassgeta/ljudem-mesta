@@ -31,8 +31,9 @@
 	<div class="info-section">
 		<div class="info-part">
 			<a href="mailto:vsi@danesjenovdan.si" class="email-link">vsi@danesjenovdan.si</a>
-			<a href="https://danesjenovdan.si/doniraj" class="privacy-policy"
-				>Politika zasebnosti in varovanja osebnih podatkov</a>
+			<a
+				href="https://docs.google.com/document/d/1qcUCGS8QwpUXW0NUUIqZjGZTElXM5o18V3UksZo6KWw"
+				class="privacy-policy">Politika zasebnosti in varovanja osebnih podatkov</a>
 		</div>
 		<div class="info-part">
 			<p class="">

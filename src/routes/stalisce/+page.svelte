@@ -210,6 +210,7 @@
 			background: white;
 			display: flex;
 			position: relative;
+			flex-shrink: 0;
 
 			& svg {
 				height: 25px;
