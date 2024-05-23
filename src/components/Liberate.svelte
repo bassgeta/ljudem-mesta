@@ -7,7 +7,7 @@
 	import DevDbControls from './DevDBControls.svelte';
 	import { dev } from '$app/environment';
 	import Block from './Block/Block.svelte';
-	import nalepka from '../lib/assets/nalepka.png';
+	import Nalepka from './Nalepka.svelte';
 
 	let totalLiberated = 0;
 
@@ -23,7 +23,7 @@
 
 <div class="liberate-container">
 	<div class="liberate-nalepka">
-		<img src="{nalepka}" alt="nalepka za ozavescanje" />
+		<Nalepka />
 	</div>
 	<div class="what-to-do wip">
 		<h4 class="what-to-do-title">
@@ -131,48 +131,5 @@
 		position: absolute;
 		top: 2rem;
 		right: 1rem;
-
-		animation: roottt 5s infinite forwards cubic-bezier(0.44, -0.31, 0.63, 1.23);
-		animation-play-state: paused;
-		&:hover {
-			animation-play-state: running;
-		}
-
-		& img {
-			width: min(30vw, 400px);
-			height: min(30vw, 400px);
-		}
-	}
-	@keyframes roottt {
-		0% {
-			transform: rotate(0) scale(0.93);
-		}
-		35% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		40% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		45% {
-			transform: rotate(180deg) scale(1.2);
-		}
-		50% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		55% {
-			transform: rotate(180deg) scale(1.2);
-		}
-		60% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		65% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		70% {
-			transform: rotate(180deg) scale(0.93);
-		}
-		100% {
-			transform: rotate(360deg) scale(0.93);
-		}
 	}
 </style>
