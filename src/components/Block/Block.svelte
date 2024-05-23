@@ -168,8 +168,7 @@
 		}
 	}
 	.building-container-fullscreen {
-		margin-top: 10vh;
-		height: 80vh;
+		height: 100%;
 	}
 
 	.building {
