@@ -8,7 +8,7 @@
 
 <div class="info-cards">
 	<div class="info-card info-card-white span-2">
-		<div class="info-card-body">
+		<div class="info-card-body info-chart-body">
 			<div class="info-chart info-chart-stonks">
 				<p class="info-chart-title">{@html $_('landing.airbnbApartments.shortTerm')}</p>
 				<div class="chart-measure">
@@ -119,6 +119,10 @@
 		}
 	}
 
+	.info-chart-body {
+		padding-top: 3rem;
+	}
+
 	.info-card-figure {
 		background: var(--contrast);
 		border-radius: 50%;
@@ -211,21 +215,21 @@
 			--sub: var(--color-green-vibier);
 		}
 		width: 100%;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 		& .info-chart-title {
 			font-size: clamp(var(--font-m), 10vw, var(--font-l));
 			padding-bottom: 1rem;
 			font-weight: bold;
 		}
 		& .info-chart-caption {
-			font-size: clamp(var(--font-xs), 10vw, var(--font-s));
+			font-size: 1rem;
 			padding-top: 1rem;
 			font-weight: bold;
 		}
 		& .chart-measure {
 			position: relative;
 			width: var(--w);
-			border: 6px solid black;
+			border: 4px solid black;
 			background: var(--color);
 			animation: charter 1s ease-in alternate;
 			& span {
