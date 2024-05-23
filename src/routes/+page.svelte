@@ -14,6 +14,7 @@
 	import PriceChart from '../components/PriceChart.svelte';
 	import Stalisce from '$lib/assets/icons/stalisce.svelte';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
+	import Footer from '../components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -116,6 +117,7 @@
 		<Liberate />
 	</div>
 </div>
+<Footer />
 
 {#if browser && !dev}
 	<script
