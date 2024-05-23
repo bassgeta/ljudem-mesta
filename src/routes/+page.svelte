@@ -169,6 +169,7 @@
 
 		margin-top: 7rem;
 		margin-bottom: 1rem;
+		max-width: 700px;
 	}
 
 	.section-subtitle {
@@ -177,6 +178,7 @@
 		text-align: center;
 		font-weight: 500;
 		padding: 0 1.5rem;
+		max-width: 700px;
 	}
 
 	.comparison-title {
