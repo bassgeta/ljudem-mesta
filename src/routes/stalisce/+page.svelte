@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import stalisceImg from '$lib/assets/figure/stalisce.png';
+	import msg from '../../lib/assets/liberation-form/msg.svg?component';
+	import download from '../../lib/assets/icons/download.svg?component';
+	import hat from '../../lib/assets/figure/Hat.png';
+	import Nalepka from '../../components/Nalepka.svelte';
+	import Arrow from '$lib/assets/icons/arrow.svelte';
 </script>
 
 <svelte:head>
@@ -27,7 +32,13 @@
 		</p>
 	</div>
 	<div class="content">
-		<h2>KAKO LAHKO ZAKON ŠE IZBOLJŠAMO?</h2>
+		<div class="stalisce-nalepka">
+			<Nalepka />
+		</div>
+		<h2>
+			<div class="icon"><img src="{hat}" /></div>
+			KAKO LAHKO ZAKON ŠE IZBOLJŠAMO?
+		</h2>
 		<div class="info-card info-card-comment">
 			<div class="info-card-body">
 				<div>
@@ -43,9 +54,21 @@
 			</div>
 		</div>
 
-		<a>Prenesi dokument s celotnim komentarjem</a>
-
-		<a>Obišči portal eDemokracija in oddaj komentar!</a>
+		<div class="call-to-action">
+			<a class="shadowed-card shadowed-button stalisce-btn dokument" target="_blank">
+				<div class="icon">
+					<svelte:component this="{download}" />
+				</div>
+				Prenesi dokument s celotnim komentarjem
+			</a>
+			<a class="shadowed-card shadowed-button stalisce-btn portal" target="_blank">
+				<div class="icon">
+					<svelte:component this="{msg}" />
+				</div>
+				Obišči portal eDemokracija in oddaj komentar!
+				<Arrow />
+			</a>
+		</div>
 	</div>
 </div>
 
@@ -85,13 +108,41 @@
 		font-weight: 700;
 		line-height: 3.125rem;
 		margin-bottom: 4.25rem;
+		max-width: 60%;
+
+		display: flex;
+		gap: 2.375rem;
+
+		& .icon {
+			width: 132px;
+			height: 132px;
+			background: white;
+			border-radius: 50%;
+
+			& img {
+				width: 132px;
+				transform: translateX(-30%);
+			}
+		}
+
+		@media screen and (max-width: 767px) {
+			max-width: 100%;
+			flex-direction: column;
+			gap: 1rem;
+		}
 	}
 
 	.content {
-		padding: 0 var(--hpadding);
+		padding: 0 108px;
 		padding-top: 4rem;
+		padding-bottom: 6.625rem;
 		background: var(--color-lime);
 		color: black;
+		margin: 0 calc(-1 * var(--hpadding));
+		position: relative;
+		@media screen and (max-width: 767px) {
+			padding: 32px;
+		}
 	}
 
 	.info-card-comment {
@@ -137,6 +188,52 @@
 				right: 20%;
 				transform: translate(0, -50%);
 			}
+		}
+	}
+
+	.call-to-action {
+		margin-top: 4.75rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.625rem;
+		& a {
+			padding: 0.625rem 0.8125rem;
+		}
+		& .icon {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: white;
+			display: flex;
+			position: relative;
+
+			& svg {
+				height: 25px;
+				width: 25px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		& .dokument {
+			background: var(--color-pastel-green);
+		}
+
+		& .portal {
+			background: var(--color-neon-green);
+		}
+	}
+
+	.stalisce-nalepka {
+		z-index: 2;
+		position: absolute;
+		top: -7rem;
+		right: 1rem;
+		@media screen and (max-width: 767px) {
+			top: -3rem;
 		}
 	}
 </style>
