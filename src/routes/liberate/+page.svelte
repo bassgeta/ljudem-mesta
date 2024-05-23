@@ -16,7 +16,9 @@
 		</span>
 		{$_('liberatePage.go-to-campaign')}
 	</a>
-	<Block fullscreen />
+	<div class="block">
+		<Block fullscreen />
+	</div>
 </div>
 
 <style>
@@ -24,6 +26,10 @@
 		position: relative;
 		width: 100vw;
 		/* height: 100%; */
+	}
+	.block {
+		position: relative;
+		z-index: 10;
 	}
 
 	.back-to-link {

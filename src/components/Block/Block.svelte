@@ -305,6 +305,7 @@
 			cursor: pointer;
 
 			& .bubble {
+				color: black;
 				font-size: 1rem;
 				line-height: 1.08;
 				z-index: 3;
