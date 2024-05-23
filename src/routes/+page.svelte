@@ -11,8 +11,9 @@
 	import Header from './blocks/Header.svelte';
 	import InfoCards from './blocks/InfoCards.svelte';
 	import { browser, dev } from '$app/environment';
-	import og from '../lib/assets/airbnb-og.jpg';
 	import PriceChart from '../components/PriceChart.svelte';
+	import Stalisce from '$lib/assets/icons/stalisce.svelte';
+	import Arrow from '$lib/assets/icons/arrow.svelte';
 </script>
 
 <svelte:head>
@@ -85,6 +86,30 @@
 	<div class="map-section landing-section">
 		<CurrentRestrictionsMap />
 	</div>
+	<h2 class="section-title">Kaj pa Slovenija?</h2>
+	<div class="what-about">
+		<p class="section-subtitle">
+			13. maja 2024 je Ministrstvo za gospodarstvo, turizem in šport v javno obravnavo končno
+			poslalo Zakon o gostinstvu, ki prinaša določene omejitve glede kratkotrajnega oddajanja.
+		</p>
+		<p class="section-subtitle">
+			Zakon je korak v pravo smer, vendar opozarjamo na nekaj pomankljivosti, ki bi lahko zmanjšale
+			njegov učinek.
+		</p>
+		<p class="section-subtitle">
+			Zavzeti se moramo za čim strožjo verzijo, ki ne bo dopuščala izigravanja. Preberi naše
+			stališče na predlog zakona in tudi ti sodeluj v javni razpravi!
+		</p>
+	</div>
+	<a href="/stalisce" class="shadowed-card shadowed-button stalisce-btn">
+		<div class="circle">
+			<div class="stalisce-icon">
+				<Stalisce />
+			</div>
+		</div>
+		<span>Naše stališče</span>
+		<Arrow />
+	</a>
 </div>
 <div class="liberate-section">
 	<div class="liberate-container">
@@ -141,7 +166,7 @@
 		text-align: center;
 
 		margin-top: 7rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.section-subtitle {
@@ -188,7 +213,6 @@
 
 	.map-title {
 		margin-top: 7rem;
-		margin-bottom: 2rem;
 	}
 
 	.map-subtitle {
@@ -196,7 +220,7 @@
 	}
 
 	.map-section {
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
 	}
 
 	.liberate-section {
@@ -224,6 +248,47 @@
 			border-bottom-right-radius: 4rem;
 			box-shadow: 0 0.2rem 1rem var(--color-dark-grey);
 		}
+	}
+
+	.what-about {
+		max-width: 700px;
+
+		& > :not(:last-child) {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.stalisce-btn {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		border-radius: 20px;
+		border: 2px solid var(--color-black);
+		margin-top: 2.5rem;
+		margin-bottom: 4rem;
+		padding: 0.625rem 2rem 0.625rem 0.75rem;
+
+		background-color: var(--color-neon-green);
+		color: var(--color-black);
+		font-size: var(--font-m);
+		line-height: var(--lh-m);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.circle {
+		position: relative;
+		background-color: var(--color-white);
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+	}
+
+	.stalisce-icon {
+		position: absolute;
+		top: 4px;
+		left: -4px;
 	}
 
 	.liberate-container {
