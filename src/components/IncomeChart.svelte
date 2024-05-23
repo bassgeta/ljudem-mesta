@@ -85,7 +85,17 @@
 	</div>
 	<div class="chart-description">
 		{$_('landing.comparison.title2')}
-		<sub><a href="https://www.arvio.si/" target="_blank">{$_('source')}</a></sub>
+		<sub
+			><a
+				href="https://app.airdna.co/data/si/35218?tab=performance"
+				target="_blank"
+				rel="noopener noreferrer">Vir: Airdna</a
+			>,
+			<a
+				href="https://www.stat.si/statweb/Field/Index/15/74"
+				target="_blank"
+				rel="noopener noreferrer">vir: SURS</a
+			></sub>
 	</div>
 </div>
 

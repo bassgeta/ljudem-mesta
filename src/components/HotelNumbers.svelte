@@ -12,7 +12,7 @@
 			<a
 				class="hotel-numbers-source"
 				target="_blank"
-				href="https://www.mladina.si/229092/airbnb-nepremicninski-divji-zahod/">{$_('source')}</a>
+				href="https://www.mladina.si/229092/airbnb-nepremicninski-divji-zahod/">Vir: Mladina</a>
 		</div>
 		<div class="hotel-numbers-graphics">
 			<div class="bg">
@@ -103,13 +103,12 @@
 			width: var(--siz);
 			transform-origin: center right;
 			transform: scale(0.8) rotate(-5deg);
-			 &:nth-child(even) {
-			transform: scale(0.8) rotate(2deg);
-
-			 }
-				&:not(:first-child) {
-					margin-left: calc(var(--siz) * -0.2);
-				}
+			&:nth-child(even) {
+				transform: scale(0.8) rotate(2deg);
+			}
+			&:not(:first-child) {
+				margin-left: calc(var(--siz) * -0.2);
+			}
 		}
 	}
 </style>

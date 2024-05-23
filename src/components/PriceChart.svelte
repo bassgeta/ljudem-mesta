@@ -164,7 +164,7 @@
 <div class="chart-content">
 	<div class="chart-description">
 		{$_('incomeChart.description')}
-		<sub><a href="https://www.arvio.si/" target="_blank">{$_('source')}</a></sub>
+		<sub><a href="https://www.arvio.si/" target="_blank">Vir: Arvio</a></sub>
 	</div>
 	<div class="chart-section">
 		<div class="chart-container-outer">

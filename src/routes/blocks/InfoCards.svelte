@@ -31,13 +31,15 @@
 			</div>
 			<sub>
 				<a
-					href="https://web.archive.org/web/20240404221249/https://www.nepremicnine.net/oglasi-oddaja/ljubljana-mesto/stanovanje/"
+					class="info-source"
+					href="https://app.airdna.co/data/si/35218?tab=performance"
 					target="_blank">
-					Vir</a
+					Vir: Airdna</a
 				>,
 				<a
-					href="https://n1info.si/gospodarstvo/nepremicnine/slovenija-na-airbnb-v-kamniku-grad-v-ljubljani-stanovanje-za-2-000-evrov/"
-					target="_blank">vir</a>
+					class="info-source"
+					href="https://web.archive.org/web/20240404221249/https://www.nepremicnine.net/oglasi-oddaja/ljubljana-mesto/stanovanje/"
+					target="_blank">vir: Nepremicnine.net</a>
 			</sub>
 		</div>
 	</div>
@@ -57,7 +59,7 @@
 				class="info-source"
 				target="_blank"
 				href="https://www.delo.si/gospodarstvo/novice/cene-nepremicnin-v-sloveniji-gor-v-nemciji-mocno-dol/"
-				>{$_('source')}</a>
+				>Vir: Delo</a>
 		</div>
 	</div>
 	<div class="info-card info-card-lime">
@@ -75,7 +77,7 @@
 			<a
 				class="info-source"
 				target="_blank"
-				href="https://www.ostro.si/si/zgodbe/prestolnica-nepremicninskih-nalozb">{$_('source')}</a>
+				href="https://www.ostro.si/si/zgodbe/prestolnica-nepremicninskih-nalozb">Vir: Oštro</a>
 		</div>
 	</div>
 </div>
