@@ -277,7 +277,7 @@
 		& .info-card-body {
 			display: flex;
 			flex-direction: row;
-			gap: 2rem;
+			gap: 7rem;
 			@media screen and (max-width: 767px) {
 				flex-direction: column-reverse;
 			}
@@ -365,6 +365,7 @@
 	}
 
 	.info-card-stalisce {
+		padding-bottom: 7rem;
 		&:nth-child(odd) {
 			margin-right: 2rem;
 		}
