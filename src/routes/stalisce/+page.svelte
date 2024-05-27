@@ -38,7 +38,7 @@
 		</div>
 		<h2>
 			<div class="icon"><img src="{hat}" /></div>
-			KAKO LAHKO ZAKON ŠE IZBOLJŠAMO?
+			KAKO LAHKO OBSTOJEČI PREDLOG ZAKONA ŠE IZBOLJŠAMO?
 		</h2>
 		<div class="info-card info-card-stalisce">
 			<div class="info-card-body">
