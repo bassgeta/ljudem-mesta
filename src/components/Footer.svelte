@@ -43,9 +43,8 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="blok-link">
-					Stanovanjski blok
-				</a>
-				.
+					Stanovanjski blok</a
+				><span>.</span>
 			</p>
 			<p>Pridruži se nam v prihodnjih bojih za boljšo stanovanjsko politiko!</p>
 		</div>
