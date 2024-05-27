@@ -35,12 +35,15 @@
 	export let fullscreen = false;
 
 	let flats = apartmentGrid([], 4);
+	$: safeFlats = apartmentGrid(flats);
 	const fades = [fade_4, fade_3, fade_2, fade_1];
 	const id = `building-${Math.round(Math.random() * 1000)}`;
 	function refreshScroll() {
 		requestAnimationFrame(() => {
 			const el = document.getElementById(id);
-			if (el) el.scrollTop = el.scrollHeight - el.clientHeight;
+			if (el)
+				el.scrollTop =
+					(el.scrollHeight - el.clientHeight) * ((safeFlats.length - 9) / safeFlats.length);
 		});
 	}
 
@@ -84,8 +87,6 @@
 		liberatingId = null;
 		refreshScroll();
 	}
-
-	$: safeFlats = apartmentGrid(flats);
 </script>
 
 <div

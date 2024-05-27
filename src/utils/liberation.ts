@@ -58,6 +58,23 @@ export async function fetchTotalLiberated() {
 	}
 }
 
+export async function fetchTotalLocked() {
+	try {
+		const { count, error } = await supabase
+			.from(SUPABASE_TABLE_NAME)
+			.select('*', { count: 'exact' })
+			.eq('state', 'AIRBNB');
+
+		if (error) {
+			throw new Error(`Error fetching data: ${error.message}`);
+		}
+
+		return count;
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
 export async function fetchApartmentData() {
 	try {
 		// Fetch data from Supabase
