@@ -195,18 +195,22 @@
 	</div>
 	<div class="chart-section">
 		<div class="chart-container-outer">
-			<!-- <div class="legend">
-				<div class="legend-item">
-					<div class="circle"></div>
-					<span class="desc"></span>
-				</div>
-				<div class="legend-item">
-					<div class="circle"></div>
-					<span class="desc"></span>
-				</div>
-			</div> -->
 			<div class="chart-container-inner">
 				<canvas class="canvas-container" bind:this="{chartCanvas}" id="incomeChart"></canvas>
+			</div>
+			<div class="legend">
+				<div class="legend-item">
+					<span>
+						<div class="circle red"></div>
+					</span>
+					<span class="desc">Cena m2 v Ljubljani</span>
+				</div>
+				<div class="legend-item reverse">
+					<span class="desc">Število aktivnih Airbnb oglasov v Ljubljani</span>
+					<span>
+						<div class="circle black"></div>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -264,6 +268,9 @@
 		border-radius: 25px;
 		padding: 1rem;
 		position: relative;
+
+		display: flex;
+		flex-direction: column;
 	}
 
 	.chart-container-inner {
@@ -287,11 +294,32 @@
 
 	.legend {
 		color: black;
-		dipslay: flex;
+		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 
 		& .legend-item {
+			flex-shrink: 0;
+			display: flex;
+			gap: 0.5rem;
+			@media screen and (max-width: 767px) {
+				&.reverse {
+					flex-direction: row-reverse;
+				}
+			}
 			& .circle {
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+				background: var(--color-black);
+				&.red {
+					background: var(--color-red);
+				}
 			}
 			& .desc {
 			}
