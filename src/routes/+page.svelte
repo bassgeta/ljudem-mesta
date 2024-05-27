@@ -33,11 +33,12 @@
 	<meta property="og:image" content="/airbnb-og.jpg" />
 
 	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:card" content="summary" />
 	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="twitter:title" content="{$_('landing.head.title')}" />
 	<meta property="twitter:description" content="{$_('landing.head.description')}" />
 	<meta property="twitter:image" content="/airbnb-og.jpg" />
+
 	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
 
