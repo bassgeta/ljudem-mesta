@@ -197,7 +197,7 @@
 	}
 
 	.eu-image {
-		width: fit-content;
+		width: auto;
 		height: 40px;
 	}
 
