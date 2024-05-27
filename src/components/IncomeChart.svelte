@@ -44,9 +44,7 @@
 								size: 14
 							},
 							callback: function (value) {
-								if (value === 0) return '0€';
-								if (typeof value === 'string') return `${value}€`;
-								return `${Math.round(value / 100) / 10}k`;
+								return `${value} €`;
 							}
 						}
 					}
