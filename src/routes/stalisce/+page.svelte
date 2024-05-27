@@ -7,6 +7,7 @@
 	import Nalepka from '../../components/Nalepka.svelte';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
 	import Footer from '../../components/Footer.svelte';
+	import headImage from '$lib/assets/main.png';
 </script>
 
 <svelte:head>
@@ -15,7 +16,10 @@
 
 <div class="position-page">
 	<div class="heading">
-		<h1>Airbnb, pejt domov!</h1>
+		<div class="header">
+			<img src="{headImage}" />
+			<h1>Airbnb, pejt domov!</h1>
+		</div>
 
 		<p>
 			13. maja 2024 je Ministrstvo za gospodarstvo, turizem in šport v javno obravnavo končno
@@ -199,6 +203,24 @@
 <Footer />
 
 <style>
+	.header {
+		display: flex;
+		align-items: center;
+		gap: 2.125rem;
+		margin-bottom: 5.575rem;
+
+		@media screen and (max-width: 767px) {
+			flex-direction: column-reverse;
+		}
+
+		& > * {
+			flex: 1;
+		}
+		& > img {
+			width: 300px;
+		}
+	}
+
 	.position-page {
 		text-wrap: balance;
 	}
@@ -224,9 +246,6 @@
 		font-weight: 600;
 		line-height: 58px;
 		text-align: left;
-
-		margin-bottom: 5.575rem;
-		text-align: center;
 	}
 
 	h2 {
@@ -365,6 +384,7 @@
 	}
 
 	.info-card-stalisce {
+		max-width: 900px;
 		padding-bottom: 7rem;
 		&:nth-child(odd) {
 			margin-right: 2rem;
