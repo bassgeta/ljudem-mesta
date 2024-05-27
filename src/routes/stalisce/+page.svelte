@@ -19,7 +19,10 @@
 
 		<p>
 			13. maja 2024 je Ministrstvo za gospodarstvo, turizem in šport v javno obravnavo končno
-			poslalo Zakon o gostinstvu, ki prinaša določene omejitve glede kratkotrajnega oddajanja.
+			poslalo <a
+				href="https://www.gov.si/novice/2024-05-13-zacetek-javne-obravnave-novega-zakona-o-gostinstvu/"
+				target="_blank">Zakon o gostinstvu</a
+			>, ki prinaša določene omejitve glede kratkotrajnega oddajanja.
 		</p>
 
 		<p>
