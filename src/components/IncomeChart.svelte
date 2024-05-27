@@ -4,7 +4,7 @@
 	import Chart from 'chart.js/auto';
 
 	let chartValues = [1800, 2450, 1480, 2200];
-	let chartLabels = ['AirBnB neto', 'AirBnB bruto', 'Neto Plača', 'Bruto plača'];
+	let chartLabels = ['Airbnb neto', 'Airbnb bruto', 'Neto plača', 'Bruto plača'];
 	let ctx;
 	let chartCanvas: HTMLCanvasElement;
 
