@@ -30,14 +30,14 @@
 	<meta property="og:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="og:title" content="{$_('landing.head.title')}" />
 	<meta property="og:description" content="{$_('landing.head.description')}" />
-	<meta property="og:image" content="/airbnb-og.jpg" />
+	<meta property="og:image" content="https://airbnbpejtdomov.si/airbnb-og.jpg" />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary" />
 	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="twitter:title" content="{$_('landing.head.title')}" />
 	<meta property="twitter:description" content="{$_('landing.head.description')}" />
-	<meta property="twitter:image" content="/airbnb-og.jpg" />
+	<meta property="twitter:image" content="https://airbnbpejtdomov.si/airbnb-og.jpg" />
 
 	<!-- Meta Tags Generated with https://metatags.io -->
 </svelte:head>
