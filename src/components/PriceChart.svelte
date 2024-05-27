@@ -181,19 +181,21 @@
 
 <div class="chart-content">
 	<div class="chart-description">
-		<a
-			target="_blank"
-			href="https://urbaniizziv.uirs.si/Portals/urbaniizziv/Clanki/2020/uizziv-31-20201-strokovna_07.pdf"
-			>Raziskave</a>
-		<a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0094119020300498"
-			>kažejo</a
-		>, da povečanje števila enot, ki se oddajajo na Airbnbju povzroči povečanje cen stanovanj in
-		najemnin.
+		<p>
+			<a
+				target="_blank"
+				href="https://urbaniizziv.uirs.si/Portals/urbaniizziv/Clanki/2020/uizziv-31-20201-strokovna_07.pdf"
+				>Raziskave</a>
+			<a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0094119020300498"
+				>kažejo</a
+			>, da povečanje števila enot, ki se oddajajo na Airbnbju povzroči povečanje cen stanovanj in
+			najemnin.
+		</p>
 		<sub><a href="https://www.arvio.si/" target="_blank">Vir: Arvio</a></sub>
 	</div>
 	<div class="chart-section">
 		<div class="chart-container-outer">
-			<div class="legend">
+			<!-- <div class="legend">
 				<div class="legend-item">
 					<div class="circle"></div>
 					<span class="desc"></span>
@@ -202,7 +204,7 @@
 					<div class="circle"></div>
 					<span class="desc"></span>
 				</div>
-			</div>
+			</div> -->
 			<div class="chart-container-inner">
 				<canvas class="canvas-container" bind:this="{chartCanvas}" id="incomeChart"></canvas>
 			</div>
