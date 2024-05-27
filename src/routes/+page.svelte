@@ -102,8 +102,10 @@
 			njegov učinek.
 		</p>
 		<p class="section-subtitle">
-			Zavzeti se moramo za čim strožjo verzijo, ki ne bo dopuščala izigravanja. Preberi naše
-			stališče na predlog zakona in tudi ti sodeluj v javni razpravi!
+			Zavzeti se moramo za čim strožjo verzijo, ki ne bo dopuščala izigravanja.
+		</p>
+		<p class="section-subtitle">
+			Preberi naše stališče na predlog zakona in tudi ti sodeluj v javni razpravi!
 		</p>
 	</div>
 	<a href="/stalisce" class="shadowed-card shadowed-button stalisce-btn">
