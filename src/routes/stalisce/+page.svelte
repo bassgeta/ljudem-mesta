@@ -162,7 +162,7 @@
 						storiti je, da skopiraš naš komentar! P.S.: Seveda pa lahko pripraviš tudi svoj predlog.
 					</p>
 					<p>
-						Naj glas zagovornikov stožje regulacije kratkotrajnega najema doseže tudi odločevalce.
+						Naj glas zagovornikov strožje regulacije kratkotrajnega najema doseže tudi odločevalce.
 					</p>
 				</div>
 				<div class="stalisce-bubble">
