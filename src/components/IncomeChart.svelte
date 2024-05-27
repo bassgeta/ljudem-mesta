@@ -3,8 +3,8 @@
 	import { onMount } from 'svelte';
 	import Chart from 'chart.js/auto';
 
-	let chartValues = [1480, 1800, 2200, 2450];
-	let chartLabels = ['Neto Plača', 'AirBnB neto', 'Bruto plača', 'AirBnB bruto'];
+	let chartValues = [1800, 2450, 1480, 2200];
+	let chartLabels = ['AirBnB neto', 'AirBnB bruto', 'Neto Plača', 'Bruto plača'];
 	let ctx;
 	let chartCanvas: HTMLCanvasElement;
 
@@ -62,7 +62,7 @@
 				labels: chartLabels,
 				datasets: [
 					{
-						backgroundColor: [blueColor, redColor, blueColor, redColor],
+						backgroundColor: [redColor, redColor, blueColor, blueColor],
 						label: 'Plača',
 						data: chartValues,
 						borderRadius: 20
