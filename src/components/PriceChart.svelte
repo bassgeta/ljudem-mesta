@@ -58,11 +58,7 @@
 								if (window.innerWidth < 700) {
 									if (/Q[24]/.test(shortLabels[ctx.index])) return 'transparent';
 								}
-								return shortLabels[ctx.index].startsWith('Q')
-									? countValues[ctx.index] === null
-										? blackColor
-										: redColor
-									: 'white';
+								return shortLabels[ctx.index].startsWith('Q') ? blackColor : redColor;
 							},
 							mirror: true,
 							autoSkip: false,
@@ -97,11 +93,33 @@
 								family: 'Figtree',
 								size: 14
 							},
+							padding: 8,
 							callback: function (value, index) {
 								if (index === 0) return '';
-								if (value === 0) return '0€';
-								if (typeof value === 'string') return `${value}€`;
-								return `${Math.round(value / 100) / 10}k`;
+								return `${value} €`;
+							},
+							z: 1
+						}
+					},
+					y1: {
+						position: 'right',
+						grid: {
+							display: false,
+							drawOnChartArea: false
+						},
+						min: 0,
+						max: 4500,
+						ticks: {
+							color: blackColor,
+							// mirror: true,
+							font: {
+								family: 'Figtree',
+								size: 14
+							},
+							padding: 8,
+							callback: function (value, index) {
+								if (index === 0) return '';
+								return `${value}`;
 							},
 							z: 1
 						}
@@ -138,14 +156,14 @@
 
 						pointHitRadius: 10,
 						pointHoverRadius: 10,
-						fill: true
+
+						yAxisID: 'y1'
 					},
 					{
 						backgroundColor: [redColor],
 						borderColor: [redColor],
 						label: 'Cena m²',
 						data: chartValues,
-						fill: true,
 
 						pointRadius: 0,
 						pointBackgroundColor: '#000',
@@ -168,6 +186,16 @@
 	</div>
 	<div class="chart-section">
 		<div class="chart-container-outer">
+			<div class="legend">
+				<div class="legend-item">
+					<div class="circle"></div>
+					<span class="desc"></span>
+				</div>
+				<div class="legend-item">
+					<div class="circle"></div>
+					<span class="desc"></span>
+				</div>
+			</div>
 			<div class="chart-container-inner">
 				<canvas class="canvas-container" bind:this="{chartCanvas}" id="incomeChart"></canvas>
 			</div>
@@ -245,6 +273,19 @@
 		width: 100%;
 		@media screen and (max-width: 767px) {
 			/* pointer-events: none; */
+		}
+	}
+
+	.legend {
+		color: black;
+		dipslay: flex;
+		justify-content: space-between;
+
+		& .legend-item {
+			& .circle {
+			}
+			& .desc {
+			}
 		}
 	}
 </style>
