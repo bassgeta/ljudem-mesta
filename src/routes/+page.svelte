@@ -47,9 +47,13 @@
 	<div class="landing-section">
 		<InfoCards />
 	</div>
-	<h2 class="section-title salary-title">
+	<h2 class="section-title salary-title comparison-title">
 		{$_('landing.salary.title')}
 	</h2>
+	<p class="section-subtitle comparison-subtitle">
+		Cene stanovanj v Ljubljani so se v zadnjem desetletju podvojile, število oglaševanih Airbnb
+		stanovanj pa se je samo v zadnjih treh letih skoraj potrojilo.
+	</p>
 	<div class="landing-section chart-container">
 		<PriceChart />
 	</div>
