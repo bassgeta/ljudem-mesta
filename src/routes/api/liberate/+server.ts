@@ -16,7 +16,7 @@ const BodySchema = z.object({
 				const result = findAndFilter(
 					str.substring(0, char_limit),
 					'☠️', // placeholder
-					['en', 'sl'], // filter in which languages
+					['sl'], // filter in which languages
 					[], // allowed swears
 					[] // add your own words
 				);
