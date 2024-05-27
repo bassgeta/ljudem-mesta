@@ -69,6 +69,10 @@
 	</h2>
 	<p class="section-subtitle comparison-subtitle">
 		{$_('landing.comparison.subtitle')}
+		<a
+			href="https://www.mladina.si/229092/airbnb-nepremicninski-divji-zahod/"
+			target="_blank"
+			class="source">Vir: Mladina</a>
 	</p>
 	<div class="landing-section">
 		<ComparisonTable />
@@ -307,5 +311,9 @@
 		max-width: 1400px;
 		padding-top: 4rem;
 		position: relative;
+	}
+
+	.source {
+		font-style: italic;
 	}
 </style>
