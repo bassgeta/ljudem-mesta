@@ -63,6 +63,7 @@
 		margin-top: 2rem;
 		font-size: var(--font-l);
 		font-weight: 700;
+		text-align: center;
 	}
 
 	.next-button {
