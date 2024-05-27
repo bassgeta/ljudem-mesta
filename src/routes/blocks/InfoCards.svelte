@@ -9,10 +9,11 @@
 <div class="info-cards">
 	<div class="info-card info-card-white span-2">
 		<div class="info-card-body info-chart-body">
+			<h3>Ponudba stanovanj za turiste močno presega ponudbo stanovanj za lokalno prebivalstvo.</h3>
 			<div class="info-chart info-chart-stonks">
 				<p class="info-chart-title">{@html $_('landing.airbnbApartments.shortTerm')}</p>
 				<div class="chart-measure">
-					<span>1640</span>
+					<span>1411</span>
 					<div class="indicator">
 						<img src="{hiskaRed}" />
 					</div>
@@ -117,6 +118,13 @@
 
 	.info-chart-body {
 		padding-top: 3rem;
+		& h3 {
+			text-align: center;
+
+			margin-bottom: 2rem;
+			font-weight: 700;
+			font-size: 1.6rem;
+		}
 	}
 
 	.info-card-figure {
