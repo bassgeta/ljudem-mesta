@@ -264,7 +264,7 @@
 		width: 100%;
 		width: 100%;
 		height: 100%;
-		background-color: var(--color-white);
+		background-color: var(--color-white) !important;
 		border-radius: 25px;
 		padding: 1rem;
 		position: relative;
@@ -281,6 +281,7 @@
 		border-radius: 11px;
 		border: 2px solid var(--color-black);
 		overflow: hidden;
+		background: var(--color-white) !important;
 	}
 
 	.canvas-container {
