@@ -18,7 +18,7 @@ const BodySchema = z.object({
 					'☠️', // placeholder
 					['sl'], // filter in which languages
 					[], // allowed swears
-					[] // add your own words
+					['prasci', 'golazen'] // add your own words
 				);
 				if (result.found) {
 					return result.filtered_sentense;
