@@ -163,8 +163,6 @@
 					</p>
 					<p>
 						Naj glas zagovornikov stožje regulacije kratkotrajnega najema doseže tudi odločevalce.
-						Vsakdo lahko odda komentar na predlog zakona na portalu eDemokracija. Vse, kar moraš
-						storiti je, da oblikuješ svoj predlog ali pa preprosto skopiraš naš komentar!
 					</p>
 				</div>
 				<div class="stalisce-bubble">
