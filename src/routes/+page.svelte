@@ -33,7 +33,7 @@
 	<meta property="og:image" content="https://airbnbpejtdomov.si/airbnb-og.jpg" />
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="https://airbnbpejtdomov.si/" />
 	<meta property="twitter:title" content="{$_('landing.head.title')}" />
 	<meta property="twitter:description" content="{$_('landing.head.description')}" />
