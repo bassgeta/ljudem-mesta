@@ -158,11 +158,9 @@
 				<div>
 					<h3>TUDI TI LAHKO ODDAŠ KOMENTAR NA PREDLOG ZAKONA!</h3>
 					<p>
+						Naj glas zagovornikov stožje regulacije kratkotrajnega najema doseže tudi odločevalce.
 						Vsakdo lahko odda komentar na predlog zakona na portalu eDemokracija. Vse, kar moraš
-						storiti je, da skopiraš naš komentar! P.S.: Seveda pa lahko pripraviš tudi svoj predlog.
-					</p>
-					<p>
-						Naj glas zagovornikov strožje regulacije kratkotrajnega najema doseže tudi odločevalce.
+						storiti je, da oblikuješ svoj predlog ali pa preprosto skopiraš naš komentar!
 					</p>
 				</div>
 				<div class="stalisce-bubble">
