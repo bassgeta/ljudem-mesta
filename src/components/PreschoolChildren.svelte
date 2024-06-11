@@ -3,8 +3,9 @@
 	import Chart from 'chart.js/auto';
 	import { _ } from 'svelte-i18n';
 
-	let chartValues = [412, 403, 400, 420, 394, 383, 338, 356, 341, 338, 322];
+	let chartValues = [12672, 12716, 12695, 12920, 12745, 12673, 12520, 12319, 11929, 11688, 11538];
 	let chartLabels = [
+		'2012',
 		'2013',
 		'2014',
 		'2015',
@@ -14,8 +15,7 @@
 		'2019',
 		'2020',
 		'2021',
-		'2022',
-		'2023'
+		'2022'
 	];
 	let ctx;
 	let chartCanvas;
@@ -75,7 +75,7 @@
 							size: 14
 						},
 						color: blackColor,
-						text: $_('schoolChildren.title')
+						text: 'Število otrok vpisanih v vrtce v Ljubljani'
 					}
 				}
 			},

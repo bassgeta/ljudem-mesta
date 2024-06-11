@@ -15,6 +15,8 @@
 	import Stalisce from '$lib/assets/icons/stalisce.svelte';
 	import Arrow from '$lib/assets/icons/arrow.svelte';
 	import Footer from '../components/Footer.svelte';
+	import SchoolChildren from '../components/SchoolChildren.svelte';
+	import PreschoolChildren from '../components/PreschoolChildren.svelte';
 </script>
 
 <svelte:head>
@@ -58,6 +60,13 @@
 	<div class="landing-section chart-container">
 		<PriceChart />
 	</div>
+	<h2 class="section-title salary-title comparison-title">
+		Airbnb iz mesta izrinja lokalno prebivalstvo.
+	</h2>
+	<div class="landing-section school-charts">
+		<SchoolChildren />
+		<PreschoolChildren />
+	</div>
 	<h2 class="section-title">
 		{$_('landing.comparison.title')}
 	</h2>
@@ -81,7 +90,7 @@
 		<HotelNumbers />
 	</div>
 	<h2 class="section-title testimonials-title">
-		{$_('landing.testimonials.title')}
+		Airbnb ima oprijemljiv negativen vpliv na življenja ljudi.
 	</h2>
 	<div class="landing-section testimonials-section">
 		<Testimonials />
@@ -318,5 +327,29 @@
 
 	.source {
 		font-style: italic;
+	}
+
+	.school-charts {
+		width: 100%;
+
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem 2.625rem;
+
+		& > * {
+			height: 50vh;
+		}
+
+		@media screen and (max-width: 767px) {
+			grid-template-columns: repeat(1, 1fr);
+			align-items: center;
+			& > * {
+				height: 45vh;
+			}
+		}
+	}
+
+	.school-chart-container {
+		flex: 1;
 	}
 </style>
