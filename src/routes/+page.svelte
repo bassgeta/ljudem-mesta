@@ -340,7 +340,7 @@
 			height: 50vh;
 		}
 
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: 1024px) {
 			grid-template-columns: repeat(1, 1fr);
 			align-items: center;
 			& > * {
