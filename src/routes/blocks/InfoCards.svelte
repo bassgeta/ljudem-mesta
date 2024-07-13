@@ -13,7 +13,7 @@
 			<div class="info-chart info-chart-stonks">
 				<p class="info-chart-title">{@html $_('landing.airbnbApartments.shortTerm')}</p>
 				<div class="chart-measure">
-					<span>1411</span>
+					<span>1829</span>
 					<div class="indicator">
 						<img src="{hiskaRed}" />
 					</div>
